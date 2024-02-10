@@ -32,7 +32,7 @@ use ieee.numeric_std.all;
 --use UNISIM.VComponents.all;
 
 entity com_uart is
-   generic (DATA_WIDTH : integer := 8); --genérico para modificar la longitud de la palabra
+   generic (DATA_WIDTH : integer := 16); --genérico para modificar la longitud de la palabra
   port (
     CLK       : in std_logic; --reloj de la placa
     RST_N      : in std_logic; --reset negado asíncrono
@@ -55,10 +55,16 @@ signal next_state : state_type := state;
 signal TxD_READY : STD_LOGIC; --avisa de que la transmisión puede comenzar
 signal counter : unsigned(3 downto 0); --para contar el numero de bits que hay que transmitir
 
-begin
+component baudRate is --instancia de la entidad que crea el pulso a 9600 baudios para la transmisión
+  port (clk_i    : in  std_logic;
+        rst_i    : in  std_logic; 
+        pulso_o  : out std_logic);
+ end component;       
 
+begin
+   
  dut: component baudRate port map(clk_i   => CLK,
-                                   rst_i   => RESET_N,
+                                   rst_i   => RST_N,
                                    pulso_o => BAUD);
                                    
 state_reg:process(BAUD,RST_N) -- actualiza el estado de trabajo en cada flanco de reloj
