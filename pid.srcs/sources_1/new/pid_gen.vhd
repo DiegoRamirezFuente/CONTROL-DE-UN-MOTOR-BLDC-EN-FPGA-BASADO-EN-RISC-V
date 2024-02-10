@@ -40,7 +40,7 @@ Generic (
     valSat : in  integer := 65535 -- valor saturación motor para WINDUP
     );
 Port ( 
-    RESET: in STD_LOGIC; --reset asíncrono
+    RESET_N: in STD_LOGIC; --reset negado asíncrono
     SETVAL: in integer; --Valor de establecimiento 
     ADC_DATA : in  STD_LOGIC_VECTOR (15 downto 0); -- entrada analógica de 16 bits
     DAC_DATA : out  STD_LOGIC_VECTOR (15 downto 0); -- salida analógica de 16 bits
@@ -60,9 +60,9 @@ type state_type is (S0,S1,S2,S3,S4,S5,S6,S7,S8,S9);	-- estados de la maquina par
     
 begin
 
-state_reg:process(CLK_PID,RESET) -- actualiza el estado de trabajo en cada flanco de reloj
+state_reg:process(CLK_PID,RESET_N) -- actualiza el estado de trabajo en cada flanco de reloj
 begin
-    if RESET = '1' then
+    if RESET_N = '0' then
         state <= S0;
     elsif rising_edge(CLK_PID) then    
         state <=next_state;
