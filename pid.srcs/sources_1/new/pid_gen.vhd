@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07.02.2024 11:50:45
+-- Create Date: 12.02.2024 18:22:37
 -- Design Name: 
--- Module Name: pid_gen - Behavioral
+-- Module Name: pig_gen - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,7 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
+use ieee.numeric_std.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -56,7 +56,7 @@ type state_type is (S0,S1,S2,S3,S4,S5,S6,S7,S8,S9);	-- estados de la maquina par
     signal sAdc : integer := 0; 
     signal err,uk,uk1,ek,ek1,ek2 : integer;
     signal q1,q2,q3 : integer;
-    constant T : integer := 0;
+    constant T : integer := 10;
     
 begin
 
@@ -122,3 +122,4 @@ end case;
 end process;
 
 end Behavioral;
+

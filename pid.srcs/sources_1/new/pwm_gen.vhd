@@ -37,7 +37,7 @@ entity pwm_gen is
 Port (
     CLK : in STD_LOGIC; --reloj de la placa
     RESET_N : in STD_LOGIC; --reset negado asíncrono
-    PWM_IN : in STD_LOGIC_VECTOR(16 downto 0); --salida del PID
+    PWM_IN : in STD_LOGIC_VECTOR(15 downto 0); --salida del PID
     PWM_OUT : out STD_LOGIC --senial de salida del PWM hacia el motor
  );
 end pwm_gen;
@@ -45,7 +45,7 @@ end pwm_gen;
 architecture Behavioral of pwm_gen is
 
 signal counter : unsigned(16 downto 0);
-signal duty : unsigned(16 downto 0);
+signal duty : unsigned(15 downto 0);
 constant period : unsigned(16 downto 0):="11111111111111111"; --periodo o valor máximo del duty
 
 begin
