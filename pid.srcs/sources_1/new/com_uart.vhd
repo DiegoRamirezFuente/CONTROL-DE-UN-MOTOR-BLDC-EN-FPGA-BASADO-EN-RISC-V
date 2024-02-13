@@ -32,7 +32,7 @@ use ieee.numeric_std.all;
 --use UNISIM.VComponents.all;
 
 entity com_uart is
-   generic (DATA_WIDTH : integer := 16); --genérico para modificar la longitud de la palabra
+   generic (DATA_WIDTH : integer := 8); --genérico para modificar la longitud de la palabra
   port (
     CLK       : in std_logic; --reloj de la placa
     RST_N      : in std_logic; --reset negado asíncrono

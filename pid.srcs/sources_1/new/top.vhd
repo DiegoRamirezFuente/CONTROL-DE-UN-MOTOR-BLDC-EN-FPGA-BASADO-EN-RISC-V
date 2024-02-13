@@ -34,18 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 ENTITY top IS
  PORT (
  RESET : in std_logic;
- CLK : in std_logic;
- BOTON_INICIO : in std_logic;--START interruptor a uno para que funcione el ciclo, de lo contrario modo bloqueo rojo-rojo
- PUSHBUTTON_TOP:in std_logic;
- BOTON_ESPERA : in  std_logic;
- SENSOR_TOP: in std_logic;
- V_SAL_TOP: OUT std_logic_vector(7 DOWNTO 0);
- RGB_COCHES_TOP: out std_logic_vector(2 downto 0);
- RGB_PEAT_TOP: out std_logic_vector(2 downto 0);
- segment_top : OUT std_logic_vector(6 DOWNTO 0);
- buzz_top: out std_logic;
- LUZ_ESPERA: out std_logic
- --SEM_TOP : out std_logic_vector(5 downto 0)
+ CLK : in std_logic
  );
 end top;
 
@@ -71,11 +60,21 @@ component pwm_gen is
 Port (
     CLK : in STD_LOGIC; --reloj de la placa
     RESET_N : in STD_LOGIC; --reset negado asíncrono
-    PWM_IN : in STD_LOGIC_VECTOR(16 downto 0); --salida del PID
+    PWM_IN : in STD_LOGIC_VECTOR(15 downto 0); --salida del PID
     PWM_OUT : out STD_LOGIC --senial de salida del PWM hacia el motor
  );
 end component;
 
+ component pos_encoder is
+        Port (
+            clk : in STD_LOGIC;
+            reset_n : in STD_LOGIC;
+            encoder_a : in STD_LOGIC;
+            encoder_b : in STD_LOGIC;
+            position : out STD_LOGIC_VECTOR (7 downto 0)
+        );
+    end component;
+    
 component com_uart is
    generic (DATA_WIDTH : integer := 16); --genérico para modificar la longitud de la palabra
   port (
@@ -90,8 +89,13 @@ end component;
 
 signal pid_o : STD_LOGIC_VECTOR (15 downto 0);
 signal pwm_o : STD_LOGIC;
-signal encoder_o: STD_LOGIC_VECTOR (15 downto 0);
 signal val_estab: integer;
+signal encoder_a : STD_LOGIC := '0';
+signal encoder_o : STD_LOGIC;
+signal encoder_b : STD_LOGIC := '0';
+signal position : STD_LOGIC_VECTOR (7 downto 0);
+signal busy : STD_LOGIC := '0';
+constant bits : integer:=8;
 
 begin
 
@@ -99,7 +103,7 @@ pid: pid_gen
 Port map ( 
     RESET_N => RESET,
     SETVAL => val_estab,
-    ADC_DATA => encoder_o,
+    ADC_DATA => encoder_o, --mal
     DAC_DATA => pid_o,
     CLK_PID => CLK
     );
@@ -112,14 +116,24 @@ Port map (
     PWM_OUT => pwm_o
  );
 
+
+encoder_posicion: pos_encoder
+        port map (
+            clk => clk,
+            reset_n => reset,
+            encoder_a => encoder_a,
+            encoder_b => encoder_b,
+            position => position
+        );
+        
 uart: com_uart 
 port map (
     CLK => CLK,
     RST_N => RESET,
-    BIT_INICIO =>
-    TxD_WORD =>
-    TxD_BUSY =>
-    TxD =>
+    BIT_INICIO => '1',
+    TxD_WORD => position,
+    TxD_BUSY => busy,
+    TxD => encoder_o --duda
  );
 
 end Behavioral;
