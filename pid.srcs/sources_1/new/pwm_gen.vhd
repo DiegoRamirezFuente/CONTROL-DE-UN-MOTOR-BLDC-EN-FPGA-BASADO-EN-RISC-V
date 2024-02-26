@@ -34,39 +34,49 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 entity pwm_gen is
+Generic (
+    FREC : integer range 1000 to 2500 := 1000; --Valor de la frecuencia
+    SIZE: integer range 10 to 12 := 10 --tamanio en bits
+);
 Port (
     CLK : in STD_LOGIC; --reloj de la placa
-    RESET_N : in STD_LOGIC; --reset negado asíncrono
-    PWM_IN : in STD_LOGIC_VECTOR(15 downto 0); --salida del PID
-    PWM_OUT : out STD_LOGIC --senial de salida del PWM hacia el motor
+    RESET : in STD_LOGIC; --reset negado asíncrono
+    PWM_IN : in STD_LOGIC_VECTOR(SIZE-1 downto 0); --salida del PID
+    PWM_H, PWM_L : out STD_LOGIC 
  );
 end pwm_gen;
 
 architecture Behavioral of pwm_gen is
 
-signal counter : unsigned(16 downto 0);
-signal duty : unsigned(15 downto 0);
-constant period : unsigned(16 downto 0):="11111111111111111"; --periodo o valor máximo del duty
-
+signal counter : unsigned(SIZE-1 downto 0); --contador para generar la senial
+signal duty : unsigned(SIZE-1 downto 0); --ciclo de trabajo de la senial
+signal PWM_OUT : std_logic; --senial de salida del PWM hacia el motor
 begin
 
-duty <= unsigned(PWM_IN); --asignamos al duty de la senial PWM
+duty <= unsigned(PWM_IN); --se asigna al duty de la senial PWM
                           --el valor de la salida del PID
 
-process(CLK,RESET_N)
+process(CLK,RESET)
 begin
-    if RESET_N = '0' then
+    if RESET = '1' then --activación de reset y contadores a 0
         counter <= (others => '0');
     elsif rising_edge(CLK) then
-        if counter = period then
-           counter <= (others => '0');
+        counter <= counter - 1; --decremento del contador en cada flanco de reloj
+        if counter = to_unsigned(0,SIZE) + 1 then --cuando el contador va a terminar la cuenta
+            PWM_OUT <= '0';
+            counter <= to_unsigned(FREC,SIZE); --vuelve a comenzar la cuenta regresiva 
+            PWM_H <= '1';
+            PWM_L <= '0';
+        elsif counter > FREC - duty then
+            PWM_OUT <= '1'; --se activa PWM_OUT durante el ciclo de trabajo
+            PWM_H <= '1';
+            PWM_L <= '0';              
         else
-           counter <= counter + 1;
+            PWM_OUT <= '0'; --se desactiva PWM_OUT    
+            PWM_H <= '0';
+            PWM_L <= '0';                   
         end if;
     end if;
 end process;
-
-PWM_OUT <= '0' WHEN (counter < duty) ELSE --genera la senial PWM de salida
-           '1';
 
 end Behavioral;

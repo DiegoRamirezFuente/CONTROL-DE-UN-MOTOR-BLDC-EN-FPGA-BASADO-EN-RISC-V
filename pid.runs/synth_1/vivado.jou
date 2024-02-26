@@ -3,12 +3,12 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Tue Feb 13 23:44:13 2024
-# Process ID: 12152
+# Start of session at: Sat Feb 24 19:13:22 2024
+# Process ID: 14536
 # Current directory: C:/Users/diego/TFG/pid/pid.runs/synth_1
-# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
-# Log file: C:/Users/diego/TFG/pid/pid.runs/synth_1/top.vds
+# Command line: vivado.exe -log pid_top_tb.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pid_top_tb.tcl
+# Log file: C:/Users/diego/TFG/pid/pid.runs/synth_1/pid_top_tb.vds
 # Journal file: C:/Users/diego/TFG/pid/pid.runs/synth_1\vivado.jou
 # Running On: LAPTOP-VRI1VQ46, OS: Windows, CPU Frequency: 2400 MHz, CPU Physical cores: 4, Host memory: 8506 MB
 #-----------------------------------------------------------
-source top.tcl -notrace
+source pid_top_tb.tcl -notrace

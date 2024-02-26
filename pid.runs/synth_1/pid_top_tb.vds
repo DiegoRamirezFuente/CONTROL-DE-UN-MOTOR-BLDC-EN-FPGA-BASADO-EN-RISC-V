@@ -1,18 +1,16 @@
-
-*** Running vivado
-    with args -log pid_top_tb.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source pid_top_tb.tcl
-
-
-ECHO est  desactivado.
-ECHO est  desactivado.
-
-****** Vivado v2023.1 (64-bit)
-  **** SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
-  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
-  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
-    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Sat Feb 24 19:13:22 2024
+# Process ID: 14536
+# Current directory: C:/Users/diego/TFG/pid/pid.runs/synth_1
+# Command line: vivado.exe -log pid_top_tb.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pid_top_tb.tcl
+# Log file: C:/Users/diego/TFG/pid/pid.runs/synth_1/pid_top_tb.vds
+# Journal file: C:/Users/diego/TFG/pid/pid.runs/synth_1\vivado.jou
+# Running On: LAPTOP-VRI1VQ46, OS: Windows, CPU Frequency: 2400 MHz, CPU Physical cores: 4, Host memory: 8506 MB
+#-----------------------------------------------------------
 source pid_top_tb.tcl -notrace
 create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:15 . Memory (MB): peak = 463.496 ; gain = 198.477
 Command: read_checkpoint -auto_incremental -incremental C:/Users/diego/TFG/pid/pid.srcs/utils_1/imports/synth_1/pid_gen.dcp
