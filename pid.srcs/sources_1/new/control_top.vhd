@@ -37,19 +37,19 @@ entity control_top is
     Duty_SIZE: integer range 10 to 12 := 10;
     TIMES: integer range 1 to 100 := 100;
     SIZE: integer range 10 to 12 := 10;
-    Kp: integer range 0 to 255 := 0;
-    Ki: integer range 0 to 255 := 0;
-    Kd: integer range 0 to 255 := 0
+    Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
+    Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
+    Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
+    T : real := 10.0E-9
   );
   Port ( 
     CLK : in std_logic;
     RESET : in std_logic;
     A, B, C : in std_logic;
-    Duty : in std_logic_vector(Duty_SIZE-1 downto 0);
-    SETVAL: in integer;
-    sensVal : in std_logic_vector(SIZE-1 downto 0);
+    SETVAL: in INTEGER;
+    sensVal :integer;
     PID_OUT : out std_logic_vector(SIZE-1 downto 0);
-    RPM : out REAL;
+    RPM : out INTEGER;
     PWM_AH,PWM_BH,PWM_CH: out std_logic;
     PWM_AL,PWM_BL,PWM_CL: out std_logic;
     PWM_HIGH    : out std_logic;
@@ -69,7 +69,7 @@ architecture Behavioral of control_top is
     Port ( 
       CLK : in std_logic;
       RESET : in std_logic;
-      Duty : in std_logic_vector(Duty_SIZE-1 downto 0);
+      Duty : in INTEGER;
       A, B, C : in std_logic;
       PWM_AH,PWM_BH,PWM_CH: out std_logic;
       PWM_AL,PWM_BL,PWM_CL: out std_logic;
@@ -83,21 +83,23 @@ architecture Behavioral of control_top is
     Generic(
       TIMES: integer range 1 to 100 := 100;
       SIZE: integer range 10 to 12 := 10;
-      Kp: integer range 0 to 255 := 0;
-      Ki: integer range 0 to 255 := 0;
-      Kd: integer range 0 to 255 := 0
+      Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
+    Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
+    Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
+    T : real := 10.0E-9
     );
     Port ( 
       CLK:    in std_logic;
       RESET:  in std_logic;
       A, B, C : in std_logic;
       SETVAL: in integer; -- Valor de establecimiento 
-      sensVal : in  STD_LOGIC_VECTOR (SIZE-1 downto 0); -- Valor de realimentación recibido por el sensor
+      sensVal : in  INTEGER; -- Valor de realimentación recibido por el sensor
       PID_OUT : out  STD_LOGIC_VECTOR (SIZE-1 downto 0); -- Salida del PID    
-      RPM : out REAL;
-      ERROR:  out std_logic
+      RPM : out INTEGER
     );
   end component;
+
+signal feedback : integer := 0;
 
 begin
 
@@ -110,7 +112,7 @@ begin
     port map(
       CLK => CLK,
       RESET => RESET,
-      Duty => Duty,
+      Duty => feedback,
       A => A,
       B => B,
       C => C,
@@ -142,8 +144,8 @@ begin
       SETVAL => SETVAL,
       sensVal => sensVal,
       PID_OUT => PID_OUT,
-      RPM => RPM,
-      ERROR => ERROR
+      RPM => feedback
+      
     );
 
 end Behavioral;

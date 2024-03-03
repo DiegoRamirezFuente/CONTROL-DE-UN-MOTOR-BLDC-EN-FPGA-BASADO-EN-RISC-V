@@ -36,19 +36,19 @@ entity pid_top is
  Generic(
   TIMES: integer range 1 to 100 := 100;
   SIZE: integer range 10 to 12 := 10;
-  Kp: integer range 0 to 255 := 0;
-  Ki: integer range 0 to 255 := 0;
-  Kd: integer range 0 to 255 := 0
+  Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
+    Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
+    Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
+    T : real := 10.0E-9
   );
   Port ( 
     CLK:    in std_logic;
     RESET:  in std_logic;
     A, B, C : in std_logic;
     SETVAL: in integer; --Valor de establecimiento 
-    sensVal : in  STD_LOGIC_VECTOR (SIZE-1 downto 0); -- valor de realimentación recibido por el sensor
+    sensVal : in INTEGER; -- valor de realimentación recibido por el sensor
     PID_OUT : out  STD_LOGIC_VECTOR (SIZE-1 downto 0); -- salida del PID    
-    RPM : out REAL;
-    ERROR:  out std_logic
+    RPM : out INTEGER   
   );
 end pid_top;
 
@@ -57,16 +57,17 @@ architecture Behavioral of pid_top is
 COMPONENT pid_gen
 Generic (
     SIZE: integer range 10 to 12 := 10;
-    Kp : integer range 0 to 255 := 0; --constante proporcional del PID
-    Ki : integer range 0 to 255 := 0; --constante integral del PID
-    Kd : integer range 0 to 255 := 0; --constante derivativa del PID
-    valSat : in  integer := 1000 -- valor saturación motor para WINDUP
+    Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
+    Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
+    Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
+    T : real := 10.0E-9;
+    valSat : integer := 1000 -- valor saturación motor para WINDUP
     );
 Port ( 
     CLK_PID : in STD_LOGIC; --senial de reloj
     RESET: in STD_LOGIC; --reset asíncrono
     SETVAL: in integer; --Valor de establecimiento 
-    sensVal : in  STD_LOGIC_VECTOR (SIZE-1 downto 0); -- valor de realimentación recibido por el sensor
+    sensVal : in  INTEGER; -- valor de realimentación recibido por el sensor
     PID_OUT : out  STD_LOGIC_VECTOR (SIZE-1 downto 0) -- salida del PID    
     );
 END COMPONENT;
@@ -88,8 +89,7 @@ Port (
     CLK : in STD_LOGIC;
     RESET : in STD_LOGIC;
     A, B, C : in STD_LOGIC;
-    ERROR: out STD_LOGIC; 
-    RPM : out REAL  
+    RPM : out INTEGER 
 );
 END COMPONENT;
 
@@ -133,7 +133,6 @@ hall_sensor_top_inst : hall_sensor_top
         A => A,
         B => B,
         C => C,
-        ERROR => ERROR,
         RPM => RPM
     );
 

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1708798397" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/pid_gen.dcp">
-  <File Type="PA-TCL" Name="pid_top_tb.tcl"/>
-  <File Type="REPORTS-TCL" Name="pid_top_tb_reports.tcl"/>
-  <File Type="RDS-RDS" Name="pid_top_tb.vds"/>
-  <File Type="RDS-UTIL" Name="pid_top_tb_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="pid_top_tb_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="pid_top_tb.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1709497379" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/pid_gen.dcp">
+  <File Type="PA-TCL" Name="control_top.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="control_top_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="control_top_reports.tcl"/>
+  <File Type="RDS-RDS" Name="control_top.vds"/>
+  <File Type="RDS-UTIL" Name="control_top_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="control_top_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="control_top.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="control_top_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="control_top_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/hall_pulse_gen.vhd">
@@ -38,50 +41,39 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/sample_counter.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/hall_pulse_gen_tb.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/pwm_decod.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/pwm_top.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/pwm_gen.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/pwm_top_tb.vhd">
+    <File Path="$PSRCDIR/sources_1/new/pwm_top.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/sample_counter.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/control_top.vhd">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="pid_top_tb"/>
-      <Option Name="TopAutoSet" Val="TRUE"/>
+      <Option Name="TopModule" Val="control_top"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">

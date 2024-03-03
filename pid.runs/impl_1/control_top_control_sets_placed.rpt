@@ -1,0 +1,100 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sun Mar  3 21:25:03 2024
+| Host         : LAPTOP-VRI1VQ46 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file control_top_control_sets_placed.rpt
+| Design       : control_top
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    22 |
+|    Minimum number of control sets                        |    22 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   103 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    22 |
+| >= 0 to < 4        |    12 |
+| >= 4 to < 6        |     0 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     9 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             238 |           94 |
+| No           | No                    | Yes                    |              95 |           45 |
+| No           | Yes                   | No                     |               6 |            5 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |              38 |           15 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------------------------------------+-----------------------------------------------------------+--------------------------------+------------------+----------------+--------------+
+|                  Clock Signal                 |                       Enable Signal                       |        Set/Reset Signal        | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------------------------------+-----------------------------------------------------------+--------------------------------+------------------+----------------+--------------+
+|  pid_inst/pid_gen_inst/q2_reg[31]_i_1_n_4     |                                                           |                                |                1 |              1 |         1.00 |
+|  pid_inst/pid_gen_inst/q3_reg[31]_i_1_n_4     |                                                           |                                |                1 |              1 |         1.00 |
+|  pid_inst/pid_gen_inst/q1_reg[31]_i_1_n_4     |                                                           |                                |                1 |              1 |         1.00 |
+|  pwm_inst/uut_pwm_decod/RESET                 |                                                           | pwm_inst/uut_pwm_decod/RESET_0 |                1 |              2 |         2.00 |
+|  pwm_inst/uut_pwm_decod/RESET_2               |                                                           | pwm_inst/uut_pwm_decod/RESET_3 |                2 |              2 |         1.00 |
+|  pwm_inst/uut_pwm_decod/RESET_1               |                                                           | pwm_inst/uut_pwm_decod/C       |                2 |              2 |         1.00 |
+|  CLK_IBUF_BUFG                                |                                                           | pwm_inst/uut_pwm_decod/RESET   |                1 |              2 |         2.00 |
+|  CLK_IBUF_BUFG                                |                                                           | pwm_inst/uut_pwm_decod/RESET_3 |                2 |              2 |         1.00 |
+|  CLK_IBUF_BUFG                                |                                                           | pwm_inst/uut_pwm_decod/RESET_0 |                1 |              2 |         2.00 |
+|  CLK_IBUF_BUFG                                |                                                           | pwm_inst/uut_pwm_decod/RESET_2 |                2 |              2 |         1.00 |
+|  CLK_IBUF_BUFG                                |                                                           | pwm_inst/uut_pwm_decod/RESET_1 |                2 |              2 |         1.00 |
+|  CLK_IBUF_BUFG                                |                                                           | pwm_inst/uut_pwm_decod/C       |                2 |              2 |         1.00 |
+|  pid_inst/pid_gen_inst/PID_OUT_reg[9]_i_1_n_4 |                                                           |                                |                4 |             10 |         2.50 |
+|  CLK_IBUF_BUFG                                |                                                           | RESET_IBUF                     |                8 |             17 |         2.12 |
+|  n_1_2006_BUFG                                |                                                           |                                |               13 |             32 |         2.46 |
+|  n_3_2001_BUFG                                |                                                           |                                |               13 |             32 |         2.46 |
+|  n_0_2003_BUFG                                |                                                           |                                |               11 |             32 |         2.91 |
+|  n_2_2002_BUFG                                |                                                           |                                |               15 |             32 |         2.13 |
+|  CLK_IBUF_BUFG                                |                                                           |                                |                9 |             33 |         3.67 |
+|  hall_sensor_top_inst/PULSE                   | pid_inst/hall_sensor_top_inst/uut_pulse_counter/avg_count | RESET_IBUF                     |               15 |             38 |         2.53 |
+|  pid_gen_inst/ek2__0                          |                                                           |                                |               26 |             64 |         2.46 |
+|  hall_sensor_top_inst/PULSE                   |                                                           | RESET_IBUF                     |               27 |             66 |         2.44 |
++-----------------------------------------------+-----------------------------------------------------------+--------------------------------+------------------+----------------+--------------+
+
+

@@ -1,0 +1,520 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Sun Mar  3 21:23:02 2024
+# Process ID: 16740
+# Current directory: C:/Users/diego/TFG/pid/pid.runs/synth_1
+# Command line: vivado.exe -log control_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source control_top.tcl
+# Log file: C:/Users/diego/TFG/pid/pid.runs/synth_1/control_top.vds
+# Journal file: C:/Users/diego/TFG/pid/pid.runs/synth_1\vivado.jou
+# Running On: LAPTOP-VRI1VQ46, OS: Windows, CPU Frequency: 2400 MHz, CPU Physical cores: 4, Host memory: 8506 MB
+#-----------------------------------------------------------
+source control_top.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 464.723 ; gain = 197.938
+Command: read_checkpoint -auto_incremental -incremental C:/Users/diego/TFG/pid/pid.srcs/utils_1/imports/synth_1/pid_gen.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/diego/TFG/pid/pid.srcs/utils_1/imports/synth_1/pid_gen.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top control_top -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 24484
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 1295.684 ; gain = 412.234
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'control_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:61]
+	Parameter Frecuencies bound to: 1000 - type: integer 
+	Parameter Duty_SIZE bound to: 10 - type: integer 
+INFO: [Synth 8-3491] module 'pwm_top' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_top.vhd:34' bound to instance 'pwm_inst' of component 'pwm_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:107]
+INFO: [Synth 8-638] synthesizing module 'pwm_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_top.vhd:52]
+	Parameter Frecuencies bound to: 1000 - type: integer 
+	Parameter Duty_SIZE bound to: 10 - type: integer 
+INFO: [Synth 8-3491] module 'pwm_decod' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_decod.vhd:35' bound to instance 'uut_pwm_decod' of component 'pwm_decod' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_top.vhd:86]
+INFO: [Synth 8-638] synthesizing module 'pwm_decod' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_decod.vhd:51]
+	Parameter DELAY bound to: 4 - type: integer 
+WARNING: [Synth 8-614] signal 'abc' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_decod.vhd:62]
+INFO: [Synth 8-256] done synthesizing module 'pwm_decod' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_decod.vhd:51]
+	Parameter FREC bound to: 1000 - type: integer 
+	Parameter SIZE bound to: 10 - type: integer 
+INFO: [Synth 8-3491] module 'pwm_gen' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_gen.vhd:36' bound to instance 'uut_PWM_Generator' of component 'pwm_gen' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_top.vhd:105]
+INFO: [Synth 8-638] synthesizing module 'pwm_gen' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_gen.vhd:49]
+	Parameter FREC bound to: 1000 - type: integer 
+	Parameter SIZE bound to: 10 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'pwm_gen' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_gen.vhd:49]
+INFO: [Synth 8-256] done synthesizing module 'pwm_top' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_top.vhd:52]
+	Parameter TIMES bound to: 100 - type: integer 
+	Parameter SIZE bound to: 10 - type: integer 
+	Parameter Kp bound to: 0.000000 - type: double 
+	Parameter Ki bound to: 0.000000 - type: double 
+	Parameter Kd bound to: 0.000000 - type: double 
+INFO: [Synth 8-3491] module 'pid_top' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_top.vhd:35' bound to instance 'pid_inst' of component 'pid_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:130]
+INFO: [Synth 8-638] synthesizing module 'pid_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_top.vhd:55]
+	Parameter TIMES bound to: 100 - type: integer 
+	Parameter SIZE bound to: 10 - type: integer 
+	Parameter Kp bound to: 0.000000 - type: double 
+	Parameter Ki bound to: 0.000000 - type: double 
+	Parameter Kd bound to: 0.000000 - type: double 
+	Parameter T bound to: 0.000000 - type: double 
+	Parameter SIZE bound to: 10 - type: integer 
+	Parameter Kp bound to: 0.000000 - type: double 
+	Parameter Ki bound to: 0.000000 - type: double 
+	Parameter Kd bound to: 0.000000 - type: double 
+	Parameter valSat bound to: 1000 - type: integer 
+INFO: [Synth 8-3491] module 'pid_gen' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:35' bound to instance 'pid_gen_inst' of component 'pid_gen' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_top.vhd:102]
+INFO: [Synth 8-638] synthesizing module 'pid_gen' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:53]
+	Parameter SIZE bound to: 10 - type: integer 
+	Parameter Kp bound to: 0.000000 - type: double 
+	Parameter Ki bound to: 0.000000 - type: double 
+	Parameter Kd bound to: 0.000000 - type: double 
+	Parameter T bound to: 0.000000 - type: double 
+	Parameter valSat bound to: 1000 - type: integer 
+WARNING: [Synth 8-614] signal 'sensVal' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:92]
+WARNING: [Synth 8-614] signal 'SETVAL' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:92]
+WARNING: [Synth 8-614] signal 'sAdc' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:92]
+WARNING: [Synth 8-614] signal 'uk1' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:92]
+WARNING: [Synth 8-614] signal 'q1' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:92]
+WARNING: [Synth 8-614] signal 'ek' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:92]
+WARNING: [Synth 8-614] signal 'q2' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:92]
+WARNING: [Synth 8-614] signal 'ek1' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:92]
+WARNING: [Synth 8-614] signal 'q3' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:92]
+WARNING: [Synth 8-614] signal 'ek2' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:92]
+WARNING: [Synth 8-614] signal 'uk' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:92]
+INFO: [Synth 8-256] done synthesizing module 'pid_gen' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:53]
+	Parameter TIMES bound to: 100 - type: integer 
+INFO: [Synth 8-3491] module 'sample_counter' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/sample_counter.vhd:35' bound to instance 'sample_counter_inst' of component 'sample_counter' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_top.vhd:118]
+INFO: [Synth 8-638] synthesizing module 'sample_counter' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/sample_counter.vhd:47]
+	Parameter TIMES bound to: 100 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'sample_counter' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/sample_counter.vhd:47]
+INFO: [Synth 8-3491] module 'hall_sensor_top' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/hall_sensor_top.vhd:34' bound to instance 'hall_sensor_top_inst' of component 'hall_sensor_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_top.vhd:129]
+INFO: [Synth 8-638] synthesizing module 'hall_sensor_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/hall_sensor_top.vhd:43]
+INFO: [Synth 8-3491] module 'hall_pulse_gen' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/hall_pulse_gen.vhd:35' bound to instance 'uut_hall_pulse_gen' of component 'hall_pulse_gen' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/hall_sensor_top.vhd:67]
+INFO: [Synth 8-638] synthesizing module 'hall_pulse_gen' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/hall_pulse_gen.vhd:44]
+WARNING: [Synth 8-614] signal 'abc' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/hall_pulse_gen.vhd:57]
+INFO: [Synth 8-256] done synthesizing module 'hall_pulse_gen' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/hall_pulse_gen.vhd:44]
+INFO: [Synth 8-3491] module 'pulse_counter' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pulse_counter.vhd:34' bound to instance 'uut_pulse_counter' of component 'pulse_counter' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/hall_sensor_top.vhd:77]
+INFO: [Synth 8-638] synthesizing module 'pulse_counter' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pulse_counter.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'pulse_counter' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pulse_counter.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'hall_sensor_top' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/hall_sensor_top.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'pid_top' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_top.vhd:55]
+INFO: [Synth 8-256] done synthesizing module 'control_top' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:61]
+WARNING: [Synth 8-6014] Unused sequential element PWM_OUT_reg was removed.  [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_gen.vhd:63]
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pulse_counter.vhd:65]
+WARNING: [Synth 8-3917] design control_top has port RPM[31] driven by constant 1
+WARNING: [Synth 8-3917] design control_top has port RPM[30] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[29] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[28] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[27] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[26] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[25] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[24] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[23] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[22] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[21] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[20] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[19] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[18] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[17] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[16] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[15] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[14] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[13] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[12] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[11] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[10] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[9] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[8] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[7] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[6] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[5] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[4] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[3] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[2] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[1] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[0] driven by constant 0
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 1389.402 ; gain = 505.953
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 1389.402 ; gain = 505.953
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 1389.402 ; gain = 505.953
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1389.402 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
+WARNING: [Vivado 12-584] No ports matched 'segment[6]'. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:60]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:60]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'segment[5]'. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:61]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:61]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'segment[4]'. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:62]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:62]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'segment[3]'. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:63]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:63]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'segment[2]'. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:64]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:64]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'segment[1]'. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:65]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:65]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'segment[0]'. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:66]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:66]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digctrl[0]'. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:70]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:70]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digctrl[1]'. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:71]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:71]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digctrl[2]'. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:72]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:72]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'digctrl[3]'. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:73]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:73]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1491.359 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1491.359 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'PID_OUT_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:121]
+WARNING: [Synth 8-327] inferring latch for variable 'uk_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:95]
+WARNING: [Synth 8-327] inferring latch for variable 'ek_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:97]
+WARNING: [Synth 8-327] inferring latch for variable 'q1_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:107]
+WARNING: [Synth 8-327] inferring latch for variable 'ek1_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:98]
+WARNING: [Synth 8-327] inferring latch for variable 'q2_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:109]
+WARNING: [Synth 8-327] inferring latch for variable 'ek2_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:99]
+WARNING: [Synth 8-327] inferring latch for variable 'q3_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:111]
+WARNING: [Synth 8-327] inferring latch for variable 'uk1_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:96]
+WARNING: [Synth 8-327] inferring latch for variable 'sAdc_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:103]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 5     
+	   4 Input   32 Bit       Adders := 1     
+	   3 Input   32 Bit       Adders := 1     
+	   2 Input   31 Bit       Adders := 3     
+	   2 Input   10 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 4     
+	               10 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Multipliers : 
+	              32x32  Multipliers := 3     
++---Muxes : 
+	  12 Input   32 Bit        Muxes := 5     
+	   2 Input   32 Bit        Muxes := 6     
+	   2 Input   31 Bit        Muxes := 3     
+	   2 Input   11 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 1     
+	   7 Input    3 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 8     
+	   4 Input    3 Bit        Muxes := 12    
+	   2 Input    2 Bit        Muxes := 2     
+	   7 Input    1 Bit        Muxes := 1     
+	   8 Input    1 Bit        Muxes := 7     
+	   2 Input    1 Bit        Muxes := 5     
+	  12 Input    1 Bit        Muxes := 9     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP pid_inst/pid_gen_inst/uk3, operation Mode is: A*B.
+DSP Report: operator pid_inst/pid_gen_inst/uk3 is absorbed into DSP pid_inst/pid_gen_inst/uk3.
+DSP Report: operator pid_inst/pid_gen_inst/uk3 is absorbed into DSP pid_inst/pid_gen_inst/uk3.
+DSP Report: Generating DSP pid_inst/pid_gen_inst/uk3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator pid_inst/pid_gen_inst/uk3 is absorbed into DSP pid_inst/pid_gen_inst/uk3.
+DSP Report: operator pid_inst/pid_gen_inst/uk3 is absorbed into DSP pid_inst/pid_gen_inst/uk3.
+DSP Report: Generating DSP pid_inst/pid_gen_inst/uk3, operation Mode is: A*B.
+DSP Report: operator pid_inst/pid_gen_inst/uk3 is absorbed into DSP pid_inst/pid_gen_inst/uk3.
+DSP Report: operator pid_inst/pid_gen_inst/uk3 is absorbed into DSP pid_inst/pid_gen_inst/uk3.
+DSP Report: Generating DSP pid_inst/pid_gen_inst/uk3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator pid_inst/pid_gen_inst/uk3 is absorbed into DSP pid_inst/pid_gen_inst/uk3.
+DSP Report: operator pid_inst/pid_gen_inst/uk3 is absorbed into DSP pid_inst/pid_gen_inst/uk3.
+DSP Report: Generating DSP pid_inst/pid_gen_inst/uk2, operation Mode is: A*B.
+DSP Report: operator pid_inst/pid_gen_inst/uk2 is absorbed into DSP pid_inst/pid_gen_inst/uk2.
+DSP Report: operator pid_inst/pid_gen_inst/uk2 is absorbed into DSP pid_inst/pid_gen_inst/uk2.
+DSP Report: Generating DSP pid_inst/pid_gen_inst/uk2, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator pid_inst/pid_gen_inst/uk2 is absorbed into DSP pid_inst/pid_gen_inst/uk2.
+DSP Report: operator pid_inst/pid_gen_inst/uk2 is absorbed into DSP pid_inst/pid_gen_inst/uk2.
+DSP Report: Generating DSP pid_inst/pid_gen_inst/uk2, operation Mode is: A*B.
+DSP Report: operator pid_inst/pid_gen_inst/uk2 is absorbed into DSP pid_inst/pid_gen_inst/uk2.
+DSP Report: operator pid_inst/pid_gen_inst/uk2 is absorbed into DSP pid_inst/pid_gen_inst/uk2.
+DSP Report: Generating DSP pid_inst/pid_gen_inst/uk2, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator pid_inst/pid_gen_inst/uk2 is absorbed into DSP pid_inst/pid_gen_inst/uk2.
+DSP Report: operator pid_inst/pid_gen_inst/uk2 is absorbed into DSP pid_inst/pid_gen_inst/uk2.
+DSP Report: Generating DSP pid_inst/pid_gen_inst/uk1, operation Mode is: A*B.
+DSP Report: operator pid_inst/pid_gen_inst/uk1 is absorbed into DSP pid_inst/pid_gen_inst/uk1.
+DSP Report: operator pid_inst/pid_gen_inst/uk1 is absorbed into DSP pid_inst/pid_gen_inst/uk1.
+DSP Report: Generating DSP pid_inst/pid_gen_inst/uk1, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator pid_inst/pid_gen_inst/uk1 is absorbed into DSP pid_inst/pid_gen_inst/uk1.
+DSP Report: operator pid_inst/pid_gen_inst/uk1 is absorbed into DSP pid_inst/pid_gen_inst/uk1.
+DSP Report: Generating DSP pid_inst/pid_gen_inst/uk1, operation Mode is: A*B.
+DSP Report: operator pid_inst/pid_gen_inst/uk1 is absorbed into DSP pid_inst/pid_gen_inst/uk1.
+DSP Report: operator pid_inst/pid_gen_inst/uk1 is absorbed into DSP pid_inst/pid_gen_inst/uk1.
+DSP Report: Generating DSP pid_inst/pid_gen_inst/uk1, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator pid_inst/pid_gen_inst/uk1 is absorbed into DSP pid_inst/pid_gen_inst/uk1.
+DSP Report: operator pid_inst/pid_gen_inst/uk1 is absorbed into DSP pid_inst/pid_gen_inst/uk1.
+WARNING: [Synth 8-3917] design control_top has port RPM[31] driven by constant 1
+WARNING: [Synth 8-3917] design control_top has port RPM[30] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[29] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[28] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[27] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[26] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[25] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[24] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[23] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[22] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[21] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[20] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[19] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[18] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[17] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[16] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[15] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[14] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[13] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[12] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[11] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[10] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[9] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[8] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[7] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[6] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[5] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[4] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[3] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[2] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[1] driven by constant 0
+WARNING: [Synth 8-3917] design control_top has port RPM[0] driven by constant 0
+WARNING: [Synth 8-3332] Sequential element (pid_inst/pid_gen_inst/q1_reg[16]) is unused and will be removed from module control_top.
+WARNING: [Synth 8-3332] Sequential element (pid_inst/pid_gen_inst/q2_reg[16]) is unused and will be removed from module control_top.
+WARNING: [Synth 8-3332] Sequential element (pid_inst/pid_gen_inst/q3_reg[16]) is unused and will be removed from module control_top.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:21 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|control_top | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:31 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:31 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:31 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:36 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:36 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|control_top | A*B          | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | A*B          | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | PCIN>>17+A*B | 0      | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | A*B          | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | A*B          | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | PCIN>>17+A*B | 0      | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | A*B          | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | A*B          | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|control_top | PCIN>>17+A*B | 0      | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |     7|
+|2     |CARRY4  |   470|
+|3     |DSP48E1 |     9|
+|4     |LUT1    |    99|
+|5     |LUT2    |   438|
+|6     |LUT3    |   271|
+|7     |LUT4    |   253|
+|8     |LUT5    |   978|
+|9     |LUT6    |   285|
+|10    |FDCE    |   127|
+|11    |FDPE    |     6|
+|12    |FDRE    |    33|
+|13    |LD      |   205|
+|14    |LDC     |     6|
+|15    |IBUF    |    69|
+|16    |OBUF    |    51|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1491.359 ; gain = 607.910
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 46 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:35 . Memory (MB): peak = 1491.359 ; gain = 505.953
+Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1491.359 ; gain = 607.910
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1491.359 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 690 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1495.230 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 211 instances were transformed.
+  LD => LDCE: 205 instances
+  LDC => LDCE: 6 instances
+
+Synth Design complete | Checksum: 2a5b7d13
+INFO: [Common 17-83] Releasing license: Synthesis
+49 Infos, 104 Warnings, 11 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:43 . Memory (MB): peak = 1495.230 ; gain = 1006.645
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Common 17-1381] The checkpoint 'C:/Users/diego/TFG/pid/pid.runs/synth_1/control_top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file control_top_utilization_synth.rpt -pb control_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Mar  3 21:23:57 2024...

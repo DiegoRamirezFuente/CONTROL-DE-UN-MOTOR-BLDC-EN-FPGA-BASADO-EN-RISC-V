@@ -35,16 +35,17 @@ use ieee.numeric_std.all;
 entity pid_gen is
 Generic (
     SIZE: integer range 10 to 12 := 10;
-    Kp : integer range 0 to 255 := 0; --constante proporcional del PID
-    Ki : integer range 0 to 255 := 0; --constante integral del PID
-    Kd : integer range 0 to 255 := 0; --constante derivativa del PID
-    valSat : in  integer := 1000 -- valor saturación motor para WINDUP
+    Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
+    Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
+    Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
+    T : real := 10.0E-9;
+    valSat : integer := 1000 -- valor saturación motor para WINDUP
     );
 Port ( 
     CLK_PID : in STD_LOGIC; --senial de reloj
     RESET: in STD_LOGIC; --reset asíncrono
     SETVAL: in integer; --Valor de establecimiento 
-    sensVal : in  STD_LOGIC_VECTOR (SIZE-1 downto 0); -- valor de realimentación recibido por el sensor
+    sensVal : in  INTEGER; -- valor de realimentación recibido por el sensor
     PID_OUT : out  STD_LOGIC_VECTOR (SIZE-1 downto 0) -- salida del PID    
     );
 end pid_gen;
@@ -56,15 +57,14 @@ architecture Behavioral of pid_gen is
     signal next_state : state_type := state;
         
     signal sAdc : integer := 0; 
-    signal err,uk,uk1,ek,ek1,ek2 : integer;
+    signal uk,uk1,ek,ek1,ek2 : integer;
     signal q1,q2,q3 : integer;
-    constant T : integer := 10;
     
 begin
 
 state_reg:process(CLK_PID,RESET) -- actualiza el estado de trabajo en cada flanco de reloj
 begin
-    if RESET = '0' then
+    if RESET = '1' then
         state <= S0;
     elsif rising_edge(CLK_PID) then    
         state <= next_state;
@@ -99,15 +99,16 @@ case state is
                ek2 <= 0;
                 
                 
-    when S1 => sAdc <= to_integer(unsigned(sensVal)); -- se almacena el valor recibido del motor 
+    --when S1 => sAdc <= to_integer(unsigned(sensVal)); -- se almacena el valor recibido del motor 
+    when S1 => sAdc <= sensVal;
     
     when S2 => ek <= SETVAL - sAdc; -- cálculo del error con la diferencia entre el valor de establecimiento y el obtenido del motor
     
-    when S3 => q1 <= Kp + Kd/T; 
+    when S3 => q1 <= integer(Kp + Kd/T); 
       
-    when S4 => q2 <= -Kp + Ki*T - 2*Kd/T;
+    when S4 => q2 <= integer(-Kp + Ki*T - 2.0*Kd/T);
     
-    when S5 => q3 <= Kd/T;  
+    when S5 => q3 <= integer(Kd/T);  
     
     when S6 => uk <= uk1 + q1*ek + q2*ek1 + q3*ek2; -- cálculo de la salida del PID
     

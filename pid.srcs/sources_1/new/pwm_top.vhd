@@ -39,7 +39,7 @@ Generic(
   Port ( 
     CLK : in std_logic;
     RESET : in std_logic;
-    Duty : in std_logic_vector(Duty_SIZE-1 downto 0);
+    Duty : in INTEGER;
     A, B, C : in std_logic;
     PWM_AH,PWM_BH,PWM_CH: out std_logic;
     PWM_AL,PWM_BL,PWM_CL: out std_logic;
@@ -74,7 +74,7 @@ Generic (
 Port (
     CLK : in STD_LOGIC; --reloj de la placa
     RESET : in STD_LOGIC; --reset negado asíncrono
-    PWM_IN : in STD_LOGIC_VECTOR(SIZE-1 downto 0); --salida del PID
+    PWM_IN : in INTEGER; --salida del PID
     PWM_H, PWM_L : out STD_LOGIC 
  );
 END COMPONENT;

@@ -40,7 +40,7 @@ entity pulse_counter is
         CLK : in STD_LOGIC; --senial de reloj
         RESET : in STD_LOGIC; --reset asíncrono
         PULSE : in STD_LOGIC; --pulso entrante procedente del sensor hall
-        RPM : out REAL --velocidad de giro del motor en RPM
+        RPM : out INTEGER --velocidad de giro del motor en RPM
     );
 end pulse_counter;
 
@@ -48,7 +48,7 @@ architecture Behavioral of pulse_counter is
     signal counter : INTEGER := 0; --contador de pulsos de reloj
     signal pulse_count : INTEGER := 0; -- contador de pulsos entrantes del hall 
     signal total : INTEGER := 0; --almacena el sumatorio de las cuentas para hallar la media
-    signal avg_count : REAL := 0.0; --media de pulsos contados
+    signal avg_count : INTEGER := 0; --media de pulsos contados
     
 begin
 
@@ -58,23 +58,23 @@ begin
         counter <= 0;
         pulse_count <= 0;
         total <= 0;
-        avg_count <= 0.0;
+        avg_count <= 0;
         
     elsif rising_edge(PULSE) then --detector de flanco de PULSE
         pulse_count <= pulse_count + 1; --incrementa e contador de pulsos
         total <= total + counter; --acumula los pulsos de reloj contados
         counter <= 0; --reinicia la cuenta
         if pulse_count = SAMPLES then --cuando cuenta el número de pulsos establecidos
-            avg_count <= REAL(total) / REAL(SAMPLES); --calcula la media
+            avg_count <= total / SAMPLES; --calcula la media
             pulse_count <= 0; --reinicia la cuenta
             total <= 0;
         end if;
-    elsif rising_edge(CLK) then    
+    end if;
+    if rising_edge(CLK) then    
          counter <= counter + 1; --se incrementa con cada flanco de reloj
     end if;
 end process;
 
- RPM <= 0.0 when avg_count <= 0.0 else 
-(10.0*REAL(FREC))/avg_count when avg_count > 0.0;
+RPM <= 0 when avg_count <= 0 else (10 * FREC / avg_count);
 
 end Behavioral;

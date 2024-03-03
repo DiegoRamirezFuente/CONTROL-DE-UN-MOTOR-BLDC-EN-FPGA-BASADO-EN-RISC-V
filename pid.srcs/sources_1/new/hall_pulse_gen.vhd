@@ -37,7 +37,6 @@ Port(
     CLK : in std_logic;
 	RESET : in std_logic;
     A, B, C : in std_logic;
-    ERROR : out std_logic;
     PULSE : out std_logic
 );
 end hall_pulse_gen;
@@ -59,8 +58,6 @@ state_reg : process(CLK, RESET)
 begin
 
     if RESET = '1' then
-    
-    ERROR <= '0';
     
         case abc is
         WHEN "101" =>

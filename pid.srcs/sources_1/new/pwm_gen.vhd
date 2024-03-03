@@ -41,7 +41,7 @@ Generic (
 Port (
     CLK : in STD_LOGIC; --reloj de la placa
     RESET : in STD_LOGIC; --reset negado asíncrono
-    PWM_IN : in STD_LOGIC_VECTOR(SIZE-1 downto 0); --salida del PID
+    PWM_IN : INTEGER; --salida del PID
     PWM_H, PWM_L : out STD_LOGIC 
  );
 end pwm_gen;
@@ -49,12 +49,9 @@ end pwm_gen;
 architecture Behavioral of pwm_gen is
 
 signal counter : unsigned(SIZE-1 downto 0); --contador para generar la senial
-signal duty : unsigned(SIZE-1 downto 0); --ciclo de trabajo de la senial
 signal PWM_OUT : std_logic; --senial de salida del PWM hacia el motor
-begin
 
-duty <= unsigned(PWM_IN); --se asigna al duty de la senial PWM
-                          --el valor de la salida del PID
+begin
 
 process(CLK,RESET)
 begin
@@ -67,7 +64,7 @@ begin
             counter <= to_unsigned(FREC,SIZE); --vuelve a comenzar la cuenta regresiva 
             PWM_H <= '1';
             PWM_L <= '0';
-        elsif counter > FREC - duty then
+        elsif counter > FREC - PWM_IN then
             PWM_OUT <= '1'; --se activa PWM_OUT durante el ciclo de trabajo
             PWM_H <= '1';
             PWM_L <= '0';              

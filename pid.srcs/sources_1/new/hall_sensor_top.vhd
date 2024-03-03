@@ -36,8 +36,7 @@ Port (
     CLK : in STD_LOGIC;
     RESET : in STD_LOGIC;
     A, B, C : in STD_LOGIC;
-    ERROR: out STD_LOGIC; 
-    RPM : out REAL  
+    RPM : out INTEGER  
 );
 end hall_sensor_top;
 
@@ -50,7 +49,6 @@ Port(
     CLK : in std_logic;
 	RESET : in std_logic;
     A, B, C : in std_logic;
-    ERROR : out std_logic;
     PULSE : out std_logic
 );
 END COMPONENT;
@@ -60,7 +58,7 @@ COMPONENT pulse_counter is
         CLK : in STD_LOGIC;
         RESET : in STD_LOGIC;
         PULSE : in STD_LOGIC;
-        RPM : out REAL
+        RPM : out INTEGER
     );
 END COMPONENT;
 
@@ -73,7 +71,6 @@ Port map(
     A => A,
     B => B,
     C => C,
-    ERROR => ERROR,
     PULSE => sig_pulse
 );
 

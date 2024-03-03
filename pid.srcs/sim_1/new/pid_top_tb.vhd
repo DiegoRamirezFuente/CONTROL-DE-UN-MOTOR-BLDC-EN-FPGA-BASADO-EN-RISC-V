@@ -45,31 +45,31 @@ entity pid_top is
     RESET:  in std_logic;
     A, B, C : in std_logic;
     SETVAL: in integer; --Valor de establecimiento 
-    sensVal : in  STD_LOGIC_VECTOR (SIZE-1 downto 0); -- valor de realimentación recibido por el sensor
+    sensVal : in  INTEGER; -- valor de realimentación recibido por el sensor
     PID_OUT : out  STD_LOGIC_VECTOR (SIZE-1 downto 0); -- salida del PID    
-    RPM : out REAL;
-    ERROR:  out std_logic
+    RPM : out INTEGER
   );
 end pid_top;
 
 architecture Behavioral of pid_top is
 
-COMPONENT pid_gen
-Generic (
+    component pid_gen
+    Generic (
     SIZE: integer range 10 to 12 := 10;
-    Kp : integer range 0 to 255 := 0; --constante proporcional del PID
-    Ki : integer range 0 to 255 := 0; --constante integral del PID
-    Kd : integer range 0 to 255 := 0; --constante derivativa del PID
-    valSat : in  integer := 1000 -- valor saturación motor para WINDUP
+    Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
+    Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
+    Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
+    T : real := 10.0E-9;
+    valSat : integer := 1000 -- valor saturación motor para WINDUP
     );
-Port ( 
-    CLK_PID : in STD_LOGIC; --senial de reloj
-    RESET: in STD_LOGIC; --reset asíncrono
-    SETVAL: in integer; --Valor de establecimiento 
-    sensVal : in  STD_LOGIC_VECTOR (SIZE-1 downto 0); -- valor de realimentación recibido por el sensor
-    PID_OUT : out  STD_LOGIC_VECTOR (SIZE-1 downto 0) -- salida del PID    
-    );
-END COMPONENT;
+    Port ( 
+        CLK_PID : in STD_LOGIC; --senial de reloj
+        RESET: in STD_LOGIC; --reset asíncrono
+        SETVAL: in integer; --Valor de establecimiento 
+        sensVal : in  INTEGER; -- valor de realimentación recibido por el sensor
+        PID_OUT : out  STD_LOGIC_VECTOR (SIZE-1 downto 0) -- salida del PID    
+        );
+    end component;
 
 COMPONENT sample_counter
   Generic(
@@ -89,7 +89,7 @@ Port (
     RESET : in STD_LOGIC;
     A, B, C : in STD_LOGIC;
     ERROR: out STD_LOGIC; 
-    RPM : out REAL  
+    RPM : out INTEGER 
 );
 END COMPONENT;
 
@@ -100,12 +100,14 @@ signal sig_sensor: std_logic_vector(19 downto 0);
 begin
 
 pid_gen_inst : pid_gen
+
     generic map (
-        SIZE => SIZE,
-        Kp => Kp,
-        Ki => Ki,
-        Kd => Kd,
-        valSat => 1000
+        SIZE => 10,  -- Ejemplo de valores de prueba para los generics
+        Kp => 10.0,
+        Ki => 1.0,
+        Kd => 1.0,
+        T => 10.0E-9,
+        valSat => 50000
     )
     port map (
         CLK_PID => CLK,
@@ -133,7 +135,6 @@ hall_sensor_top_inst : hall_sensor_top
         A => A,
         B => B,
         C => C,
-        ERROR => ERROR,
         RPM => RPM
     );
 
