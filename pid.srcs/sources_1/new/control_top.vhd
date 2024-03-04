@@ -61,6 +61,18 @@ end control_top;
 architecture Behavioral of control_top is
 
   -- Instancias de las entidades
+  
+  COMPONENT Filter_HALL 
+  Generic(
+  Delay: integer:= 10      -- Delay*10^3
+  );
+  Port ( 
+  CLK: in std_logic;
+  INPUT: in std_logic;
+  OUTPUT: out std_logic
+  );
+END COMPONENT;
+  
   component pwm_top is
     Generic(
       Frecuencies: integer range 1000 to 2500 := 1000;
@@ -100,10 +112,28 @@ architecture Behavioral of control_top is
   end component;
 
 signal feedback : integer := 0;
+signal As,Bs,Cs: std_logic;
 
 begin
 
   -- Instanciación de las entidades
+  
+      uut1_Filter: Filter_HALL PORT MAP(
+      CLK       =>CLK,
+      INPUT     =>A,
+      OUTPUT    =>As
+    );
+    uut2_Filter: Filter_HALL PORT MAP(
+      CLK       =>CLK,
+      INPUT     =>B,
+      OUTPUT    =>Bs
+    );
+    uut3_Filter: Filter_HALL PORT MAP(
+      CLK       =>CLK,
+      INPUT     =>C,
+      OUTPUT    =>Cs
+    );
+  
   pwm_inst: pwm_top
     generic map(
       Frecuencies => Frecuencies,
@@ -113,9 +143,9 @@ begin
       CLK => CLK,
       RESET => RESET,
       Duty => feedback,
-      A => A,
-      B => B,
-      C => C,
+      A => As,
+      B => Bs,
+      C => Cs,
       PWM_AH => PWM_AH,
       PWM_BH => PWM_BH,
       PWM_CH => PWM_CH,
@@ -138,9 +168,9 @@ begin
     port map(
       CLK => CLK,
       RESET => RESET,
-      A => A,
-      B => B,
-      C => C,
+      A => As,
+      B => Bs,
+      C => Cs,
       SETVAL => SETVAL,
       sensVal => sensVal,
       PID_OUT => PID_OUT,

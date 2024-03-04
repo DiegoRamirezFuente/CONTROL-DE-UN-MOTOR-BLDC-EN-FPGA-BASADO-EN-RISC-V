@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Sun Mar  3 21:25:42 2024
+| Date         : Mon Mar  4 20:04:48 2024
 | Host         : LAPTOP-VRI1VQ46 running 64-bit major release  (build 9200)
 | Command      : report_drc -file control_top_drc_routed.rpt -pb control_top_drc_routed.pb -rpx control_top_drc_routed.rpx
 | Design       : control_top
@@ -238,17 +238,17 @@ Related violations: <none>
 
 PDRC-153#5 Warning
 Gated clock check  
-Net pwm_inst/uut_pwm_decod/RESET is a gated clock net sourced by a combinational pin pwm_inst/uut_pwm_decod/state_reg[2]_LDC_i_1/O, cell pwm_inst/uut_pwm_decod/state_reg[2]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net uut3_Filter/OUTPUT_reg_0 is a gated clock net sourced by a combinational pin uut3_Filter/state_reg[2]_LDC_i_1/O, cell uut3_Filter/state_reg[2]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#6 Warning
 Gated clock check  
-Net pwm_inst/uut_pwm_decod/RESET_1 is a gated clock net sourced by a combinational pin pwm_inst/uut_pwm_decod/state_reg[1]_LDC_i_1/O, cell pwm_inst/uut_pwm_decod/state_reg[1]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net uut3_Filter/OUTPUT_reg_3 is a gated clock net sourced by a combinational pin uut3_Filter/state_reg[1]_LDC_i_1/O, cell uut3_Filter/state_reg[1]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#7 Warning
 Gated clock check  
-Net pwm_inst/uut_pwm_decod/RESET_2 is a gated clock net sourced by a combinational pin pwm_inst/uut_pwm_decod/state_reg[0]_LDC_i_1/O, cell pwm_inst/uut_pwm_decod/state_reg[0]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net uut3_Filter/OUTPUT_reg_4 is a gated clock net sourced by a combinational pin uut3_Filter/state_reg[0]_LDC_i_1/O, cell uut3_Filter/state_reg[0]_LDC_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 

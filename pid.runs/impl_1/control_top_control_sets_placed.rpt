@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Sun Mar  3 21:25:03 2024
+| Date         : Mon Mar  4 20:03:41 2024
 | Host         : LAPTOP-VRI1VQ46 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file control_top_control_sets_placed.rpt
 | Design       : control_top
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    22 |
-|    Minimum number of control sets                        |    22 |
+| Total control sets                                       |    25 |
+|    Minimum number of control sets                        |    25 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |   103 |
+| Unused register locations in slices containing registers |   108 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,9 +39,9 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    22 |
+| Total control sets |    25 |
 | >= 0 to < 4        |    12 |
-| >= 4 to < 6        |     0 |
+| >= 4 to < 6        |     3 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     1 |
@@ -58,43 +58,46 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             238 |           94 |
-| No           | No                    | Yes                    |              95 |           45 |
-| No           | Yes                   | No                     |               6 |            5 |
+| No           | No                    | No                     |             253 |           93 |
+| No           | No                    | Yes                    |              95 |           44 |
+| No           | Yes                   | No                     |               6 |            6 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |              38 |           15 |
-| Yes          | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |              38 |           16 |
+| Yes          | Yes                   | No                     |              12 |            3 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+-----------------------------------------------+-----------------------------------------------------------+--------------------------------+------------------+----------------+--------------+
-|                  Clock Signal                 |                       Enable Signal                       |        Set/Reset Signal        | Slice Load Count | Bel Load Count | Bels / Slice |
-+-----------------------------------------------+-----------------------------------------------------------+--------------------------------+------------------+----------------+--------------+
-|  pid_inst/pid_gen_inst/q2_reg[31]_i_1_n_4     |                                                           |                                |                1 |              1 |         1.00 |
-|  pid_inst/pid_gen_inst/q3_reg[31]_i_1_n_4     |                                                           |                                |                1 |              1 |         1.00 |
-|  pid_inst/pid_gen_inst/q1_reg[31]_i_1_n_4     |                                                           |                                |                1 |              1 |         1.00 |
-|  pwm_inst/uut_pwm_decod/RESET                 |                                                           | pwm_inst/uut_pwm_decod/RESET_0 |                1 |              2 |         2.00 |
-|  pwm_inst/uut_pwm_decod/RESET_2               |                                                           | pwm_inst/uut_pwm_decod/RESET_3 |                2 |              2 |         1.00 |
-|  pwm_inst/uut_pwm_decod/RESET_1               |                                                           | pwm_inst/uut_pwm_decod/C       |                2 |              2 |         1.00 |
-|  CLK_IBUF_BUFG                                |                                                           | pwm_inst/uut_pwm_decod/RESET   |                1 |              2 |         2.00 |
-|  CLK_IBUF_BUFG                                |                                                           | pwm_inst/uut_pwm_decod/RESET_3 |                2 |              2 |         1.00 |
-|  CLK_IBUF_BUFG                                |                                                           | pwm_inst/uut_pwm_decod/RESET_0 |                1 |              2 |         2.00 |
-|  CLK_IBUF_BUFG                                |                                                           | pwm_inst/uut_pwm_decod/RESET_2 |                2 |              2 |         1.00 |
-|  CLK_IBUF_BUFG                                |                                                           | pwm_inst/uut_pwm_decod/RESET_1 |                2 |              2 |         1.00 |
-|  CLK_IBUF_BUFG                                |                                                           | pwm_inst/uut_pwm_decod/C       |                2 |              2 |         1.00 |
-|  pid_inst/pid_gen_inst/PID_OUT_reg[9]_i_1_n_4 |                                                           |                                |                4 |             10 |         2.50 |
-|  CLK_IBUF_BUFG                                |                                                           | RESET_IBUF                     |                8 |             17 |         2.12 |
-|  n_1_2006_BUFG                                |                                                           |                                |               13 |             32 |         2.46 |
-|  n_3_2001_BUFG                                |                                                           |                                |               13 |             32 |         2.46 |
-|  n_0_2003_BUFG                                |                                                           |                                |               11 |             32 |         2.91 |
-|  n_2_2002_BUFG                                |                                                           |                                |               15 |             32 |         2.13 |
-|  CLK_IBUF_BUFG                                |                                                           |                                |                9 |             33 |         3.67 |
-|  hall_sensor_top_inst/PULSE                   | pid_inst/hall_sensor_top_inst/uut_pulse_counter/avg_count | RESET_IBUF                     |               15 |             38 |         2.53 |
-|  pid_gen_inst/ek2__0                          |                                                           |                                |               26 |             64 |         2.46 |
-|  hall_sensor_top_inst/PULSE                   |                                                           | RESET_IBUF                     |               27 |             66 |         2.44 |
-+-----------------------------------------------+-----------------------------------------------------------+--------------------------------+------------------+----------------+--------------+
++-----------------------------------------------+-----------------------------------------------------------+--------------------------+------------------+----------------+--------------+
+|                  Clock Signal                 |                       Enable Signal                       |     Set/Reset Signal     | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------------------------------+-----------------------------------------------------------+--------------------------+------------------+----------------+--------------+
+|  pid_inst/pid_gen_inst/q3_reg[31]_i_1_n_4     |                                                           |                          |                1 |              1 |         1.00 |
+|  pid_inst/pid_gen_inst/q1_reg[31]_i_1_n_4     |                                                           |                          |                1 |              1 |         1.00 |
+|  pid_inst/pid_gen_inst/q2_reg[31]_i_1_n_4     |                                                           |                          |                1 |              1 |         1.00 |
+|  uut3_Filter/OUTPUT_reg_0                     |                                                           | uut2_Filter/OUTPUT_reg_0 |                2 |              2 |         1.00 |
+|  uut3_Filter/OUTPUT_reg_3                     |                                                           | uut3_Filter/OUTPUT_reg_2 |                2 |              2 |         1.00 |
+|  uut3_Filter/OUTPUT_reg_4                     |                                                           | uut3_Filter/OUTPUT_reg_1 |                2 |              2 |         1.00 |
+|  CLK_IBUF_BUFG                                |                                                           | uut2_Filter/OUTPUT_reg_0 |                2 |              2 |         1.00 |
+|  CLK_IBUF_BUFG                                |                                                           | uut3_Filter/OUTPUT_reg_2 |                2 |              2 |         1.00 |
+|  CLK_IBUF_BUFG                                |                                                           | uut3_Filter/OUTPUT_reg_0 |                2 |              2 |         1.00 |
+|  CLK_IBUF_BUFG                                |                                                           | uut3_Filter/OUTPUT_reg_1 |                2 |              2 |         1.00 |
+|  CLK_IBUF_BUFG                                |                                                           | uut3_Filter/OUTPUT_reg_3 |                2 |              2 |         1.00 |
+|  CLK_IBUF_BUFG                                |                                                           | uut3_Filter/OUTPUT_reg_4 |                1 |              2 |         2.00 |
+|  CLK_IBUF_BUFG                                | uut1_Filter/sel                                           | uut1_Filter/uut/SR[0]    |                1 |              4 |         4.00 |
+|  CLK_IBUF_BUFG                                | uut2_Filter/count[3]_i_2__0_n_4                           | uut2_Filter/uut/SR[0]    |                1 |              4 |         4.00 |
+|  CLK_IBUF_BUFG                                | uut3_Filter/count[3]_i_2__1_n_4                           | uut3_Filter/uut/SR[0]    |                1 |              4 |         4.00 |
+|  pid_inst/pid_gen_inst/PID_OUT_reg[9]_i_1_n_4 |                                                           |                          |                4 |             10 |         2.50 |
+|  CLK_IBUF_BUFG                                |                                                           | RESET_IBUF               |                7 |             17 |         2.43 |
+|  n_2_2020_BUFG                                |                                                           |                          |               12 |             32 |         2.67 |
+|  n_0_2021_BUFG                                |                                                           |                          |               10 |             32 |         3.20 |
+|  n_1_2024_BUFG                                |                                                           |                          |               11 |             32 |         2.91 |
+|  n_3_2019_BUFG                                |                                                           |                          |               11 |             32 |         2.91 |
+|  hall_sensor_top_inst/PULSE                   | pid_inst/hall_sensor_top_inst/uut_pulse_counter/avg_count | RESET_IBUF               |               16 |             38 |         2.38 |
+|  CLK_IBUF_BUFG                                |                                                           |                          |               14 |             48 |         3.43 |
+|  pid_gen_inst/ek2__0                          |                                                           |                          |               28 |             64 |         2.29 |
+|  hall_sensor_top_inst/PULSE                   |                                                           | RESET_IBUF               |               26 |             66 |         2.54 |
++-----------------------------------------------+-----------------------------------------------------------+--------------------------+------------------+----------------+--------------+
 
 

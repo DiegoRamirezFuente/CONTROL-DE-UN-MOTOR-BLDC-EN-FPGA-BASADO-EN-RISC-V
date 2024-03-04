@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 2
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -97,6 +96,8 @@ read_vhdl -library xil_defaultlib {
   C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_top.vhd
   C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/sample_counter.vhd
   C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/SYNCHRNZR.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/new/Filter_HALL.vhd
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

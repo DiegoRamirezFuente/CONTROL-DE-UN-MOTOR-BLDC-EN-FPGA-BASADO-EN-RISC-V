@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Sun Mar  3 21:25:44 2024
+| Date         : Mon Mar  4 20:04:50 2024
 | Host         : LAPTOP-VRI1VQ46 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file control_top_methodology_drc_routed.rpt -pb control_top_methodology_drc_routed.pb -rpx control_top_methodology_drc_routed.rpx
 | Design       : control_top
@@ -23,11 +23,11 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 393
+             Violations found: 420
 +-----------+------------------+--------------------------------+------------+
 | Rule      | Severity         | Description                    | Violations |
 +-----------+------------------+--------------------------------+------------+
-| TIMING-17 | Critical Warning | Non-clocked sequential cell    | 166        |
+| TIMING-17 | Critical Warning | Non-clocked sequential cell    | 193        |
 | LUTAR-1   | Warning          | LUT drives async reset alert   | 6          |
 | SYNTH-10  | Warning          | Wide multiplier                | 9          |
 | TIMING-20 | Warning          | Non-clocked latch              | 211        |
@@ -866,46 +866,181 @@ Non-clocked sequential cell
 The clock pin pwm_inst/uut_pwm_decod/state_reg[2]_P/C is not reached by a timing clock
 Related violations: <none>
 
+TIMING-17#167 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut1_Filter/OUTPUT_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#168 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut1_Filter/count_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#169 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut1_Filter/count_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#170 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut1_Filter/count_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#171 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut1_Filter/count_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#172 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut1_Filter/previnput_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#173 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut1_Filter/uut/SYNC_OUT_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#174 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut1_Filter/uut/sreg_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#175 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut1_Filter/uut/sreg_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#176 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut2_Filter/OUTPUT_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#177 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut2_Filter/count_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#178 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut2_Filter/count_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#179 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut2_Filter/count_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#180 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut2_Filter/count_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#181 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut2_Filter/previnput_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#182 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut2_Filter/uut/SYNC_OUT_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#183 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut2_Filter/uut/sreg_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#184 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut2_Filter/uut/sreg_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#185 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut3_Filter/OUTPUT_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#186 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut3_Filter/count_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#187 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut3_Filter/count_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#188 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut3_Filter/count_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#189 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut3_Filter/count_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#190 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut3_Filter/previnput_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#191 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut3_Filter/uut/SYNC_OUT_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#192 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut3_Filter/uut/sreg_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#193 Critical Warning
+Non-clocked sequential cell  
+The clock pin uut3_Filter/uut/sreg_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
 LUTAR-1#1 Warning
 LUT drives async reset alert  
-LUT cell pwm_inst/uut_pwm_decod/state_reg[0]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[0]_P/PRE
-pwm_inst/uut_pwm_decod/state_reg[0]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell uut2_Filter/state_reg[2]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[2]_C/CLR,
+pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[2]_LDC/CLR,
+pwm_inst/uut_pwm_decod/state_reg[2]_C/CLR
+pwm_inst/uut_pwm_decod/state_reg[2]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#2 Warning
 LUT drives async reset alert  
-LUT cell pwm_inst/uut_pwm_decod/state_reg[0]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[0]_C/CLR,
+LUT cell uut3_Filter/state_reg[0]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[0]_P/PRE
+pwm_inst/uut_pwm_decod/state_reg[0]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#3 Warning
+LUT drives async reset alert  
+LUT cell uut3_Filter/state_reg[0]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[0]_C/CLR,
 pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[0]_LDC/CLR,
 pwm_inst/uut_pwm_decod/state_reg[0]_C/CLR
 pwm_inst/uut_pwm_decod/state_reg[0]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
-LUTAR-1#3 Warning
+LUTAR-1#4 Warning
 LUT drives async reset alert  
-LUT cell pwm_inst/uut_pwm_decod/state_reg[1]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[1]_P/PRE
+LUT cell uut3_Filter/state_reg[1]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[1]_P/PRE
 pwm_inst/uut_pwm_decod/state_reg[1]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
-LUTAR-1#4 Warning
+LUTAR-1#5 Warning
 LUT drives async reset alert  
-LUT cell pwm_inst/uut_pwm_decod/state_reg[1]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[1]_C/CLR,
+LUT cell uut3_Filter/state_reg[1]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[1]_C/CLR,
 pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[1]_LDC/CLR,
 pwm_inst/uut_pwm_decod/state_reg[1]_C/CLR
 pwm_inst/uut_pwm_decod/state_reg[1]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
-LUTAR-1#5 Warning
-LUT drives async reset alert  
-LUT cell pwm_inst/uut_pwm_decod/state_reg[2]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[2]_P/PRE
-pwm_inst/uut_pwm_decod/state_reg[2]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
-Related violations: <none>
-
 LUTAR-1#6 Warning
 LUT drives async reset alert  
-LUT cell pwm_inst/uut_pwm_decod/state_reg[2]_LDC_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[2]_C/CLR,
-pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[2]_LDC/CLR,
-pwm_inst/uut_pwm_decod/state_reg[2]_C/CLR
-pwm_inst/uut_pwm_decod/state_reg[2]_LDC/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell uut3_Filter/state_reg[2]_LDC_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) pid_inst/hall_sensor_top_inst/uut_hall_pulse_gen/state_reg[2]_P/PRE
+pwm_inst/uut_pwm_decod/state_reg[2]_P/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 SYNTH-10#1 Warning

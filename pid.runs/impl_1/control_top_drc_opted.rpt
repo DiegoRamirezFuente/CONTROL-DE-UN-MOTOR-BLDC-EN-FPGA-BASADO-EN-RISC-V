@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Sun Mar  3 21:24:56 2024
+| Date         : Mon Mar  4 20:03:26 2024
 | Host         : LAPTOP-VRI1VQ46 running 64-bit major release  (build 9200)
 | Command      : report_drc -file control_top_drc_opted.rpt -pb control_top_drc_opted.pb -rpx control_top_drc_opted.rpx
 | Design       : control_top

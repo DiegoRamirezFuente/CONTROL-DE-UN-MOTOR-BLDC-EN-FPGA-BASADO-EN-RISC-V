@@ -14,7 +14,7 @@ ECHO est  desactivado.
     ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source control_top.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 464.723 ; gain = 197.938
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 462.141 ; gain = 198.113
 Command: read_checkpoint -auto_incremental -incremental C:/Users/diego/TFG/pid/pid.srcs/utils_1/imports/synth_1/pid_gen.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/diego/TFG/pid/pid.srcs/utils_1/imports/synth_1/pid_gen.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -27,14 +27,23 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 24484
+INFO: [Synth 8-7075] Helper process launched with PID 6540
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 1295.684 ; gain = 412.234
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 1295.477 ; gain = 411.410
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'control_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:61]
+INFO: [Synth 8-3491] module 'Filter_HALL' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/new/Filter_HALL.vhd:35' bound to instance 'uut1_Filter' of component 'Filter_HALL' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:121]
+INFO: [Synth 8-638] synthesizing module 'Filter_HALL' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/new/Filter_HALL.vhd:46]
+	Parameter Delay bound to: 10 - type: integer 
+INFO: [Synth 8-3491] module 'SYNCHRNZR' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/SYNCHRNZR.vhd:13' bound to instance 'uut' of component 'SYNCHRNZR' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/new/Filter_HALL.vhd:60]
+INFO: [Synth 8-638] synthesizing module 'SYNCHRNZR' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/SYNCHRNZR.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'SYNCHRNZR' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/SYNCHRNZR.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'Filter_HALL' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/new/Filter_HALL.vhd:46]
+INFO: [Synth 8-3491] module 'Filter_HALL' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/new/Filter_HALL.vhd:35' bound to instance 'uut2_Filter' of component 'Filter_HALL' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:126]
+INFO: [Synth 8-3491] module 'Filter_HALL' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/new/Filter_HALL.vhd:35' bound to instance 'uut3_Filter' of component 'Filter_HALL' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:131]
 	Parameter Frecuencies bound to: 1000 - type: integer 
 	Parameter Duty_SIZE bound to: 10 - type: integer 
-INFO: [Synth 8-3491] module 'pwm_top' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_top.vhd:34' bound to instance 'pwm_inst' of component 'pwm_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:107]
+INFO: [Synth 8-3491] module 'pwm_top' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_top.vhd:34' bound to instance 'pwm_inst' of component 'pwm_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:137]
 INFO: [Synth 8-638] synthesizing module 'pwm_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_top.vhd:52]
 	Parameter Frecuencies bound to: 1000 - type: integer 
 	Parameter Duty_SIZE bound to: 10 - type: integer 
@@ -56,7 +65,7 @@ INFO: [Synth 8-256] done synthesizing module 'pwm_top' (0#1) [C:/Users/diego/TFG
 	Parameter Kp bound to: 0.000000 - type: double 
 	Parameter Ki bound to: 0.000000 - type: double 
 	Parameter Kd bound to: 0.000000 - type: double 
-INFO: [Synth 8-3491] module 'pid_top' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_top.vhd:35' bound to instance 'pid_inst' of component 'pid_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:130]
+INFO: [Synth 8-3491] module 'pid_top' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_top.vhd:35' bound to instance 'pid_inst' of component 'pid_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:160]
 INFO: [Synth 8-638] synthesizing module 'pid_top' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_top.vhd:55]
 	Parameter TIMES bound to: 100 - type: integer 
 	Parameter SIZE bound to: 10 - type: integer 
@@ -141,18 +150,18 @@ WARNING: [Synth 8-3917] design control_top has port RPM[2] driven by constant 0
 WARNING: [Synth 8-3917] design control_top has port RPM[1] driven by constant 0
 WARNING: [Synth 8-3917] design control_top has port RPM[0] driven by constant 0
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 1389.402 ; gain = 505.953
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 1390.023 ; gain = 505.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 1389.402 ; gain = 505.953
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 1390.023 ; gain = 505.957
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 1389.402 ; gain = 505.953
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 1390.023 ; gain = 505.957
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1389.402 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1390.023 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -194,28 +203,28 @@ Resolution: If [get_<value>] was used to populate the object, check to make sure
 Finished Parsing XDC File [C:/Users/diego/TFG/pid/pid.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1491.359 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1479.277 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1491.359 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 1479.277 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:06 ; elapsed = 00:00:16 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-327] inferring latch for variable 'PID_OUT_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:121]
 WARNING: [Synth 8-327] inferring latch for variable 'uk_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:95]
@@ -228,7 +237,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'q3_reg' [C:/Users/diego/TFG
 WARNING: [Synth 8-327] inferring latch for variable 'uk1_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:96]
 WARNING: [Synth 8-327] inferring latch for variable 'sAdc_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd:103]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:18 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -240,14 +249,15 @@ Detailed RTL Component Info :
 	   3 Input   32 Bit       Adders := 1     
 	   2 Input   31 Bit       Adders := 3     
 	   2 Input   10 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 3     
 	   2 Input    2 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 4     
 	               10 Bit    Registers := 1     
-	                4 Bit    Registers := 1     
+	                4 Bit    Registers := 4     
 	                3 Bit    Registers := 2     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 4     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 13    
 +---Multipliers : 
 	              32x32  Multipliers := 3     
 +---Muxes : 
@@ -352,7 +362,7 @@ WARNING: [Synth 8-3332] Sequential element (pid_inst/pid_gen_inst/q1_reg[16]) is
 WARNING: [Synth 8-3332] Sequential element (pid_inst/pid_gen_inst/q2_reg[16]) is unused and will be removed from module control_top.
 WARNING: [Synth 8-3332] Sequential element (pid_inst/pid_gen_inst/q3_reg[16]) is unused and will be removed from module control_top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:21 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:24 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -384,19 +394,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:31 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:31 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:31 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:34 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -414,37 +424,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:36 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished IO Insertion : Time (s): cpu = 00:00:18 ; elapsed = 00:00:39 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:36 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:18 ; elapsed = 00:00:39 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:18 ; elapsed = 00:00:39 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:18 ; elapsed = 00:00:39 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:39 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:18 ; elapsed = 00:00:39 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -479,44 +489,44 @@ Report Cell Usage:
 |1     |BUFG    |     7|
 |2     |CARRY4  |   470|
 |3     |DSP48E1 |     9|
-|4     |LUT1    |    99|
-|5     |LUT2    |   438|
-|6     |LUT3    |   271|
-|7     |LUT4    |   253|
+|4     |LUT1    |   102|
+|5     |LUT2    |   444|
+|6     |LUT3    |   277|
+|7     |LUT4    |   256|
 |8     |LUT5    |   978|
-|9     |LUT6    |   285|
+|9     |LUT6    |   288|
 |10    |FDCE    |   127|
 |11    |FDPE    |     6|
-|12    |FDRE    |    33|
+|12    |FDRE    |    60|
 |13    |LD      |   205|
 |14    |LDC     |     6|
 |15    |IBUF    |    69|
 |16    |OBUF    |    51|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:18 ; elapsed = 00:00:39 . Memory (MB): peak = 1479.277 ; gain = 595.211
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 46 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:35 . Memory (MB): peak = 1491.359 ; gain = 505.953
-Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:37 . Memory (MB): peak = 1491.359 ; gain = 607.910
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:36 . Memory (MB): peak = 1479.277 ; gain = 505.957
+Synthesis Optimization Complete : Time (s): cpu = 00:00:18 ; elapsed = 00:00:39 . Memory (MB): peak = 1479.277 ; gain = 595.211
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1491.359 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.044 . Memory (MB): peak = 1487.523 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 690 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1495.230 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1491.203 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 211 instances were transformed.
   LD => LDCE: 205 instances
   LDC => LDCE: 6 instances
 
-Synth Design complete | Checksum: 2a5b7d13
+Synth Design complete | Checksum: 8f9659b5
 INFO: [Common 17-83] Releasing license: Synthesis
-49 Infos, 104 Warnings, 11 Critical Warnings and 0 Errors encountered.
+57 Infos, 104 Warnings, 11 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:43 . Memory (MB): peak = 1495.230 ; gain = 1006.645
+synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:46 . Memory (MB): peak = 1491.203 ; gain = 1004.188
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'C:/Users/diego/TFG/pid/pid.runs/synth_1/control_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file control_top_utilization_synth.rpt -pb control_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Mar  3 21:23:57 2024...
+INFO: [Common 17-206] Exiting Vivado at Mon Mar  4 20:00:38 2024...
