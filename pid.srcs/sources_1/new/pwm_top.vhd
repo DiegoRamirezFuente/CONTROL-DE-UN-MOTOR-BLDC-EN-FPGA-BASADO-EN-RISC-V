@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.numeric_std.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -34,12 +35,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity pwm_top is
 Generic(
     Frecuencies: integer range 1000 to 2500:= 1000;
-    Duty_SIZE: integer range 10 to 12:=10
+    PWM_SIZE: integer range 10 to 12:=10
 );
   Port ( 
     CLK : in std_logic;
     RESET : in std_logic;
-    Duty : in INTEGER;
+    Duty : in std_logic_vector(PWM_SIZE-1 DOWNTO 0);
     A, B, C : in std_logic;
     PWM_AH,PWM_BH,PWM_CH: out std_logic;
     PWM_AL,PWM_BL,PWM_CL: out std_logic;
@@ -80,8 +81,11 @@ Port (
 END COMPONENT;
 
 signal sig_pwmh,sig_pwml : std_logic;
+signal duty_s : integer :=0;
 
 begin
+
+duty_s <= to_integer(unsigned(Duty));
 
 uut_pwm_decod: pwm_decod PORT MAP(
 	RESET => RESET,
@@ -105,12 +109,12 @@ uut_pwm_decod: pwm_decod PORT MAP(
 uut_PWM_Generator: pwm_gen 
 GENERIC MAP(
     FREC => Frecuencies,
-    SIZE => Duty_SIZE
+    SIZE => PWM_SIZE
 )
 PORT MAP(
   CLK => CLK,
   RESET  => RESET,
-  PWM_IN => Duty,
+  PWM_IN => Duty_s,
   PWM_H => sig_pwmh,
   PWM_L => sig_pwml
 );

@@ -35,7 +35,7 @@ use IEEE.numeric_std.all;
 entity pid_top is
  Generic(
   TIMES: integer range 1 to 100 := 100;
-  SIZE: integer range 10 to 12 := 10;
+  PID_SIZE: integer range 10 to 12 := 10;
   Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
     Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
     Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
@@ -45,10 +45,10 @@ entity pid_top is
     CLK:    in std_logic;
     RESET:  in std_logic;
     A, B, C : in std_logic;
-    SETVAL: in integer; --Valor de establecimiento 
-    sensVal : in INTEGER; -- valor de realimentación recibido por el sensor
-    PID_OUT : out  STD_LOGIC_VECTOR (SIZE-1 downto 0); -- salida del PID    
-    RPM : out INTEGER   
+    SETVAL: in std_logic_vector(PID_SIZE-1 DOWNTO 0); --Valor de establecimiento 
+    sensVal : in std_logic_vector(PID_SIZE-1 DOWNTO 0); -- valor de realimentación recibido por el sensor
+    PID_OUT : out  STD_LOGIC_VECTOR (PID_SIZE-1 downto 0); -- salida del PID    
+    RPM : out STD_LOGIC_VECTOR (PID_SIZE-1 downto 0)   
   );
 end pid_top;
 
@@ -89,19 +89,23 @@ Port (
     CLK : in STD_LOGIC;
     RESET : in STD_LOGIC;
     A, B, C : in STD_LOGIC;
-    RPM : out INTEGER 
+    RPM : out STD_LOGIC_VECTOR (PID_SIZE-1 downto 0)
 );
 END COMPONENT;
 
 signal sig_flag: std_logic;
 signal sig_enable: std_logic := '1';
 signal sig_sensor: std_logic_vector(19 downto 0);
+signal sensval_s, setval_s : integer := 0;
 
 begin
 
+setval_s <= to_integer(unsigned(SETVAL));
+sensval_s <= to_integer(unsigned(SENSVAL));
+
 pid_gen_inst : pid_gen
     generic map (
-        SIZE => SIZE,
+        SIZE => PID_SIZE,
         Kp => Kp,
         Ki => Ki,
         Kd => Kd,
@@ -110,8 +114,8 @@ pid_gen_inst : pid_gen
     port map (
         CLK_PID => CLK,
         RESET => RESET,
-        SETVAL => SETVAL,
-        sensVal => sensVal,
+        SETVAL => setval_s,
+        sensVal => sensval_s,
         PID_OUT => PID_OUT
     );
 

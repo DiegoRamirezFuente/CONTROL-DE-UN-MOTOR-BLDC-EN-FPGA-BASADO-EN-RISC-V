@@ -34,9 +34,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity control_top is
   Generic(
     Frecuencies: integer range 1000 to 2500 := 1000;
-    Duty_SIZE: integer range 10 to 12 := 10;
-    TIMES: integer range 1 to 100 := 100;
     SIZE: integer range 10 to 12 := 10;
+    TIMES: integer range 1 to 100 := 100;
     Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
     Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
     Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
@@ -46,10 +45,10 @@ entity control_top is
     CLK : in std_logic;
     RESET : in std_logic;
     A, B, C : in std_logic;
-    SETVAL: in INTEGER;
-    sensVal :integer;
+    SETVAL: in STD_LOGIC_VECTOR (SIZE-1 downto 0);
+    sensVal :STD_LOGIC_VECTOR (SIZE-1 downto 0);
     PID_OUT : out std_logic_vector(SIZE-1 downto 0);
-    RPM : out INTEGER;
+    RPM : out STD_LOGIC_VECTOR (SIZE-1 downto 0);
     PWM_AH,PWM_BH,PWM_CH: out std_logic;
     PWM_AL,PWM_BL,PWM_CL: out std_logic;
     PWM_HIGH    : out std_logic;
@@ -76,12 +75,12 @@ END COMPONENT;
   component pwm_top is
     Generic(
       Frecuencies: integer range 1000 to 2500 := 1000;
-      Duty_SIZE: integer range 10 to 12 := 10
+      PWM_SIZE: integer range 10 to 12 := 10
     );
     Port ( 
       CLK : in std_logic;
       RESET : in std_logic;
-      Duty : in INTEGER;
+      Duty : in std_logic_vector(PWM_SIZE-1 DOWNTO 0);
       A, B, C : in std_logic;
       PWM_AH,PWM_BH,PWM_CH: out std_logic;
       PWM_AL,PWM_BL,PWM_CL: out std_logic;
@@ -94,24 +93,24 @@ END COMPONENT;
   component pid_top is
     Generic(
       TIMES: integer range 1 to 100 := 100;
-      SIZE: integer range 10 to 12 := 10;
+      PID_SIZE: integer range 10 to 12 := 10;
       Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
-    Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
-    Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
-    T : real := 10.0E-9
+      Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
+      Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
+      T : real := 10.0E-9
     );
     Port ( 
       CLK:    in std_logic;
       RESET:  in std_logic;
       A, B, C : in std_logic;
-      SETVAL: in integer; -- Valor de establecimiento 
-      sensVal : in  INTEGER; -- Valor de realimentación recibido por el sensor
-      PID_OUT : out  STD_LOGIC_VECTOR (SIZE-1 downto 0); -- Salida del PID    
-      RPM : out INTEGER
+      SETVAL: in STD_LOGIC_VECTOR (PID_SIZE-1 downto 0); -- Valor de establecimiento 
+      sensVal : in  STD_LOGIC_VECTOR (PID_SIZE-1 downto 0); -- Valor de realimentación recibido por el sensor
+      PID_OUT : out  STD_LOGIC_VECTOR (PID_SIZE-1 downto 0); -- Salida del PID    
+      RPM : out STD_LOGIC_VECTOR (PID_SIZE-1 downto 0)
     );
   end component;
 
-signal feedback : integer := 0;
+signal feedback : std_logic_vector(SIZE-1 DOWNTO 0);
 signal As,Bs,Cs: std_logic;
 
 begin
@@ -137,7 +136,7 @@ begin
   pwm_inst: pwm_top
     generic map(
       Frecuencies => Frecuencies,
-      Duty_SIZE => Duty_SIZE
+      PWM_SIZE => SIZE
     )
     port map(
       CLK => CLK,
@@ -160,7 +159,7 @@ begin
   pid_inst: pid_top
     generic map(
       TIMES => TIMES,
-      SIZE => SIZE,
+      PID_SIZE => SIZE,
       Kp => Kp,
       Ki => Ki,
       Kd => Kd
