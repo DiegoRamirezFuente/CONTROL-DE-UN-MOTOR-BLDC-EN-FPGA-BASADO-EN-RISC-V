@@ -34,8 +34,8 @@ use IEEE.numeric_std.all;
 
 entity pwm_top is
 Generic(
-    Frecuencies: integer range 1000 to 2500:= 1000;
-    PWM_SIZE: integer range 10 to 12:=10
+    Frecuencies: integer range 1000 to 2500 := 1000;
+    PWM_SIZE: integer range 10 to 15 := 13
 );
   Port ( 
     CLK : in std_logic;
@@ -70,7 +70,7 @@ END COMPONENT;
 COMPONENT pwm_gen
 Generic (
     FREC : integer range 1000 to 2500 := 1000; --Valor de la frecuencia
-    SIZE: integer range 10 to 12 := 10 --tamanio en bits
+    SIZE: integer range 10 to 15 := 13 --tamanio en bits
 );
 Port (
     CLK : in STD_LOGIC; --reloj de la placa

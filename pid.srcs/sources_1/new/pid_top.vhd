@@ -35,7 +35,7 @@ use IEEE.numeric_std.all;
 entity pid_top is
  Generic(
   TIMES: integer range 1 to 100 := 100;
-  PID_SIZE: integer range 10 to 12 := 10;
+  PID_SIZE: integer range 10 to 15 := 13;
   Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
     Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
     Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
@@ -56,7 +56,7 @@ architecture Behavioral of pid_top is
 
 COMPONENT pid_gen
 Generic (
-    SIZE: integer range 10 to 12 := 10;
+    SIZE: integer range 10 to 15 := 13;
     Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
     Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
     Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID

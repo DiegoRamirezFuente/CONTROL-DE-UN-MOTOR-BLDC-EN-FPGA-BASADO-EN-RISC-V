@@ -34,7 +34,7 @@ use ieee.numeric_std.all;
 
 entity pid_gen is
 Generic (
-    SIZE: integer range 10 to 12 := 10;
+    SIZE: integer range 10 to 15 := 13;
     Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
     Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
     Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID

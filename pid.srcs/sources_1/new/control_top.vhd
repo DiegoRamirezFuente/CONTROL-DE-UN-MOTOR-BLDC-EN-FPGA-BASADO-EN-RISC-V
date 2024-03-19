@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity control_top is
   Generic(
     Frecuencies: integer range 1000 to 2500 := 1000;
-    SIZE: integer range 10 to 12 := 10;
+    SIZE: integer range 10 to 15 := 13;
     TIMES: integer range 1 to 100 := 100;
     Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
     Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
@@ -48,11 +48,12 @@ entity control_top is
     SETVAL: in STD_LOGIC_VECTOR (SIZE-1 downto 0);
     sensVal :STD_LOGIC_VECTOR (SIZE-1 downto 0);
     PID_OUT : out std_logic_vector(SIZE-1 downto 0);
-    RPM : out STD_LOGIC_VECTOR (SIZE-1 downto 0);
     PWM_AH,PWM_BH,PWM_CH: out std_logic;
     PWM_AL,PWM_BL,PWM_CL: out std_logic;
     PWM_HIGH    : out std_logic;
     PWM_LOW     : out std_logic;
+    v_sal : OUT std_logic_vector(7 DOWNTO 0);
+    segment : OUT std_logic_vector(6 DOWNTO 0);
     ERROR      : out std_logic
   );
 end control_top;
@@ -75,7 +76,7 @@ END COMPONENT;
   component pwm_top is
     Generic(
       Frecuencies: integer range 1000 to 2500 := 1000;
-      PWM_SIZE: integer range 10 to 12 := 10
+      PWM_SIZE: integer range 10 to 15 := 13
     );
     Port ( 
       CLK : in std_logic;
@@ -93,7 +94,7 @@ END COMPONENT;
   component pid_top is
     Generic(
       TIMES: integer range 1 to 100 := 100;
-      PID_SIZE: integer range 10 to 12 := 10;
+      PID_SIZE: integer range 10 to 15 := 13;
       Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
       Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
       Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
@@ -109,6 +110,17 @@ END COMPONENT;
       RPM : out STD_LOGIC_VECTOR (PID_SIZE-1 downto 0)
     );
   end component;
+
+COMPONENT top_display
+ Generic(SIZE : integer range 10 to 15 := 13);
+ PORT ( 
+ clk_disp:in std_logic;
+ reset_disp:in std_logic;
+ input : in  std_logic_vector(SIZE-1 DOWNTO 0);
+ v_sal : OUT std_logic_vector(7 DOWNTO 0);
+ segment : OUT std_logic_vector(6 DOWNTO 0)
+ );
+END COMPONENT;
 
 signal feedback : std_logic_vector(SIZE-1 DOWNTO 0);
 signal As,Bs,Cs: std_logic;
@@ -176,5 +188,15 @@ begin
       RPM => feedback
       
     );
+    
+display:top_display
+ Generic map(SIZE => SIZE)
+ PORT MAP ( 
+ clk_disp => CLK,
+ reset_disp => RESET,
+ input => feedback,
+ v_sal => v_sal,
+ segment => segment
+ );
 
 end Behavioral;

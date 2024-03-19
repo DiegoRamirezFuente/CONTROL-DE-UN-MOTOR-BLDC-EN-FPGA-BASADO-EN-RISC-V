@@ -33,7 +33,7 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity hall_sensor_top is
-Generic( SIZE: integer range 10 to 12 := 10);
+Generic( SIZE: integer range 10 to 15 := 13);
 Port ( 
     CLK : in STD_LOGIC;
     RESET : in STD_LOGIC;

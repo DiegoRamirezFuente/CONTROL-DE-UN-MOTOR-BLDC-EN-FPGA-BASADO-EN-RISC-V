@@ -98,6 +98,10 @@ read_vhdl -library xil_defaultlib {
   C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd
   C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/SYNCHRNZR.vhd
   C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/new/Filter_HALL.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/top_display.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/cambio_digsel.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/separator.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/decoder.vhd
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
