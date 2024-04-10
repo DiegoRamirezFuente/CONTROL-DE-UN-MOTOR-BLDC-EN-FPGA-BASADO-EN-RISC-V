@@ -3,120 +3,93 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="direct_control_top_tb_behav.wdb" id="1">
+      <db_ref path="hall_sensor_top_tb_behav.wdb" id="1">
          <top_modules>
-            <top_module name="direct_control_top_tb" />
+            <top_module name="hall_sensor_top_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="18,455.811006 us"></ZoomStartTime>
-      <ZoomEndTime time="19,150.277687 us"></ZoomEndTime>
-      <Cursor1Time time="32,478.145000 us"></Cursor1Time>
+      <ZoomStartTime time="40,445.315127 us"></ZoomStartTime>
+      <ZoomEndTime time="44,510.315128 us"></ZoomEndTime>
+      <Cursor1Time time="42,440.315127 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="159"></NameColumnWidth>
-      <ValueColumnWidth column_width="103"></ValueColumnWidth>
+      <ValueColumnWidth column_width="98"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="25" />
-   <wvobject fp_name="/direct_control_top_tb/CLK_tb" type="logic">
-      <obj_property name="ElementShortName">CLK_tb</obj_property>
-      <obj_property name="ObjectShortName">CLK_tb</obj_property>
+   <WVObjectSize size="18" />
+   <wvobject fp_name="/hall_sensor_top_tb/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
    </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/RESET_tb" type="logic">
-      <obj_property name="ElementShortName">RESET_tb</obj_property>
-      <obj_property name="ObjectShortName">RESET_tb</obj_property>
+   <wvobject fp_name="/hall_sensor_top_tb/RESET" type="logic">
+      <obj_property name="ElementShortName">RESET</obj_property>
+      <obj_property name="ObjectShortName">RESET</obj_property>
    </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/A_tb" type="logic">
-      <obj_property name="ElementShortName">A_tb</obj_property>
-      <obj_property name="ObjectShortName">A_tb</obj_property>
+   <wvobject fp_name="/hall_sensor_top_tb/A" type="logic">
+      <obj_property name="ElementShortName">A</obj_property>
+      <obj_property name="ObjectShortName">A</obj_property>
    </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/B_tb" type="logic">
-      <obj_property name="ElementShortName">B_tb</obj_property>
-      <obj_property name="ObjectShortName">B_tb</obj_property>
+   <wvobject fp_name="/hall_sensor_top_tb/B" type="logic">
+      <obj_property name="ElementShortName">B</obj_property>
+      <obj_property name="ObjectShortName">B</obj_property>
    </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/C_tb" type="logic">
-      <obj_property name="ElementShortName">C_tb</obj_property>
-      <obj_property name="ObjectShortName">C_tb</obj_property>
+   <wvobject fp_name="/hall_sensor_top_tb/C" type="logic">
+      <obj_property name="ElementShortName">C</obj_property>
+      <obj_property name="ObjectShortName">C</obj_property>
    </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/switch_tb" type="array">
-      <obj_property name="ElementShortName">switch_tb[2:0]</obj_property>
-      <obj_property name="ObjectShortName">switch_tb[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/A_out_tb" type="logic">
-      <obj_property name="ElementShortName">A_out_tb</obj_property>
-      <obj_property name="ObjectShortName">A_out_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/B_out_tb" type="logic">
-      <obj_property name="ElementShortName">B_out_tb</obj_property>
-      <obj_property name="ObjectShortName">B_out_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/C_out_tb" type="logic">
-      <obj_property name="ElementShortName">C_out_tb</obj_property>
-      <obj_property name="ObjectShortName">C_out_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/As" type="logic">
+   <wvobject fp_name="/hall_sensor_top_tb/As" type="logic">
       <obj_property name="ElementShortName">As</obj_property>
       <obj_property name="ObjectShortName">As</obj_property>
    </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/Ass" type="logic">
+   <wvobject fp_name="/hall_sensor_top_tb/Ass" type="logic">
       <obj_property name="ElementShortName">Ass</obj_property>
       <obj_property name="ObjectShortName">Ass</obj_property>
    </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/PWM_AH_tb" type="logic">
-      <obj_property name="ElementShortName">PWM_AH_tb</obj_property>
-      <obj_property name="ObjectShortName">PWM_AH_tb</obj_property>
+   <wvobject fp_name="/hall_sensor_top_tb/sig_rpm" type="array">
+      <obj_property name="ElementShortName">sig_rpm[12:0]</obj_property>
+      <obj_property name="ObjectShortName">sig_rpm[12:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/PWM_AL_tb" type="logic">
-      <obj_property name="ElementShortName">PWM_AL_tb</obj_property>
-      <obj_property name="ObjectShortName">PWM_AL_tb</obj_property>
+   <wvobject fp_name="/hall_sensor_top_tb/Duty_SIZE" type="other">
+      <obj_property name="ElementShortName">Duty_SIZE</obj_property>
+      <obj_property name="ObjectShortName">Duty_SIZE</obj_property>
    </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/PWM_BH_tb" type="logic">
-      <obj_property name="ElementShortName">PWM_BH_tb</obj_property>
-      <obj_property name="ObjectShortName">PWM_BH_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/PWM_BL_tb" type="logic">
-      <obj_property name="ElementShortName">PWM_BL_tb</obj_property>
-      <obj_property name="ObjectShortName">PWM_BL_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/PWM_CH_tb" type="logic">
-      <obj_property name="ElementShortName">PWM_CH_tb</obj_property>
-      <obj_property name="ObjectShortName">PWM_CH_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/PWM_CL_tb" type="logic">
-      <obj_property name="ElementShortName">PWM_CL_tb</obj_property>
-      <obj_property name="ObjectShortName">PWM_CL_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/PWM_HIGH_tb" type="logic">
-      <obj_property name="ElementShortName">PWM_HIGH_tb</obj_property>
-      <obj_property name="ObjectShortName">PWM_HIGH_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/PWM_LOW_tb" type="logic">
-      <obj_property name="ElementShortName">PWM_LOW_tb</obj_property>
-      <obj_property name="ObjectShortName">PWM_LOW_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/ERROR_tb" type="logic">
-      <obj_property name="ElementShortName">ERROR_tb</obj_property>
-      <obj_property name="ObjectShortName">ERROR_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/RPM_tb" type="logic">
-      <obj_property name="ElementShortName">RPM_tb</obj_property>
-      <obj_property name="ObjectShortName">RPM_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/Duty_tb" type="other">
-      <obj_property name="ElementShortName">Duty_tb</obj_property>
-      <obj_property name="ObjectShortName">Duty_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/CLK_PERIOD" type="other">
+   <wvobject fp_name="/hall_sensor_top_tb/CLK_PERIOD" type="other">
       <obj_property name="ElementShortName">CLK_PERIOD</obj_property>
       <obj_property name="ObjectShortName">CLK_PERIOD</obj_property>
    </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/PERIOD" type="other">
+   <wvobject fp_name="/hall_sensor_top_tb/PERIOD" type="other">
       <obj_property name="ElementShortName">PERIOD</obj_property>
       <obj_property name="ObjectShortName">PERIOD</obj_property>
    </wvobject>
-   <wvobject fp_name="/direct_control_top_tb/UUT/uu0_Top_PWM/sig_pwmh" type="logic">
-      <obj_property name="ElementShortName">sig_pwmh</obj_property>
-      <obj_property name="ObjectShortName">sig_pwmh</obj_property>
+   <wvobject fp_name="/hall_sensor_top_tb/hall_sensor_top_inst/uut_pulse_counter/counter" type="other">
+      <obj_property name="ElementShortName">counter</obj_property>
+      <obj_property name="ObjectShortName">counter</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hall_sensor_top_tb/hall_sensor_top_inst/uut_pulse_counter/pulse_count" type="other">
+      <obj_property name="ElementShortName">pulse_count</obj_property>
+      <obj_property name="ObjectShortName">pulse_count</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hall_sensor_top_tb/hall_sensor_top_inst/uut_pulse_counter/total" type="other">
+      <obj_property name="ElementShortName">total</obj_property>
+      <obj_property name="ObjectShortName">total</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hall_sensor_top_tb/hall_sensor_top_inst/uut_pulse_counter/avg_count" type="other">
+      <obj_property name="ElementShortName">avg_count</obj_property>
+      <obj_property name="ObjectShortName">avg_count</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hall_sensor_top_tb/hall_sensor_top_inst/uut_pulse_counter/s_rpm" type="other">
+      <obj_property name="ElementShortName">s_rpm</obj_property>
+      <obj_property name="ObjectShortName">s_rpm</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hall_sensor_top_tb/hall_sensor_top_inst/uut_hall_pulse_gen/PULSE" type="logic">
+      <obj_property name="ElementShortName">PULSE</obj_property>
+      <obj_property name="ObjectShortName">PULSE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hall_sensor_top_tb/hall_sensor_top_inst/uut_hall_pulse_gen/state" type="other">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
    </wvobject>
 </wave_config>

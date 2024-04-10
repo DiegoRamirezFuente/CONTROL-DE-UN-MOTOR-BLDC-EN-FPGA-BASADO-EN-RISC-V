@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../control_directo.srcs/sources_1/new/hall_pulse_gen.vhd" \
+"../../../../control_directo.srcs/sources_1/new/hall_sensor_top.vhd" \
+"../../../../control_directo.srcs/sources_1/new/pulse_counter.vhd" \
+"../../../../control_directo.srcs/sim_1/new/hall_sensor_top_tb.vhd" \
+
+# Do not sort compile order
+nosort

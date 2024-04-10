@@ -1,0 +1,7 @@
+Running: xsim.dir/hall_sensor_top_tb_behav/xsimk.exe -simmode gui -wdb hall_sensor_top_tb_behav.wdb -simrunnum 0 -socket 55884
+Design successfully loaded
+Design Loading Memory Usage: 7864 KB (Peak: 7864 KB)
+Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 16424 KB (Peak: 16424 KB)
+Simulation CPU Usage: 1827 ms
