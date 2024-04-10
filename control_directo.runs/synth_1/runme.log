@@ -1,0 +1,317 @@
+
+*** Running vivado
+    with args -log direct_control_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source direct_control_top.tcl
+
+
+ECHO est  desactivado.
+ECHO est  desactivado.
+
+****** Vivado v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source direct_control_top.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 463.758 ; gain = 200.441
+Command: read_checkpoint -auto_incremental -incremental C:/Users/diego/TFG/control_directo/control_directo.srcs/utils_1/imports/synth_1/direct_control_top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/diego/TFG/control_directo/control_directo.srcs/utils_1/imports/synth_1/direct_control_top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top direct_control_top -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 22552
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1295.320 ; gain = 412.656
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'direct_control_top' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/direct_control_top.vhd:60]
+	Parameter Frecuencies bound to: 4800 - type: integer 
+	Parameter Duty_SIZE bound to: 13 - type: integer 
+INFO: [Synth 8-3491] module 'pwm_top' declared at 'C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pwm_top.vhd:34' bound to instance 'uu0_Top_PWM' of component 'pwm_top' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/direct_control_top.vhd:119]
+INFO: [Synth 8-638] synthesizing module 'pwm_top' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pwm_top.vhd:52]
+	Parameter Frecuencies bound to: 4800 - type: integer 
+	Parameter Duty_SIZE bound to: 13 - type: integer 
+INFO: [Synth 8-3491] module 'pwm_decod' declared at 'C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pwm_decod.vhd:35' bound to instance 'uut_pwm_decod' of component 'pwm_decod' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pwm_top.vhd:86]
+INFO: [Synth 8-638] synthesizing module 'pwm_decod' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pwm_decod.vhd:51]
+	Parameter DELAY bound to: 4 - type: integer 
+WARNING: [Synth 8-614] signal 'abc' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pwm_decod.vhd:62]
+INFO: [Synth 8-256] done synthesizing module 'pwm_decod' (0#1) [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pwm_decod.vhd:51]
+	Parameter FREC bound to: 4800 - type: integer 
+	Parameter SIZE bound to: 13 - type: integer 
+INFO: [Synth 8-3491] module 'pwm_gen' declared at 'C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pwm_gen.vhd:36' bound to instance 'uut_PWM_Generator' of component 'pwm_gen' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pwm_top.vhd:105]
+INFO: [Synth 8-638] synthesizing module 'pwm_gen' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pwm_gen.vhd:49]
+	Parameter FREC bound to: 4800 - type: integer 
+	Parameter SIZE bound to: 13 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'pwm_gen' (0#1) [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pwm_gen.vhd:49]
+INFO: [Synth 8-256] done synthesizing module 'pwm_top' (0#1) [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pwm_top.vhd:52]
+INFO: [Synth 8-3491] module 'Filter_HALL' declared at 'C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/Filter_HALL.vhd:35' bound to instance 'uut1_Filter' of component 'Filter_HALL' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/direct_control_top.vhd:141]
+INFO: [Synth 8-638] synthesizing module 'Filter_HALL' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/Filter_HALL.vhd:46]
+	Parameter Delay bound to: 10 - type: integer 
+INFO: [Synth 8-3491] module 'SYNCHRNZR' declared at 'C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/SYNCHRNZR.vhd:13' bound to instance 'uut' of component 'SYNCHRNZR' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/Filter_HALL.vhd:60]
+INFO: [Synth 8-638] synthesizing module 'SYNCHRNZR' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/SYNCHRNZR.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'SYNCHRNZR' (0#1) [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/SYNCHRNZR.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'Filter_HALL' (0#1) [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/Filter_HALL.vhd:46]
+INFO: [Synth 8-3491] module 'Filter_HALL' declared at 'C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/Filter_HALL.vhd:35' bound to instance 'uut2_Filter' of component 'Filter_HALL' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/direct_control_top.vhd:146]
+INFO: [Synth 8-3491] module 'Filter_HALL' declared at 'C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/Filter_HALL.vhd:35' bound to instance 'uut3_Filter' of component 'Filter_HALL' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/direct_control_top.vhd:151]
+INFO: [Synth 8-3491] module 'hall_sensor_top' declared at 'C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/hall_sensor_top.vhd:34' bound to instance 'hall_sensor_top_inst' of component 'hall_sensor_top' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/direct_control_top.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'hall_sensor_top' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/hall_sensor_top.vhd:44]
+	Parameter Duty_SIZE bound to: 13 - type: integer 
+INFO: [Synth 8-3491] module 'hall_pulse_gen' declared at 'C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/hall_pulse_gen.vhd:35' bound to instance 'uut_hall_pulse_gen' of component 'hall_pulse_gen' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/hall_sensor_top.vhd:69]
+INFO: [Synth 8-638] synthesizing module 'hall_pulse_gen' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/hall_pulse_gen.vhd:44]
+WARNING: [Synth 8-614] signal 'abc' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/hall_pulse_gen.vhd:57]
+INFO: [Synth 8-256] done synthesizing module 'hall_pulse_gen' (0#1) [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/hall_pulse_gen.vhd:44]
+INFO: [Synth 8-3491] module 'pulse_counter' declared at 'C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pulse_counter.vhd:35' bound to instance 'uut_pulse_counter' of component 'pulse_counter' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/hall_sensor_top.vhd:79]
+INFO: [Synth 8-638] synthesizing module 'pulse_counter' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pulse_counter.vhd:50]
+	Parameter Duty_SIZE bound to: 13 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'pulse_counter' (0#1) [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pulse_counter.vhd:50]
+INFO: [Synth 8-256] done synthesizing module 'hall_sensor_top' (0#1) [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/hall_sensor_top.vhd:44]
+	Parameter BITS bound to: 13 - type: integer 
+INFO: [Synth 8-3491] module 'uart_tx' declared at 'C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/uart_tx.vhd:35' bound to instance 'transmision_uart' of component 'uart_tx' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/direct_control_top.vhd:167]
+INFO: [Synth 8-638] synthesizing module 'uart_tx' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/uart_tx.vhd:44]
+	Parameter BITS bound to: 13 - type: integer 
+INFO: [Synth 8-3491] module 'baudRate' declared at 'C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/baudRate.vhd:39' bound to instance 'dut' of component 'baudRate' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/uart_tx.vhd:59]
+INFO: [Synth 8-638] synthesizing module 'baudRate' [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/baudRate.vhd:49]
+INFO: [Synth 8-256] done synthesizing module 'baudRate' (0#1) [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/baudRate.vhd:49]
+INFO: [Synth 8-256] done synthesizing module 'uart_tx' (0#1) [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/uart_tx.vhd:44]
+INFO: [Synth 8-256] done synthesizing module 'direct_control_top' (0#1) [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/direct_control_top.vhd:60]
+WARNING: [Synth 8-6014] Unused sequential element PWM_OUT_reg was removed.  [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pwm_gen.vhd:63]
+WARNING: [Synth 8-6014] Unused sequential element counter_reg was removed.  [C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pulse_counter.vhd:68]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 1388.410 ; gain = 505.746
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 1388.410 ; gain = 505.746
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 1388.410 ; gain = 505.746
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1388.410 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/diego/TFG/control_directo/control_directo.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
+Finished Parsing XDC File [C:/Users/diego/TFG/control_directo/control_directo.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/diego/TFG/control_directo/control_directo.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/direct_control_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/direct_control_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1422.312 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1422.312 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1422.312 ; gain = 539.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1422.312 ; gain = 539.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1422.312 ; gain = 539.648
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'proximo_reg' in module 'uart_tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                               00 |                               00
+                   start |                               01 |                               01
+          enviando_datos |                               10 |                               10
+                    stop |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'proximo_reg' using encoding 'sequential' in module 'uart_tx'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:17 . Memory (MB): peak = 1422.312 ; gain = 539.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 4     
+	   2 Input   31 Bit       Adders := 2     
+	   2 Input   13 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 4     
+	   2 Input    2 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 3     
+	               13 Bit    Registers := 2     
+	                4 Bit    Registers := 4     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 15    
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 3     
+	   2 Input   31 Bit        Muxes := 2     
+	   2 Input   13 Bit        Muxes := 3     
+	   4 Input   13 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
+	   7 Input    3 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 8     
+	   4 Input    3 Bit        Muxes := 12    
+	   2 Input    2 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 1     
+	   7 Input    1 Bit        Muxes := 1     
+	   8 Input    1 Bit        Muxes := 7     
+	   2 Input    1 Bit        Muxes := 7     
+	   4 Input    1 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:21 . Memory (MB): peak = 1422.312 ; gain = 539.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:26 . Memory (MB): peak = 1422.312 ; gain = 539.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:27 . Memory (MB): peak = 1422.312 ; gain = 539.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:27 . Memory (MB): peak = 1422.312 ; gain = 539.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1427.172 ; gain = 544.508
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1427.172 ; gain = 544.508
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1427.172 ; gain = 544.508
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1427.172 ; gain = 544.508
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1427.172 ; gain = 544.508
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1427.172 ; gain = 544.508
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     2|
+|2     |CARRY4 |   436|
+|3     |LUT1   |   129|
+|4     |LUT2   |   206|
+|5     |LUT3   |   218|
+|6     |LUT4   |   216|
+|7     |LUT5   |   944|
+|8     |LUT6   |   269|
+|9     |FDCE   |   122|
+|10    |FDPE   |    10|
+|11    |FDRE   |    95|
+|12    |FDSE   |     1|
+|13    |LDC    |     6|
+|14    |IBUF   |    37|
+|15    |OBUF   |    13|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:32 . Memory (MB): peak = 1427.172 ; gain = 544.508
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:31 . Memory (MB): peak = 1427.172 ; gain = 510.605
+Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:33 . Memory (MB): peak = 1427.172 ; gain = 544.508
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 1439.270 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 442 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'direct_control_top' is not ideal for floorplanning, since the cellview 'pulse_counter' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1442.902 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  LDC => LDCE: 6 instances
+
+Synth Design complete | Checksum: 1d03acc3
+INFO: [Common 17-83] Releasing license: Synthesis
+57 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:39 . Memory (MB): peak = 1442.902 ; gain = 955.266
+INFO: [Common 17-1381] The checkpoint 'C:/Users/diego/TFG/control_directo/control_directo.runs/synth_1/direct_control_top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file direct_control_top_utilization_synth.rpt -pb direct_control_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 10 10:55:05 2024...
