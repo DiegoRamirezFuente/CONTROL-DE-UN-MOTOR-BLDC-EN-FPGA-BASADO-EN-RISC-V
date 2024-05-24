@@ -37,13 +37,13 @@ entity pulse_counter is
         SAMPLES : INTEGER range 1 to 10 := 5; --numero de muestras que se toman para hacer la media
         FREC : INTEGER range 10e6 to 1e9 := 100e6; --frecuencia de conteo entre 10Mhz y 1Ghz
                                                    --por defecto 100 MHz de la placa NexysDDR4
-        Duty_SIZE: integer range 10 to 15 := 13
+        SIZE: integer range 8 to 16:= 8
         );                                        
     Port (
         CLK : in STD_LOGIC; --senial de reloj
         RESET : in STD_LOGIC; --reset asíncrono
         PULSE : in STD_LOGIC; --pulso entrante procedente del sensor hall
-        RPM : out std_logic_vector (Duty_SIZE-1 downto 0) --velocidad de giro del motor en RPM
+        RPM : out std_logic_vector (SIZE-1 downto 0) --velocidad de giro del motor en RPM
     );
 end pulse_counter;
 
@@ -80,6 +80,6 @@ end process;
 
 s_rpm <= 0 when avg_count <= 0 else (10 * FREC / avg_count);
 
-RPM <= std_logic_vector(to_unsigned(s_rpm,Duty_SIZE));
+RPM <= std_logic_vector(to_unsigned(s_rpm,SIZE));
 
 end Behavioral;

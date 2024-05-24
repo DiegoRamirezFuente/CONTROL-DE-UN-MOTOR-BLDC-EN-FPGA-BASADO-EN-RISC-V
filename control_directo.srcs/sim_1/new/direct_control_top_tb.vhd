@@ -10,7 +10,8 @@ architecture testbench of direct_control_top_tb is
     COMPONENT direct_control_top IS
       Generic(
         PWM_Frecuencies: integer range 1000 to 4800:= 4800;
-        SIZE: integer range 10 to 15:= 13  
+        PWM_SIZE: integer range 8 to 16:= 13;
+        RPM_SIZE: integer range 8 to 16:= 8  
       );
       Port ( 
         CLK:          in std_logic;
@@ -33,7 +34,7 @@ architecture testbench of direct_control_top_tb is
         PWM_LOW     : out std_logic;
         ERROR      : out std_logic;
         RPM : out std_logic
-        --RPM : out std_logic_vector(SIZE-1 downto 0)
+        --RPM : out std_logic_vector(RPM_SIZE-1 downto 0)
       );
     END COMPONENT;
     
@@ -56,7 +57,8 @@ begin
     UUT: direct_control_top
         generic map (
             PWM_Frecuencies => 4800,  -- Set to desired values
-            SIZE => 13  -- Set to desired values
+            PWM_SIZE => 13,
+            RPM_SIZE => 8
         )
         port map (
             CLK => CLK_tb,

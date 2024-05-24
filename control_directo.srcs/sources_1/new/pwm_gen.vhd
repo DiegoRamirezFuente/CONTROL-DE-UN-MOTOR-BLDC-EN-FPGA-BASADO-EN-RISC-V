@@ -36,7 +36,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity pwm_gen is
 Generic (
     FREC : integer range 1000 to 4800 := 4800; --Valor de la frecuencia
-    SIZE: integer range 10 to 15 := 13 --tamanio en bits
+    SIZE: integer range 8 to 16:= 13 --tamanio en bits
 );
 Port (
     CLK : in STD_LOGIC; --reloj de la placa

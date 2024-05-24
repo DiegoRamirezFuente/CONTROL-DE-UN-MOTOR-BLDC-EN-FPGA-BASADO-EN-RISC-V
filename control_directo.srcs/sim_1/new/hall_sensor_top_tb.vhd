@@ -38,16 +38,16 @@ end hall_sensor_top_tb;
 architecture Behavioral of hall_sensor_top_tb is
 
 COMPONENT hall_sensor_top
-Generic( Duty_SIZE: integer range 10 to 15 := 13);
+Generic( SIZE: integer range 8 to 16:= 8);
 Port ( 
     CLK : in STD_LOGIC;
     RESET : in STD_LOGIC;
     A, B, C : in STD_LOGIC;
-    RPM : out std_logic_vector (Duty_SIZE-1 downto 0)
+    RPM : out std_logic_vector (SIZE-1 downto 0)
 );
 END COMPONENT;
 
-constant Duty_SIZE : integer := 13; -- Definir Duty_SIZE como constante
+constant SIZE : integer := 8; -- Definir SIZE como constante
 constant CLK_PERIOD : time := 10 ns;
 constant PERIOD : time := 400 us;
 signal CLK : std_logic := '0';
@@ -55,7 +55,7 @@ signal CLK : std_logic := '0';
 signal RESET : std_logic := '0';
 signal A, B, C : std_logic := '0';
 signal As,Ass :  std_logic;
-signal sig_rpm : std_logic_vector(Duty_SIZE - 1 downto 0);
+signal sig_rpm : std_logic_vector(SIZE - 1 downto 0);
 
 begin
 

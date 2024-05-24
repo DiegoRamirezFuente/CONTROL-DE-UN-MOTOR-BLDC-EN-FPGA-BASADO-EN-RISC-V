@@ -70,6 +70,10 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param checkpoint.writeSynthRtdsInDcp 1
+set_param synth.incrementalSynthesisCache C:/Users/diego/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-23076-LAPTOP-VRI1VQ46/incrSyn
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -88,7 +92,7 @@ OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
   C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/Filter_HALL.vhd
   C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/SYNCHRNZR.vhd
-  C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/baudRate.vhd
+  C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/frec_gen.vhd
   C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/hall_pulse_gen.vhd
   C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/hall_sensor_top.vhd
   C:/Users/diego/TFG/control_directo/control_directo.srcs/sources_1/new/pulse_counter.vhd

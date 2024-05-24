@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity pwm_top is
 Generic(
     Frecuencies: integer range 1000 to 4800:= 4800;
-    Duty_SIZE: integer range 10 to 15:=13
+    SIZE: integer range 8 to 16:=13
 );
   Port ( 
     CLK : in std_logic;
@@ -69,7 +69,7 @@ END COMPONENT;
 COMPONENT pwm_gen
 Generic (
     FREC : integer range 1000 to 4800 := 4800; --Valor de la frecuencia
-    SIZE: integer range 10 to 15 := 13 --tamanio en bits
+    SIZE: integer range 8 to 16:= 13 --tamanio en bits
 );
 Port (
     CLK : in STD_LOGIC; --reloj de la placa
@@ -105,7 +105,7 @@ uut_pwm_decod: pwm_decod PORT MAP(
 uut_PWM_Generator: pwm_gen 
 GENERIC MAP(
     FREC => Frecuencies,
-    SIZE => Duty_SIZE
+    SIZE => SIZE
 )
 PORT MAP(
   CLK => CLK,

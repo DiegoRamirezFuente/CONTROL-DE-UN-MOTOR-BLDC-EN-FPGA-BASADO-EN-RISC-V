@@ -18,9 +18,10 @@
 -- 
 ----------------------------------------------------------------------------------
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
+LIBRARY IEEE; 
+USE IEEE.STD_LOGIC_1164.ALL; 
+USE IEEE.NUMERIC_STD.ALL; 
+USE IEEE.STD_LOGIC_UNSIGNED.ALL; 
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -32,70 +33,122 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 
-entity uart_tx is
-  generic(BITS       : positive := 10);
-  port   (clk_i      : in  std_logic;
-          rst_i      : in  std_logic; 
-          dat_i      : in  std_logic_vector(BITS-1 downto 0);
-          enviando_i : in  std_logic;
-          dat_o      : out std_logic);   
-end entity uart_tx;
+------------------------------------------------------------------------- 
+ ENTITY uart_tx IS  
+ 
+PORT ( 
+  BAUD   : IN STD_LOGIC; 
+  TxD_INICIO  : IN STD_LOGIC; 
+  TxD_DATO  : IN STD_LOGIC_VECTOR (7 DOWNTO 0); 
+  TxD  : OUT STD_LOGIC; 
+  TxD_BUSY : OUT STD_LOGIC 
+); 
 
-architecture Behavioural of uart_tx is
-
-COMPONENT baudRate IS
-  port (clk_i    : in  std_logic;
-        rst_i    : in  std_logic; 
-        pulso_o  : out std_logic);   
-END COMPONENT;
-
-  type     estado is (idle, start, enviando_datos, stop);
-  signal   proximo   : estado;
-  signal   pulso     : std_logic;
-  signal   registro  : std_logic_vector(BITS-1 downto 0);
-  signal   contador  : unsigned(3 downto 0);  
-           
-begin
-  dut: baudRate port map(clk_i   => clk_i,
-                                   rst_i   => rst_i,
-                                   pulso_o => pulso);                                                                                                        
-  tx: 
-  process (pulso) begin
-    if rising_edge(pulso) then
-      if rst_i = '1' then
-        proximo  <= idle;
-        contador <= (others => '0');
-        registro <= (others => '0');
-        dat_o    <= '1';
-      else  
-        case proximo is
-          when idle =>      
-            if enviando_i='1' then
-              registro <= dat_i;
-              dat_o    <= '1';
-              proximo  <= start;
-            end if;
-            
-          when start =>
-              dat_o    <= '0';
-              contador <= (others => '0');
-              proximo  <= enviando_datos;          
-            
-          when enviando_datos =>
-              contador <= contador + 1;
-              dat_o    <= registro(0);
-              registro <= registro(0) & registro(BITS-1 downto 1);
-              if contador = BITS - 1 then
-                proximo <= stop;
-              end if;  
-            
-          when stop =>
-              dat_o   <= '1';            
-              proximo <= idle; 
+ 
+END uart_tx; 
+ 
+ 
+ARCHITECTURE BEHAVIORAL OF uart_tx IS 
+ 
+SIGNAL TxD_AUX_DATO : STD_LOGIC_VECTOR (7 DOWNTO 0); 
+SIGNAL STATE : STD_LOGIC_VECTOR (3 DOWNTO 0):="0000"; 
+SIGNAL NEXT_STATE : STD_LOGIC_VECTOR (3 DOWNTO 0):="0000"; 
+SIGNAL TxD_READY : STD_LOGIC; 
+ 
+ 
+BEGIN 
+ 
+PROCESS (STATE) 
+BEGIN 
+CASE STATE IS  
+ 
+   WHEN "0000" => TxD_READY <= '1'; 
+   WHEN OTHERS => TxD_READY <= '0'; 
     
-        end case;    
-      end if;
-    end if;
-  end process; 
+END CASE; 
+ 
+END PROCESS; 
+ 
+PROCESS (STATE) 
+BEGIN 
+CASE STATE IS  
+ 
+   WHEN "0000" => TxD_BUSY <= '0'; 
+   WHEN OTHERS => TxD_BUSY <= '1'; 
+    
+END CASE;
 
-end Behavioural;
+END PROCESS; 
+ 
+   
+ 
+PROCESS (TxD_READY) 
+BEGIN 
+ 
+IF TxD_READY'EVENT AND TxD_READY ='1' THEN 
+ 
+TxD_AUX_DATO <= TxD_DATO; 
+ 
+END IF; 
+ 
+END PROCESS; 
+ 
+ 
+PROCESS (BAUD) 
+BEGIN 
+IF BAUD'EVENT AND BAUD = '1' THEN 
+ 
+ IF TxD_INICIO = '0' THEN 
+   STATE <= "0000"; 
+ ELSE 
+   STATE<= NEXT_STATE; 
+ END IF; 
+END IF; 
+ 
+END PROCESS; 
+ 
+PROCESS (STATE) 
+BEGIN 
+CASE STATE IS  
+ 
+ WHEN "0000" => NEXT_STATE <= "0001"; 
+ WHEN "0001" => NEXT_STATE <= "0010"; 
+ WHEN "0010" => NEXT_STATE <= "0011"; 
+ WHEN "0011" => NEXT_STATE <= "0100"; 
+ WHEN "0100" => NEXT_STATE <= "0101"; 
+ WHEN "0101" => NEXT_STATE <= "0110"; 
+ WHEN "0110" => NEXT_STATE <= "0111"; 
+ WHEN "0111" => NEXT_STATE <= "1000"; 
+ WHEN "1000" => NEXT_STATE <= "1001"; 
+ WHEN "1001" => NEXT_STATE <= "1010"; 
+ WHEN "1010" => NEXT_STATE <= "1011"; 
+ WHEN "1011" => NEXT_STATE <= "1011"; 
+ WHEN OTHERS => NEXT_STATE <= "1011"; 
+  
+END CASE; 
+ 
+END PROCESS; 
+ 
+ 
+PROCESS (STATE,TXD_AUX_DATO) 
+BEGIN 
+CASE STATE IS 
+WHEN "0000" => TxD  <= '1' ; 
+ WHEN "0001" => TxD  <= '0' ; 
+ WHEN "0010" => TxD  <= TxD_AUX_DATO(0); 
+ WHEN "0011" => TxD  <= TxD_AUX_DATO(1); 
+ WHEN "0100" => TxD  <= TxD_AUX_DATO(2); 
+ WHEN "0101" => TxD  <= TxD_AUX_DATO(3); 
+ WHEN "0110" => TxD  <= TxD_AUX_DATO(4); 
+ WHEN "0111" => TxD  <= TxD_AUX_DATO(5); 
+ WHEN "1000" => TxD  <= TxD_AUX_DATO(6); 
+ WHEN "1001" => TxD  <= TxD_AUX_DATO(7); 
+ WHEN "1010" => TxD  <= '1'; 
+ WHEN "1011" => TxD  <= '1'; 
+ WHEN OTHERS => TxD  <= '1';  
+ 
+END CASE; 
+ 
+END PROCESS; 
+ 
+END BEHAVIORAL;

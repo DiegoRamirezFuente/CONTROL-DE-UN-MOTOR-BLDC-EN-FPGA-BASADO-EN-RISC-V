@@ -32,12 +32,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity hall_sensor_top is
-Generic( Duty_SIZE: integer range 10 to 15 := 13);
+Generic( SIZE: integer range 8 to 16:= 8);
 Port ( 
     CLK : in STD_LOGIC;
     RESET : in STD_LOGIC;
     A, B, C : in STD_LOGIC;
-    RPM : out std_logic_vector (Duty_SIZE-1 downto 0)
+    RPM : out std_logic_vector (SIZE-1 downto 0)
 );
 end hall_sensor_top;
 
@@ -55,12 +55,12 @@ Port(
 END COMPONENT;
 
 COMPONENT pulse_counter is
-    Generic( Duty_SIZE: integer range 10 to 15 := 13);
+    Generic( SIZE: integer range 8 to 16:= 8);
     Port (
         CLK : in STD_LOGIC;
         RESET : in STD_LOGIC;
         PULSE : in STD_LOGIC;
-        RPM : out std_logic_vector (Duty_SIZE-1 downto 0)
+        RPM : out std_logic_vector (SIZE-1 downto 0)
     );
 END COMPONENT;
 
