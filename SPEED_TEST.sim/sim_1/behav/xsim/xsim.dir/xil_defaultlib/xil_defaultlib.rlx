@@ -1,0 +1,22 @@
+0.7
+2020.2
+May  7 2023
+15:24:31
+C:/Users/diego/TFG/SPEED_TEST/SPEED_TEST.srcs/sources_1/imports/new/hall_pulse_gen.vhd,1717598242,vhdl,,,,hall_pulse_gen,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST/SPEED_TEST.srcs/sources_1/imports/new/hall_sensor_top.vhd,1717586477,vhdl,,,,hall_sensor_top,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sim_1/new/direct_control_top_tb.vhd,1718192141,vhdl,,,,direct_control_top_tb,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/Filter_HALL.vhd,1716976144,vhdl,,,,filter_hall,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/SYNCHRNZR.vhd,1716976103,vhdl,,,,synchrnzr,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/cambio_digsel.vhd,1717695631,vhdl,,,,cambio_digsel,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd,1710872370,vhdl,,,,decoder,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_decod.vhd,1717515982,vhdl,,,,pwm_decod,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_gen.vhd,1717604081,vhdl,,,,pwm_gen,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd,1717604379,vhdl,,,,pwm_top,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/separator.vhd,1717695818,vhdl,,,,separator,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd,1717695818,vhdl,,,,top_display,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/PID_HALLFSM.vhd,1717687037,vhdl,,,,pid_hallfsm,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/PID_TOPSENSOR.vhd,1717770919,vhdl,,,,pid_topsensor,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd,1718192074,vhdl,,,,direct_control_top,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/gen_frec.vhd,1718120818,vhdl,,,,gen_frec,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd,1718192291,vhdl,,,,pid_gen,,,,,,,,
+C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pulse_counter.vhd,1717852119,vhdl,,,,pulse_counter,,,,,,,,
