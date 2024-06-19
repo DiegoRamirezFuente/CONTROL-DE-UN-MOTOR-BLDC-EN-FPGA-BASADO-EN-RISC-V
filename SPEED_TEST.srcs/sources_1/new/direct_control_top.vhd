@@ -129,12 +129,12 @@ END COMPONENT;
 
 begin
 
-uut: ralent PORT MAP(
-    CLK => CLK,
-    RESET => RESET,
-    INPUT => RPM,
-    OUTPUT => RPM_r
-  );
+--uut: ralent PORT MAP(
+--    CLK => CLK,
+--    RESET => RESET,
+--    INPUT => RPM,
+--    OUTPUT => RPM_r
+--  );
     
     uut1_Filter: Filter_HALL PORT MAP(
       CLK       =>CLK,
@@ -198,7 +198,7 @@ uut: ralent PORT MAP(
         Port map(
             clk_disp => CLK,
             reset_disp => RESET,
-            input => RPM_r, -- RPM se conecta a la entrada de display
+            input => RPM, -- RPM se conecta a la entrada de display
             v_sal => digctrl,
             segment => segment
         );

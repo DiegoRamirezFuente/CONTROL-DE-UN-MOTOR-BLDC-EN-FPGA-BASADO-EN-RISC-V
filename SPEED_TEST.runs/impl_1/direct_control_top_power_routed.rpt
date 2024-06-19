@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Wed Jun 19 17:31:47 2024
+| Date             : Wed Jun 19 20:02:46 2024
 | Host             : LAPTOP-VRI1VQ46 running 64-bit major release  (build 9200)
 | Command          : report_power -file direct_control_top_power_routed.rpt -pb direct_control_top_power_summary_routed.pb -rpx direct_control_top_power_routed.rpx
 | Design           : direct_control_top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 75.747 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 39.683 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 74.950                           |
+| Dynamic (W)              | 38.886                           |
 | Device Static (W)        | 0.797                            |
 | Effective TJA (C/W)      | 4.6                              |
 | Max Ambient (C)          | 0.0                              |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |    31.094 |     3611 |       --- |             --- |
-|   LUT as Logic |    27.947 |     2313 |     63400 |            3.65 |
-|   CARRY4       |     2.908 |      512 |     15850 |            3.23 |
-|   Register     |     0.233 |      356 |    126800 |            0.28 |
+| Slice Logic    |     9.994 |     1218 |       --- |             --- |
+|   LUT as Logic |     9.483 |      710 |     63400 |            1.12 |
+|   CARRY4       |     0.439 |      113 |     15850 |            0.71 |
+|   Register     |     0.066 |      155 |    126800 |            0.12 |
 |   BUFG         |     0.006 |        1 |        32 |            3.13 |
-|   Others       |     0.000 |       29 |       --- |             --- |
-| Signals        |    28.275 |     2945 |       --- |             --- |
-| I/O            |    15.581 |       39 |       210 |           18.57 |
+|   Others       |     0.000 |       25 |       --- |             --- |
+| Signals        |     7.381 |      869 |       --- |             --- |
+| I/O            |    21.511 |       39 |       210 |           18.57 |
 | Static Power   |     0.797 |          |           |                 |
-| Total          |    75.747 |          |           |                 |
+| Total          |    39.683 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +71,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |    59.972 |      59.409 |      0.563 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.662 |       0.569 |      0.093 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     4.403 |       4.399 |      0.004 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |    17.977 |      17.415 |      0.563 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.880 |       0.787 |      0.093 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     6.081 |       6.077 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -138,24 +138,22 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| direct_control_top       |    74.950 |
-|   DISPLAY_INST           |     0.500 |
-|     gestion_digsel       |     0.461 |
-|     separador_de_cifras1 |     0.039 |
-|   HALL_INST              |    57.613 |
-|     uut                  |     0.059 |
-|     uut_PIDFSM           |     0.039 |
-|     uut_PID_TIME         |    57.515 |
-|   PWM_INST               |     0.762 |
-|     uut_PWM_Generator    |     0.676 |
-|     uut_pwm_decod        |     0.087 |
-|   uut                    |     0.245 |
-|   uut1_Filter            |     0.060 |
-|     uut                  |     0.016 |
+| direct_control_top       |    38.886 |
+|   DISPLAY_INST           |     9.252 |
+|     gestion_digsel       |     0.557 |
+|     separador_de_cifras1 |     8.695 |
+|   HALL_INST              |     7.130 |
+|     uut_PIDFSM           |     0.040 |
+|     uut_PID_TIME         |     7.090 |
+|   PWM_INST               |     0.761 |
+|     uut_PWM_Generator    |     0.668 |
+|     uut_pwm_decod        |     0.093 |
+|   uut1_Filter            |     0.056 |
+|     uut                  |     0.018 |
 |   uut2_Filter            |     0.052 |
 |     uut                  |     0.019 |
-|   uut3_Filter            |     0.051 |
-|     uut                  |     0.018 |
+|   uut3_Filter            |     0.052 |
+|     uut                  |     0.021 |
 +--------------------------+-----------+
 
 

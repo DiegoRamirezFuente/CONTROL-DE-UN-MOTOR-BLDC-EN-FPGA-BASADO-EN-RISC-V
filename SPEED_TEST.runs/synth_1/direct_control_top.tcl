@@ -72,7 +72,6 @@ proc create_report { reportName command } {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 2
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -100,7 +99,6 @@ read_vhdl -library xil_defaultlib {
   C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_decod.vhd
   C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_gen.vhd
   C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd
-  C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/ralent.vhd
   C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/separator.vhd
   C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd
   C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd

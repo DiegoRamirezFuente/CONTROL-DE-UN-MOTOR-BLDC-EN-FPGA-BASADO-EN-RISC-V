@@ -5,13 +5,14 @@ use IEEE.numeric_std.all;
 entity pulse_counter is
   Generic (
     SAMPLES : INTEGER range 1 to 10 := 5; -- numero de muestras que se toman para hacer la media
-    FREC : INTEGER range 0 to 1e9 := 100000000 -- frecuencia de conteo entre 10Mhz y 1Ghz
+    FREC : INTEGER range 0 to 1e9 := 1000000 -- frecuencia de conteo entre 10Mhz y 1Ghz
   );
   Port ( 
     CLK   : in std_logic;
     RESET : in std_logic;
     PULSE : in STD_LOGIC; -- pulso entrante procedente del sensor hall
-    RPM : out std_logic_vector(19 downto 0) 
+    VUELTAS : out std_logic_vector(19 downto 0); -- vector de 20 bits
+    RPM : out std_logic_vector(19 downto 0)
   );
 end pulse_counter;
 
@@ -33,12 +34,14 @@ architecture Behavioral of pulse_counter is
   signal count_per_rev_frec : integer := 0;
   signal time_per_rev : integer := 0;
   signal rpm_v : integer := 0;
-
+  signal sig_vueltas : integer := 0;
+  
 begin
 
   counter_time: process(CLK, RESET)
   begin
     if RESET = '0' then
+      sig_vueltas <= 0;
       state <= STOP;
       counter <= 0;
       pulse_count <= 0;
@@ -69,12 +72,13 @@ begin
           end if;
 
         when CALCULATE_S0 =>
+          sig_vueltas <= sig_vueltas + 1;
           avg_count <= total / SAMPLES;
           pulse_count <= 0;
           next_state <= CALCULATE_S1;
 
         when CALCULATE_S1 =>
-          count_per_rev <= avg_count * 3;
+          count_per_rev <= avg_count;
           next_state <= CALCULATE_S2;
 
         when CALCULATE_S2 =>
@@ -90,6 +94,8 @@ begin
           next_state <= STOP;
       end case;
     end if;
+
+    VUELTAS <= std_logic_vector(to_unsigned(sig_vueltas/8, 20));
 
     RPM <= std_logic_vector(to_unsigned(rpm_v, 20)); 
 
