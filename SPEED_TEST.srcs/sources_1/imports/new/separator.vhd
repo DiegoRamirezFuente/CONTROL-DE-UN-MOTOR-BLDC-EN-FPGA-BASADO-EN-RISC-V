@@ -43,34 +43,34 @@ end separator;
 
 architecture Behavioural of separator is
 
-signal s_input : integer range 0 to 99999999 := 0;
-signal s_digit1, s_digit2, s_digit3, s_digit4 : integer range 0 to 9;
-signal s_digit5, s_digit6, s_digit7, s_digit8 : integer range 0 to 9;
-
 begin
 
     process(input)
+        variable s_digit1, s_digit2, s_digit3, s_digit4 : integer range 0 to 9;
+        variable s_digit5, s_digit6, s_digit7, s_digit8 : integer range 0 to 9;
+        variable s_input : integer range 0 to 99999999 := 0;
     begin
-        s_input <= to_integer(unsigned(input));
-        s_digit1 <= s_input mod 10;
-        s_digit2 <= (s_input/10) mod 10;
-        s_digit3 <= (s_input/100) mod 10;
-        s_digit4 <= (s_input/1000) mod 10;
-        s_digit5 <= (s_input/10000) mod 10;
-        s_digit6 <= (s_input/100000) mod 10;
-        s_digit7 <= (s_input/1000000) mod 10;
-        s_digit8 <= (s_input/10000000) mod 10;
+        s_input := to_integer(unsigned(input));
+        s_digit1 := s_input mod 10;
+        s_digit2 := (s_input/10) mod 10;
+        s_digit3 := (s_input/100) mod 10;
+        s_digit4 := (s_input/1000) mod 10;
+        s_digit5 := (s_input/10000) mod 10;
+        s_digit6 := (s_input/100000) mod 10;
+        s_digit7 := (s_input/1000000) mod 10;
+        s_digit8 := (s_input/10000000) mod 10;
         
+        digit1 <= std_logic_vector(to_unsigned(s_digit1,4));
+        digit2 <= std_logic_vector(to_unsigned(s_digit2,4));
+        digit3 <= std_logic_vector(to_unsigned(s_digit3,4));
+        digit4 <= std_logic_vector(to_unsigned(s_digit4,4));
+        
+        digit5 <= std_logic_vector(to_unsigned(s_digit5,4));
+        digit6 <= std_logic_vector(to_unsigned(s_digit6,4));
+        digit7 <= std_logic_vector(to_unsigned(s_digit7,4));
+        digit8 <= std_logic_vector(to_unsigned(s_digit8,4));
     end process;
     
-    digit1 <= std_logic_vector(to_unsigned(s_digit1,4));
-    digit2 <= std_logic_vector(to_unsigned(s_digit2,4));
-    digit3 <= std_logic_vector(to_unsigned(s_digit3,4));
-    digit4 <= std_logic_vector(to_unsigned(s_digit4,4));
     
-    digit5 <= std_logic_vector(to_unsigned(s_digit5,4));
-    digit6 <= std_logic_vector(to_unsigned(s_digit6,4));
-    digit7 <= std_logic_vector(to_unsigned(s_digit7,4));
-    digit8 <= std_logic_vector(to_unsigned(s_digit8,4));
     
 end Behavioural;

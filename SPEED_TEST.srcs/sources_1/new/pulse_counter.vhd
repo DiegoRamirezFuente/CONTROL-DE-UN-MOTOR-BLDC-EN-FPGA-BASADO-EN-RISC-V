@@ -5,7 +5,7 @@ use IEEE.numeric_std.all;
 entity pulse_counter is
   Generic (
     SAMPLES : INTEGER range 1 to 10 := 5; -- numero de muestras que se toman para hacer la media
-    FREC : INTEGER range 10e6 to 1e9 := 100000000 -- frecuencia de conteo entre 10Mhz y 1Ghz
+    FREC : INTEGER range 0 to 1e9 := 1000000 -- frecuencia de conteo entre 10Mhz y 1Ghz
   );
   Port ( 
     CLK   : in std_logic;
@@ -25,7 +25,7 @@ architecture Behavioral of pulse_counter is
 
   signal Flag : std_logic := '0';
 
-  constant MAX : std_logic_vector(19 downto 0) := (others => '1');
+  constant MAX : std_logic_vector(32 downto 0) := (others => '1');
 
   signal total : INTEGER := 0; -- almacena el sumatorio de las cuentas para hallar la media
   signal avg_count : INTEGER := 0; -- media de pulsos contados

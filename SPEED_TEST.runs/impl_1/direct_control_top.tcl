@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.runs/impl_1/direct_control_top.tcl"
+  variable script "C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.runs/impl_1/direct_control_top.tcl"
   variable category "vivado_impl"
 }
 
@@ -126,7 +126,7 @@ set rc [catch {
   set_param chipscope.maxJobs 2
   set_param runs.launchOptions { -jobs 4  }
   open_checkpoint direct_control_top_routed.dcp
-  set_property webtalk.parent_dir C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.cache/wt [current_project]
+  set_property webtalk.parent_dir C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.cache/wt [current_project]
 set_property TOP direct_control_top [current_fileset]
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }

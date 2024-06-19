@@ -16,6 +16,8 @@ end PID_TOPSENSOR;
 
 architecture Behavioral of PID_TOPSENSOR is
 signal STEP_s: std_logic;
+signal CLK2: std_logic;
+
 COMPONENT pulse_counter
   Port ( 
   CLK   : in std_logic;
@@ -24,6 +26,16 @@ COMPONENT pulse_counter
   RPM : out std_logic_vector(19 downto 0) 
   );
 END COMPONENT;
+
+COMPONENT GEN_FREC  
+PORT  
+( 
+  CLK    : IN STD_LOGIC; 
+  F_BASE    : IN INTEGER; 
+  FREC_OUT  : OUT STD_LOGIC 
+   
+); 
+END COMPONENT; 
 
 COMPONENT PID_HALLFSM
 Port(
@@ -36,23 +48,33 @@ Port(
     ERROR      : out std_logic
 );
 END COMPONENT;
+
 begin
+
+uut: GEN_FREC 
+PORT MAP
+( 
+  CLK => CLK, 
+  F_BASE => 99,
+  FREC_OUT => CLK2
+   
+);
 
 uut_PIDFSM: PID_HALLFSM PORT MAP(
 	RESET  =>RESET,
     A      =>A,
     B      =>B,        
     C      =>C,  
-    CLK    =>CLK,
+    CLK    =>CLK2,
     STEP   =>STEP_s,
     ERROR  =>ERROR
 
 );
 
 uut_PID_TIME: pulse_counter PORT MAP(
-  CLK       =>CLK,
+  CLK       =>CLK2,
   RESET     =>RESET,
-  PULSE     =>Step_s,
+  PULSE     =>A,
   RPM     =>Count
 );
 end Behavioral;

@@ -77,22 +77,20 @@ begin
         wait for CLK_PERIOD/2;
     end process;
 
-RESET_tb <='0', '1' after 4ms;
+RESET_tb <='0', '1' after 1*4ms;
 
 DUTY_PROCESS : process
     begin
         switch_tb <= "000000";
-        wait for 30 ms;
-        switch_tb <= "000001";
-        wait for 140 ms;
+        wait for 1*3 ms;
         switch_tb <= "000010";
-        wait for 140 ms;
+        wait for 1*14 ms;
         switch_tb <= "000100";
-        wait for 140 ms;
+        wait for 1*14 ms;
         switch_tb <= "001000";
-        wait for 140 ms;
+        wait for 1*14 ms;
         switch_tb <= "010000";
-        wait for 140 ms;
+        wait for 1*14 ms;
         switch_tb <= "100000";
         wait;
     end process;
@@ -101,15 +99,15 @@ clockA : process
     begin 
         
         A_tb <= '0';
-        wait for 0.5*PERIOD;
+        wait for 0.5*1*PERIOD;
         A_tb <= '1' ;
-        wait for 0.5*PERIOD;
+        wait for 0.5*1*PERIOD;
 end process;
 
 ---clockB
-B_tb <= transport A_tb after 1*(PERIOD/3) ;
+B_tb <= transport A_tb after 1*1*(PERIOD/3) ;
 ---clockC
-C_tb <= transport A_tb after 2*(PERIOD/3);
+C_tb <= transport A_tb after 1*2*(PERIOD/3);
 
 
 end testbench;

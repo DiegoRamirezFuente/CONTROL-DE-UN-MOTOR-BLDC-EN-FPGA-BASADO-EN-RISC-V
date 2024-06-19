@@ -4,31 +4,5 @@ Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot direct_control_top_tb_behav xil_defaultlib.direct_control_top_tb -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-3813] value in initialization depends on signal 'state' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:57]
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling architecture behavioral of entity xil_defaultlib.GEN_FREC [gen_frec_default]
-Compiling architecture behavioral of entity xil_defaultlib.SYNCHRNZR [synchrnzr_default]
-Compiling architecture behavioral of entity xil_defaultlib.Filter_HALL [filter_hall_default]
-Compiling architecture behavioral of entity xil_defaultlib.PID_HALLFSM [pid_hallfsm_default]
-Compiling architecture behavioral of entity xil_defaultlib.pulse_counter [pulse_counter_default]
-Compiling architecture behavioral of entity xil_defaultlib.PID_TOPSENSOR [pid_topsensor_default]
-Compiling architecture behavioral of entity xil_defaultlib.pwm_gen [\pwm_gen(frec=2000)\]
-Compiling architecture behavioral of entity xil_defaultlib.pwm_decod [pwm_decod_default]
-Compiling architecture behavioral of entity xil_defaultlib.pwm_top [pwm_top_default]
-Compiling architecture behavioral of entity xil_defaultlib.pid_gen [\pid_gen(kp=1)\]
-Compiling architecture behavioural of entity xil_defaultlib.separator [\separator(size=20)\]
-Compiling architecture dataflow of entity xil_defaultlib.decoder [decoder_default]
-Compiling architecture behavioral of entity xil_defaultlib.cambio_digsel [cambio_digsel_default]
-Compiling architecture behavioral of entity xil_defaultlib.top_display [\top_display(size=20)\]
-Compiling architecture behavioral of entity xil_defaultlib.direct_control_top [direct_control_top_default]
-Compiling architecture testbench of entity xil_defaultlib.direct_control_top_tb
-Built simulation snapshot direct_control_top_tb_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

@@ -21,7 +21,6 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -56,15 +55,15 @@ end direct_control_top;
 
 architecture Behavioral of direct_control_top is
 
-COMPONENT GEN_FREC  
-PORT  
-( 
-  CLK    : IN STD_LOGIC; 
-  F_BASE    : IN INTEGER; 
-  FREC_OUT  : OUT STD_LOGIC 
-   
-); 
-END COMPONENT; 
+
+component ralent
+  Port (
+    CLK : in std_logic;
+    RESET : in std_logic;
+    INPUT : in std_logic_vector(19 downto 0);
+    OUTPUT : out std_logic_vector(19 downto 0)
+  );
+end component;
 
     -- Declaración del componente pwm_top
     component pwm_top
@@ -106,24 +105,6 @@ COMPONENT PID_TOPSENSOR is
   ERROR:    out std_logic
   );
 END COMPONENT;
-
-COMPONENT pid_gen is
-Generic (
-    SIZE: integer range 10 to 15 := 13;
-    Kp : integer range 0 to 255 := 0; --constante proporcional del PID
-    Ki : integer range 0 to 255 := 0; --constante integral del PID
-    Kd : integer range 0 to 255 := 0; --constante derivativa del PID
-    FREC : integer := 100e6;
-    valSat : integer := 2000 -- valor saturación motor para WINDUP
-    );
-Port ( 
-    CLK : in STD_LOGIC; --senial de reloj
-    RESET: in STD_LOGIC; --reset asíncrono
-    SETVAL: in integer; --Valor de establecimiento 
-    sensVal : in  INTEGER; -- valor de realimentación recibido por el sensor
-    PID_OUT : out  integer -- salida del PID    
-    );
-end COMPONENT;
     
     component top_display
     Generic(SIZE : integer range 8 to 20 := 16);
@@ -144,22 +125,17 @@ end COMPONENT;
     
     signal ERROR1, ERROR2 :  std_logic;
     
-    signal pid_s : integer := 0;
-    signal SETVAL: integer; --Valor de establecimiento
-    signal rpm_s: integer := 0;
-    
-    signal CLK_PID: std_logic;
-    
+    signal RPM_r : std_logic_vector(19 downto 0);
+
 begin
 
-rpm_s <= to_integer(unsigned(RPM));
-
-    U6 : GEN_FREC PORT MAP(
-    CLK=> CLK,
-    F_BASE => 3400 , 
-    FREC_OUT=> CLK_PID
-    );
-
+uut: ralent PORT MAP(
+    CLK => CLK,
+    RESET => RESET,
+    INPUT => RPM,
+    OUTPUT => RPM_r
+  );
+    
     uut1_Filter: Filter_HALL PORT MAP(
       CLK       =>CLK,
       INPUT     =>A,
@@ -209,25 +185,10 @@ rpm_s <= to_integer(unsigned(RPM));
             EN1 => EN1,
             EN2 => EN2,
             EN3 => EN3,
-            DUTY => pid_s,
+            DUTY => DUTY,
             ESTADO => ESTADO,
             ERROR => ERROR2
         );
-        
-       PID_INST: pid_gen
-Generic map (
-    Kp => 1,
-    Ki => 0,
-    Kd => 0,
-    valSat=> Frecuencies  -- valor saturación motor para WINDUP
-    )
-Port map( 
-    CLK => CLK_PID,
-    RESET => RESET,
-    SETVAL => SETVAL,
-    sensVal =>rpm_s,
-    PID_OUT => pid_s
-    );
         
         -- Instancia del componente top_display
     DISPLAY_INST : top_display
@@ -237,23 +198,23 @@ Port map(
         Port map(
             clk_disp => CLK,
             reset_disp => RESET,
-            input => RPM, -- RPM se conecta a la entrada de display
+            input => RPM_r, -- RPM se conecta a la entrada de display
             v_sal => digctrl,
             segment => segment
         );
-        
-        
         
         EN1 <= '1';
         EN2 <= '1';
         EN3 <= '1';
 
-        SETVAL <= 500 when SWITCH = "000001" else --5%
-        1000 when SWITCH = "000010" else --20%
-        1500 when SWITCH = "000100" else --40%
-        2000 when SWITCH = "001000" else --60%
-        2500 when SWITCH = "010000" else --80%
-        3000 when SWITCH = "100000" else --100%
+        DUTY <= 100 when SWITCH = "000001" else --5%
+        400 when SWITCH = "000010" else --20%
+        800 when SWITCH = "000100" else --40%
+        1200 when SWITCH = "001000" else --60%
+        1600 when SWITCH = "010000" else --80%
+        2000 when SWITCH = "100000" else --100%
+        200 when SWITCH = "100001" else --10%
+        300 when SWITCH = "100010" else --10%
         0;
         
         ERROR <= ERROR1 or ERROR2;

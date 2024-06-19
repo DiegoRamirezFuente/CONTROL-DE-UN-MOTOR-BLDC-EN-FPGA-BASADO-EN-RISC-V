@@ -3,18 +3,18 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Wed Jun 12 13:21:54 2024
-# Process ID: 14428
-# Current directory: C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.runs/synth_1
+# Start of session at: Mon Jun 17 20:01:28 2024
+# Process ID: 1564
+# Current directory: C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.runs/synth_1
 # Command line: vivado.exe -log direct_control_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source direct_control_top.tcl
-# Log file: C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.runs/synth_1/direct_control_top.vds
-# Journal file: C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.runs/synth_1\vivado.jou
+# Log file: C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.runs/synth_1/direct_control_top.vds
+# Journal file: C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.runs/synth_1\vivado.jou
 # Running On: LAPTOP-VRI1VQ46, OS: Windows, CPU Frequency: 2400 MHz, CPU Physical cores: 4, Host memory: 8506 MB
 #-----------------------------------------------------------
 source direct_control_top.tcl -notrace
-create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:10 . Memory (MB): peak = 462.340 ; gain = 197.641
-Command: read_checkpoint -auto_incremental -incremental C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/utils_1/imports/synth_1/pwm_top.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/utils_1/imports/synth_1/pwm_top.dcp for incremental synthesis
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 462.145 ; gain = 198.328
+Command: read_checkpoint -auto_incremental -incremental C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/utils_1/imports/synth_1/pwm_top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/utils_1/imports/synth_1/pwm_top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top direct_control_top -part xc7a100tcsg324-1
 Starting synth_design
@@ -25,113 +25,92 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 15008
+INFO: [Synth 8-7075] Helper process launched with PID 19152
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1295.332 ; gain = 411.410
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:11 . Memory (MB): peak = 1294.555 ; gain = 411.473
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'direct_control_top' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:57]
-INFO: [Synth 8-3491] module 'GEN_FREC' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/gen_frec.vhd:7' bound to instance 'U6' of component 'GEN_FREC' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'GEN_FREC' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/gen_frec.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'GEN_FREC' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/gen_frec.vhd:18]
-INFO: [Synth 8-3491] module 'Filter_HALL' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/Filter_HALL.vhd:35' bound to instance 'uut1_Filter' of component 'Filter_HALL' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:163]
-INFO: [Synth 8-638] synthesizing module 'Filter_HALL' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/Filter_HALL.vhd:46]
+INFO: [Synth 8-638] synthesizing module 'direct_control_top' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:56]
+INFO: [Synth 8-3491] module 'ralent' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/ralent.vhd:37' bound to instance 'uut' of component 'ralent' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:132]
+INFO: [Synth 8-638] synthesizing module 'ralent' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/ralent.vhd:46]
+INFO: [Synth 8-256] done synthesizing module 'ralent' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/ralent.vhd:46]
+INFO: [Synth 8-3491] module 'Filter_HALL' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/Filter_HALL.vhd:35' bound to instance 'uut1_Filter' of component 'Filter_HALL' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:139]
+INFO: [Synth 8-638] synthesizing module 'Filter_HALL' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/Filter_HALL.vhd:46]
 	Parameter Delay bound to: 10 - type: integer 
-INFO: [Synth 8-3491] module 'SYNCHRNZR' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/SYNCHRNZR.vhd:13' bound to instance 'uut' of component 'SYNCHRNZR' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/Filter_HALL.vhd:60]
-INFO: [Synth 8-638] synthesizing module 'SYNCHRNZR' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/SYNCHRNZR.vhd:21]
-INFO: [Synth 8-256] done synthesizing module 'SYNCHRNZR' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/SYNCHRNZR.vhd:21]
-INFO: [Synth 8-256] done synthesizing module 'Filter_HALL' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/Filter_HALL.vhd:46]
-INFO: [Synth 8-3491] module 'Filter_HALL' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/Filter_HALL.vhd:35' bound to instance 'uut2_Filter' of component 'Filter_HALL' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:168]
-INFO: [Synth 8-3491] module 'Filter_HALL' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/Filter_HALL.vhd:35' bound to instance 'uut3_Filter' of component 'Filter_HALL' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:173]
-INFO: [Synth 8-3491] module 'PID_TOPSENSOR' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/PID_TOPSENSOR.vhd:5' bound to instance 'HALL_INST' of component 'PID_TOPSENSOR' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:183]
-INFO: [Synth 8-638] synthesizing module 'PID_TOPSENSOR' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/PID_TOPSENSOR.vhd:17]
-INFO: [Synth 8-3491] module 'PID_HALLFSM' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/PID_HALLFSM.vhd:6' bound to instance 'uut_PIDFSM' of component 'PID_HALLFSM' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/PID_TOPSENSOR.vhd:41]
-INFO: [Synth 8-638] synthesizing module 'PID_HALLFSM' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/PID_HALLFSM.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'PID_HALLFSM' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/PID_HALLFSM.vhd:18]
-INFO: [Synth 8-3491] module 'pulse_counter' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pulse_counter.vhd:5' bound to instance 'uut_PID_TIME' of component 'pulse_counter' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/PID_TOPSENSOR.vhd:52]
-INFO: [Synth 8-638] synthesizing module 'pulse_counter' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pulse_counter.vhd:18]
-WARNING: [Synth 8-614] signal 'rpm_v' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pulse_counter.vhd:39]
-INFO: [Synth 8-256] done synthesizing module 'pulse_counter' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pulse_counter.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'PID_TOPSENSOR' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/PID_TOPSENSOR.vhd:17]
+INFO: [Synth 8-3491] module 'SYNCHRNZR' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/SYNCHRNZR.vhd:13' bound to instance 'uut' of component 'SYNCHRNZR' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/Filter_HALL.vhd:60]
+INFO: [Synth 8-638] synthesizing module 'SYNCHRNZR' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/SYNCHRNZR.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'SYNCHRNZR' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/SYNCHRNZR.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'Filter_HALL' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/Filter_HALL.vhd:46]
+INFO: [Synth 8-3491] module 'Filter_HALL' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/Filter_HALL.vhd:35' bound to instance 'uut2_Filter' of component 'Filter_HALL' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:144]
+INFO: [Synth 8-3491] module 'Filter_HALL' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/Filter_HALL.vhd:35' bound to instance 'uut3_Filter' of component 'Filter_HALL' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:149]
+INFO: [Synth 8-3491] module 'PID_TOPSENSOR' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/PID_TOPSENSOR.vhd:5' bound to instance 'HALL_INST' of component 'PID_TOPSENSOR' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:159]
+INFO: [Synth 8-638] synthesizing module 'PID_TOPSENSOR' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/PID_TOPSENSOR.vhd:17]
+INFO: [Synth 8-3491] module 'GEN_FREC' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/gen_frec.vhd:7' bound to instance 'uut' of component 'GEN_FREC' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/PID_TOPSENSOR.vhd:54]
+INFO: [Synth 8-638] synthesizing module 'GEN_FREC' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/gen_frec.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'GEN_FREC' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/gen_frec.vhd:18]
+INFO: [Synth 8-3491] module 'PID_HALLFSM' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/PID_HALLFSM.vhd:6' bound to instance 'uut_PIDFSM' of component 'PID_HALLFSM' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/PID_TOPSENSOR.vhd:63]
+INFO: [Synth 8-638] synthesizing module 'PID_HALLFSM' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/PID_HALLFSM.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'PID_HALLFSM' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/PID_HALLFSM.vhd:18]
+INFO: [Synth 8-3491] module 'pulse_counter' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/pulse_counter.vhd:5' bound to instance 'uut_PID_TIME' of component 'pulse_counter' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/PID_TOPSENSOR.vhd:74]
+INFO: [Synth 8-638] synthesizing module 'pulse_counter' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/pulse_counter.vhd:18]
+WARNING: [Synth 8-7193] Integer conversion function is truncating input [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/pulse_counter.vhd:58]
+WARNING: [Synth 8-614] signal 'rpm_v' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/pulse_counter.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'pulse_counter' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/pulse_counter.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'PID_TOPSENSOR' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/PID_TOPSENSOR.vhd:17]
 	Parameter Frecuencies bound to: 2000 - type: integer 
 	Parameter SIZE bound to: 16 - type: integer 
-INFO: [Synth 8-3491] module 'pwm_top' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:34' bound to instance 'PWM_INST' of component 'pwm_top' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:195]
-INFO: [Synth 8-638] synthesizing module 'pwm_top' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:56]
+INFO: [Synth 8-3491] module 'pwm_top' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:34' bound to instance 'PWM_INST' of component 'pwm_top' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:171]
+INFO: [Synth 8-638] synthesizing module 'pwm_top' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:56]
 	Parameter Frecuencies bound to: 2000 - type: integer 
 	Parameter SIZE bound to: 16 - type: integer 
 	Parameter FREC bound to: 2000 - type: integer 
 	Parameter SIZE bound to: 16 - type: integer 
-INFO: [Synth 8-3491] module 'pwm_gen' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_gen.vhd:36' bound to instance 'uut_PWM_Generator' of component 'pwm_gen' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:95]
-INFO: [Synth 8-638] synthesizing module 'pwm_gen' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_gen.vhd:50]
+INFO: [Synth 8-3491] module 'pwm_gen' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_gen.vhd:36' bound to instance 'uut_PWM_Generator' of component 'pwm_gen' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:95]
+INFO: [Synth 8-638] synthesizing module 'pwm_gen' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_gen.vhd:50]
 	Parameter FREC bound to: 2000 - type: integer 
 	Parameter SIZE bound to: 16 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'pwm_gen' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_gen.vhd:50]
-INFO: [Synth 8-3491] module 'pwm_decod' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_decod.vhd:35' bound to instance 'uut_pwm_decod' of component 'pwm_decod' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:109]
-INFO: [Synth 8-638] synthesizing module 'pwm_decod' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_decod.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'pwm_gen' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_gen.vhd:50]
+INFO: [Synth 8-3491] module 'pwm_decod' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_decod.vhd:35' bound to instance 'uut_pwm_decod' of component 'pwm_decod' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:109]
+INFO: [Synth 8-638] synthesizing module 'pwm_decod' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_decod.vhd:53]
 	Parameter DELAY bound to: 4 - type: integer 
-WARNING: [Synth 8-614] signal 'abc' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_decod.vhd:64]
-INFO: [Synth 8-256] done synthesizing module 'pwm_decod' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_decod.vhd:53]
-INFO: [Synth 8-256] done synthesizing module 'pwm_top' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:56]
-	Parameter Kp bound to: 10 - type: integer 
-	Parameter Ki bound to: 1 - type: integer 
-	Parameter Kd bound to: 0 - type: integer 
-	Parameter valSat bound to: 2000 - type: integer 
-INFO: [Synth 8-3491] module 'pid_gen' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:35' bound to instance 'PID_INST' of component 'pid_gen' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:217]
-INFO: [Synth 8-638] synthesizing module 'pid_gen' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:53]
-	Parameter SIZE bound to: 13 - type: integer 
-	Parameter Kp bound to: 10 - type: integer 
-	Parameter Ki bound to: 1 - type: integer 
-	Parameter Kd bound to: 0 - type: integer 
-	Parameter FREC bound to: 100000000 - type: integer 
-	Parameter valSat bound to: 2000 - type: integer 
-WARNING: [Synth 8-614] signal 'sensVal' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:95]
-WARNING: [Synth 8-614] signal 'SETVAL' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:95]
-WARNING: [Synth 8-614] signal 'sAdc' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:95]
-WARNING: [Synth 8-614] signal 'uk1' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:95]
-WARNING: [Synth 8-614] signal 'q1' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:95]
-WARNING: [Synth 8-614] signal 'ek' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:95]
-WARNING: [Synth 8-614] signal 'q2' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:95]
-WARNING: [Synth 8-614] signal 'ek1' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:95]
-WARNING: [Synth 8-614] signal 'q3' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:95]
-WARNING: [Synth 8-614] signal 'ek2' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:95]
-WARNING: [Synth 8-614] signal 'uk' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:95]
-INFO: [Synth 8-256] done synthesizing module 'pid_gen' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:53]
+WARNING: [Synth 8-614] signal 'abc' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_decod.vhd:64]
+INFO: [Synth 8-256] done synthesizing module 'pwm_decod' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_decod.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'pwm_top' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:56]
 	Parameter SIZE bound to: 20 - type: integer 
-INFO: [Synth 8-3491] module 'top_display' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:14' bound to instance 'DISPLAY_INST' of component 'top_display' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:233]
-INFO: [Synth 8-638] synthesizing module 'top_display' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:24]
+INFO: [Synth 8-3491] module 'top_display' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:14' bound to instance 'DISPLAY_INST' of component 'top_display' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:194]
+INFO: [Synth 8-638] synthesizing module 'top_display' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:24]
 	Parameter SIZE bound to: 20 - type: integer 
 	Parameter SIZE bound to: 20 - type: integer 
-INFO: [Synth 8-3491] module 'separator' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/separator.vhd:35' bound to instance 'separador_de_cifras1' of component 'separator' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:73]
-INFO: [Synth 8-638] synthesizing module 'separator' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/separator.vhd:44]
+INFO: [Synth 8-3491] module 'separator' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/separator.vhd:35' bound to instance 'separador_de_cifras1' of component 'separator' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:73]
+INFO: [Synth 8-638] synthesizing module 'separator' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/separator.vhd:44]
 	Parameter SIZE bound to: 20 - type: integer 
-WARNING: [Synth 8-614] signal 's_input' is read in the process but is not in the sensitivity list [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/separator.vhd:52]
-INFO: [Synth 8-256] done synthesizing module 'separator' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/separator.vhd:44]
-INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_unidades' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:88]
-INFO: [Synth 8-638] synthesizing module 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:11]
-INFO: [Synth 8-256] done synthesizing module 'decoder' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:11]
-INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_decenas' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:93]
-INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_centenas' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:98]
-INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_millares' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:103]
-INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_unidades2' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:108]
-INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_decenas2' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:113]
-INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_centenas2' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:118]
-INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_millares2' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:123]
-INFO: [Synth 8-3491] module 'cambio_digsel' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/cambio_digsel.vhd:24' bound to instance 'gestion_digsel' of component 'cambio_digsel' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:128]
-INFO: [Synth 8-638] synthesizing module 'cambio_digsel' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/cambio_digsel.vhd:40]
-INFO: [Synth 8-256] done synthesizing module 'cambio_digsel' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/cambio_digsel.vhd:40]
-INFO: [Synth 8-256] done synthesizing module 'top_display' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:24]
-INFO: [Synth 8-256] done synthesizing module 'direct_control_top' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:57]
-WARNING: [Synth 8-3848] Net EN1 in module/entity pwm_top does not have driver. [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:49]
-WARNING: [Synth 8-3848] Net EN2 in module/entity pwm_top does not have driver. [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:49]
-WARNING: [Synth 8-3848] Net EN3 in module/entity pwm_top does not have driver. [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:49]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-35.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-57.0 with 1st driver pin 'PWM_INST/EN1' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:35]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-35.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-57.0 with 2nd driver pin 'VCC' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:35]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-35.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-57.0 is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:35]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-35.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-57.0 with 1st driver pin 'PWM_INST/EN2' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:35]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-35.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-57.0 with 2nd driver pin 'VCC' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:35]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-35.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-57.0 is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:35]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-35.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-57.0 with 1st driver pin 'PWM_INST/EN3' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:35]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-35.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-57.0 with 2nd driver pin 'VCC' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:35]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-35.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-57.0 is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:35]
+INFO: [Synth 8-256] done synthesizing module 'separator' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/separator.vhd:44]
+INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_unidades' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:88]
+INFO: [Synth 8-638] synthesizing module 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'decoder' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:11]
+INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_decenas' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:93]
+INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_centenas' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:98]
+INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_millares' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:103]
+INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_unidades2' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:108]
+INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_decenas2' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:113]
+INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_centenas2' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:118]
+INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_millares2' of component 'decoder' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:123]
+INFO: [Synth 8-3491] module 'cambio_digsel' declared at 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/cambio_digsel.vhd:24' bound to instance 'gestion_digsel' of component 'cambio_digsel' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:128]
+INFO: [Synth 8-638] synthesizing module 'cambio_digsel' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/cambio_digsel.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'cambio_digsel' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/cambio_digsel.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'top_display' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/top_display.vhd:24]
+INFO: [Synth 8-256] done synthesizing module 'direct_control_top' (0#1) [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:56]
+WARNING: [Synth 8-3848] Net EN1 in module/entity pwm_top does not have driver. [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:49]
+WARNING: [Synth 8-3848] Net EN2 in module/entity pwm_top does not have driver. [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:49]
+WARNING: [Synth 8-3848] Net EN3 in module/entity pwm_top does not have driver. [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/imports/new/pwm_top.vhd:49]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-34.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-56.0 with 1st driver pin 'PWM_INST/EN1' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:34]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-34.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-56.0 with 2nd driver pin 'VCC' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:34]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-34.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-56.0 is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:34]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-34.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-56.0 with 1st driver pin 'PWM_INST/EN2' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:34]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-34.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-56.0 with 2nd driver pin 'VCC' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:34]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-34.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-56.0 is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:34]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-34.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-56.0 with 1st driver pin 'PWM_INST/EN3' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:34]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-34.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-56.0 with 2nd driver pin 'VCC' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:34]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-34.0, C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd-56.0 is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/direct_control_top.vhd:34]
 WARNING: [Synth 8-3917] design direct_control_top has port EN1 driven by constant 1
 WARNING: [Synth 8-3917] design direct_control_top has port EN2 driven by constant 1
 WARNING: [Synth 8-3917] design direct_control_top has port EN3 driven by constant 1
@@ -140,50 +119,50 @@ WARNING: [Synth 8-7129] Port EN1 in module pwm_top is either unconnected or has 
 WARNING: [Synth 8-7129] Port EN2 in module pwm_top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port EN3 in module pwm_top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:13 . Memory (MB): peak = 1392.066 ; gain = 508.145
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:15 . Memory (MB): peak = 1390.234 ; gain = 507.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:13 . Memory (MB): peak = 1392.066 ; gain = 508.145
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:15 . Memory (MB): peak = 1390.234 ; gain = 507.152
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:13 . Memory (MB): peak = 1392.066 ; gain = 508.145
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:15 . Memory (MB): peak = 1390.234 ; gain = 507.152
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1392.066 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 1390.234 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
-Finished Parsing XDC File [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/direct_control_top_propImpl.xdc].
+Parsing XDC File [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
+Finished Parsing XDC File [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/direct_control_top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/direct_control_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1498.160 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1450.434 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1498.160 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1450.434 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:29 . Memory (MB): peak = 1498.160 ; gain = 614.238
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1450.434 ; gain = 567.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:29 . Memory (MB): peak = 1498.160 ; gain = 614.238
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1450.434 ; gain = 567.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:29 . Memory (MB): peak = 1498.160 ; gain = 614.238
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1450.434 ; gain = 567.352
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'pulse_counter'
 ---------------------------------------------------------------------------------------------------
@@ -196,18 +175,8 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'pulse
             calculate_s3 |                            10000 |                              100
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'pulse_counter'
-WARNING: [Synth 8-327] inferring latch for variable 'uk_aux_reg' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:124]
-WARNING: [Synth 8-327] inferring latch for variable 'uk_reg' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:98]
-WARNING: [Synth 8-327] inferring latch for variable 'ek_reg' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:100]
-WARNING: [Synth 8-327] inferring latch for variable 'q1_reg' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:110]
-WARNING: [Synth 8-327] inferring latch for variable 'ek1_reg' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:101]
-WARNING: [Synth 8-327] inferring latch for variable 'q2_reg' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:112]
-WARNING: [Synth 8-327] inferring latch for variable 'ek2_reg' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:102]
-WARNING: [Synth 8-327] inferring latch for variable 'q3_reg' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:114]
-WARNING: [Synth 8-327] inferring latch for variable 'uk1_reg' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:99]
-WARNING: [Synth 8-327] inferring latch for variable 'sAdc_reg' [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.srcs/sources_1/new/pid_gen.vhd:106]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:30 . Memory (MB): peak = 1498.160 ; gain = 614.238
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1450.434 ; gain = 567.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -215,37 +184,36 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input   32 Bit       Adders := 4     
-	   4 Input   32 Bit       Adders := 1     
-	   3 Input   32 Bit       Adders := 1     
 	   2 Input   31 Bit       Adders := 2     
-	   2 Input   28 Bit       Adders := 1     
+	   2 Input   26 Bit       Adders := 1     
+	   2 Input   21 Bit       Adders := 1     
 	   2 Input   17 Bit       Adders := 1     
 	   2 Input   16 Bit       Adders := 1     
 	   2 Input    4 Bit       Adders := 3     
 +---Registers : 
 	               32 Bit    Registers := 5     
-	               28 Bit    Registers := 1     
+	               26 Bit    Registers := 1     
+	               21 Bit    Registers := 1     
+	               20 Bit    Registers := 1     
 	               17 Bit    Registers := 1     
 	               16 Bit    Registers := 1     
 	                8 Bit    Registers := 1     
 	                7 Bit    Registers := 1     
-	                4 Bit    Registers := 4     
+	                4 Bit    Registers := 3     
 	                3 Bit    Registers := 2     
 	                2 Bit    Registers := 4     
 	                1 Bit    Registers := 13    
 +---Multipliers : 
 	               4x32  Multipliers := 1     
 	               7x32  Multipliers := 1     
-	              32x32  Multipliers := 3     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 3     
-	   5 Input   32 Bit        Muxes := 3     
-	  12 Input   32 Bit        Muxes := 5     
+	   5 Input   32 Bit        Muxes := 2     
+	   2 Input   32 Bit        Muxes := 1     
 	   2 Input   31 Bit        Muxes := 2     
-	   2 Input   28 Bit        Muxes := 1     
-	   7 Input   18 Bit        Muxes := 1     
+	   2 Input   26 Bit        Muxes := 1     
+	   2 Input   21 Bit        Muxes := 1     
+	   9 Input   17 Bit        Muxes := 1     
 	   2 Input   16 Bit        Muxes := 1     
-	   2 Input   12 Bit        Muxes := 1     
 	   9 Input    8 Bit        Muxes := 1     
 	   7 Input    6 Bit        Muxes := 1     
 	   4 Input    3 Bit        Muxes := 21    
@@ -253,13 +221,11 @@ Detailed RTL Component Info :
 	   7 Input    3 Bit        Muxes := 2     
 	   5 Input    3 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 6     
+	   2 Input    1 Bit        Muxes := 4     
 	   6 Input    1 Bit        Muxes := 1     
-	   3 Input    1 Bit        Muxes := 2     
-	   5 Input    1 Bit        Muxes := 6     
+	   5 Input    1 Bit        Muxes := 3     
 	   7 Input    1 Bit        Muxes := 1     
 	   8 Input    1 Bit        Muxes := 5     
-	  12 Input    1 Bit        Muxes := 9     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -276,80 +242,26 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-DSP Report: Generating DSP uk3, operation Mode is: A*B.
-DSP Report: operator uk3 is absorbed into DSP uk3.
-DSP Report: operator uk3 is absorbed into DSP uk3.
-DSP Report: Generating DSP uk3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator uk3 is absorbed into DSP uk3.
-DSP Report: operator uk3 is absorbed into DSP uk3.
-DSP Report: Generating DSP uk3, operation Mode is: A*B.
-DSP Report: operator uk3 is absorbed into DSP uk3.
-DSP Report: operator uk3 is absorbed into DSP uk3.
-DSP Report: Generating DSP uk3, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator uk3 is absorbed into DSP uk3.
-DSP Report: operator uk3 is absorbed into DSP uk3.
-DSP Report: Generating DSP uk2, operation Mode is: A*B.
-DSP Report: operator uk2 is absorbed into DSP uk2.
-DSP Report: operator uk2 is absorbed into DSP uk2.
-DSP Report: Generating DSP uk2, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator uk2 is absorbed into DSP uk2.
-DSP Report: operator uk2 is absorbed into DSP uk2.
-DSP Report: Generating DSP uk2, operation Mode is: A*B.
-DSP Report: operator uk2 is absorbed into DSP uk2.
-DSP Report: operator uk2 is absorbed into DSP uk2.
-DSP Report: Generating DSP uk2, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator uk2 is absorbed into DSP uk2.
-DSP Report: operator uk2 is absorbed into DSP uk2.
-DSP Report: Generating DSP uk1, operation Mode is: A*B.
-DSP Report: operator uk1 is absorbed into DSP uk1.
-DSP Report: operator uk1 is absorbed into DSP uk1.
-DSP Report: Generating DSP uk1, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator uk1 is absorbed into DSP uk1.
-DSP Report: operator uk1 is absorbed into DSP uk1.
-DSP Report: Generating DSP uk1, operation Mode is: A*B.
-DSP Report: operator uk1 is absorbed into DSP uk1.
-DSP Report: operator uk1 is absorbed into DSP uk1.
-DSP Report: Generating DSP uk1, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator uk1 is absorbed into DSP uk1.
-DSP Report: operator uk1 is absorbed into DSP uk1.
+DSP Report: Generating DSP rpm_v0, operation Mode is: A2*(B:0x3c).
+DSP Report: register count_per_rev_frec_reg is absorbed into DSP rpm_v0.
+DSP Report: operator rpm_v0 is absorbed into DSP rpm_v0.
+WARNING: [Synth 8-3936] Found unconnected internal register 'HALL_INST/uut_PIDFSM/STEP_s_reg' and it is trimmed from '2' to '1' bits. [C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.srcs/sources_1/new/PID_HALLFSM.vhd:43]
 WARNING: [Synth 8-3917] design direct_control_top has port EN1 driven by constant 1
 WARNING: [Synth 8-3917] design direct_control_top has port EN2 driven by constant 1
 WARNING: [Synth 8-3917] design direct_control_top has port EN3 driven by constant 1
-WARNING: [Synth 8-7129] Port reset_disp in module top_display is either unconnected or has no load
-WARNING: [Synth 8-7129] Port EN1 in module pwm_top is either unconnected or has no load
-WARNING: [Synth 8-7129] Port EN2 in module pwm_top is either unconnected or has no load
-WARNING: [Synth 8-7129] Port EN3 in module pwm_top is either unconnected or has no load
-WARNING: [Synth 8-3332] Sequential element (PID_INST/ek_reg[1]) is unused and will be removed from module direct_control_top.
-WARNING: [Synth 8-3332] Sequential element (PID_INST/q1_reg[16]) is unused and will be removed from module direct_control_top.
-WARNING: [Synth 8-3332] Sequential element (PID_INST/ek1_reg[1]) is unused and will be removed from module direct_control_top.
-WARNING: [Synth 8-3332] Sequential element (PID_INST/q2_reg[16]) is unused and will be removed from module direct_control_top.
-WARNING: [Synth 8-3332] Sequential element (PID_INST/ek2_reg[1]) is unused and will be removed from module direct_control_top.
-WARNING: [Synth 8-3332] Sequential element (PID_INST/q3_reg[16]) is unused and will be removed from module direct_control_top.
-WARNING: [Synth 8-3332] Sequential element (PID_INST/sAdc_reg[1]) is unused and will be removed from module direct_control_top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:59 . Memory (MB): peak = 1540.719 ; gain = 656.797
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:01:11 . Memory (MB): peak = 1537.652 ; gain = 654.570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
-+------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|pid_gen     | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++--------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name   | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|pulse_counter | A2*(B:0x3c) | 21     | 7      | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 0    | 
++--------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
@@ -359,19 +271,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:01:19 . Memory (MB): peak = 1540.719 ; gain = 656.797
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:01:29 . Memory (MB): peak = 1537.652 ; gain = 654.570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:01:19 . Memory (MB): peak = 1540.719 ; gain = 656.797
+Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:01:29 . Memory (MB): peak = 1537.652 ; gain = 654.570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:01:21 . Memory (MB): peak = 1540.719 ; gain = 656.797
+Finished Technology Mapping : Time (s): cpu = 00:00:41 ; elapsed = 00:01:32 . Memory (MB): peak = 1562.434 ; gain = 679.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -389,56 +301,48 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:01:29 . Memory (MB): peak = 1547.871 ; gain = 663.949
+Finished IO Insertion : Time (s): cpu = 00:00:45 ; elapsed = 00:01:41 . Memory (MB): peak = 1577.246 ; gain = 694.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:01:29 . Memory (MB): peak = 1547.871 ; gain = 663.949
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:45 ; elapsed = 00:01:41 . Memory (MB): peak = 1577.246 ; gain = 694.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:01:30 . Memory (MB): peak = 1547.871 ; gain = 663.949
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:46 ; elapsed = 00:01:41 . Memory (MB): peak = 1577.246 ; gain = 694.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:01:30 . Memory (MB): peak = 1547.871 ; gain = 663.949
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:46 ; elapsed = 00:01:42 . Memory (MB): peak = 1577.246 ; gain = 694.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:01:30 . Memory (MB): peak = 1547.871 ; gain = 663.949
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:46 ; elapsed = 00:01:42 . Memory (MB): peak = 1577.246 ; gain = 694.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:01:30 . Memory (MB): peak = 1547.871 ; gain = 663.949
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:46 ; elapsed = 00:01:42 . Memory (MB): peak = 1577.246 ; gain = 694.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 DSP Final Report (the ' indicates corresponding REG is set)
-+------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|pid_gen     | A*B          | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B          | 4      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | PCIN>>17+A*B | 4      | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B          | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B          | 7      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | PCIN>>17+A*B | 7      | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B          | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B          | 0      | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | PCIN>>17+A*B | 0      | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++--------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name   | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|pulse_counter | (A'*B)'     | 30     | 6      | -      | -      | 28     | 1    | 0    | -    | -    | -     | 0    | 1    | 
++--------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 
 Report BlackBoxes: 
@@ -451,47 +355,45 @@ Report Cell Usage:
 +------+--------+------+
 |      |Cell    |Count |
 +------+--------+------+
-|1     |BUFG    |     4|
-|2     |CARRY4  |   533|
-|3     |DSP48E1 |     9|
-|4     |LUT1    |   183|
-|5     |LUT2    |   646|
-|6     |LUT3    |   476|
-|7     |LUT4    |   356|
-|8     |LUT5    |   932|
-|9     |LUT6    |   506|
-|10    |FDCE    |   167|
+|1     |BUFG    |     2|
+|2     |CARRY4  |   424|
+|3     |DSP48E1 |     1|
+|4     |LUT1    |   141|
+|5     |LUT2    |   498|
+|6     |LUT3    |   408|
+|7     |LUT4    |   268|
+|8     |LUT5    |   691|
+|9     |LUT6    |   480|
+|10    |FDCE    |   192|
 |11    |FDPE    |    10|
-|12    |FDRE    |   163|
-|13    |LD      |   179|
-|14    |LDC     |     3|
-|15    |IBUF    |    11|
-|16    |OBUF    |    28|
+|12    |FDRE    |   113|
+|13    |LDC     |     3|
+|14    |IBUF    |    11|
+|15    |OBUF    |    28|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:01:30 . Memory (MB): peak = 1547.871 ; gain = 663.949
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:46 ; elapsed = 00:01:42 . Memory (MB): peak = 1577.246 ; gain = 694.164
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 25 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:01:26 . Memory (MB): peak = 1547.871 ; gain = 557.855
-Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:01:30 . Memory (MB): peak = 1547.871 ; gain = 663.949
+Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:37 ; elapsed = 00:01:38 . Memory (MB): peak = 1577.246 ; gain = 633.965
+Synthesis Optimization Complete : Time (s): cpu = 00:00:46 ; elapsed = 00:01:42 . Memory (MB): peak = 1577.246 ; gain = 694.164
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.060 . Memory (MB): peak = 1561.980 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 724 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.086 . Memory (MB): peak = 1587.793 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 428 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1567.422 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1592.492 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 182 instances were transformed.
-  LD => LDCE: 179 instances
+  A total of 3 instances were transformed.
   LDC => LDCE: 3 instances
 
-Synth Design complete | Checksum: b833010
+Synth Design complete | Checksum: 19b01af5
 INFO: [Common 17-83] Releasing license: Synthesis
-76 Infos, 49 Warnings, 9 Critical Warnings and 0 Errors encountered.
+76 Infos, 18 Warnings, 9 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:01:38 . Memory (MB): peak = 1567.422 ; gain = 1081.090
+synth_design: Time (s): cpu = 00:00:50 ; elapsed = 00:01:54 . Memory (MB): peak = 1592.492 ; gain = 1105.480
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-INFO: [Common 17-1381] The checkpoint 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM_PID/SPEED_TEST.runs/synth_1/direct_control_top.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/diego/TFG/SPEED_TEST_MEN_FSM/SPEED_TEST.runs/synth_1/direct_control_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file direct_control_top_utilization_synth.rpt -pb direct_control_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Jun 12 13:23:45 2024...
+INFO: [Common 17-206] Exiting Vivado at Mon Jun 17 20:03:44 2024...
