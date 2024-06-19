@@ -19,11 +19,15 @@ signal STEP_s: std_logic;
 signal CLK2: std_logic;
 
 COMPONENT pulse_counter
+  Generic (
+    SAMPLES : INTEGER range 1 to 10 := 5; -- numero de muestras que se toman para hacer la media
+    FREC : INTEGER range 0 to 1e9 := 1000000 -- frecuencia de conteo entre 10Mhz y 1Ghz
+  );
   Port ( 
-  CLK   : in std_logic;
-  RESET : in std_logic;
-  PULSE : in STD_LOGIC; --pulso entrante procedente del sensor hall
-  RPM : out std_logic_vector(19 downto 0) 
+    CLK   : in std_logic;
+    RESET : in std_logic;
+    PULSE : in STD_LOGIC; -- pulso entrante procedente del sensor hall
+    RPM : out std_logic_vector(19 downto 0)
   );
 END COMPONENT;
 
@@ -65,16 +69,21 @@ uut_PIDFSM: PID_HALLFSM PORT MAP(
     A      =>A,
     B      =>B,        
     C      =>C,  
-    CLK    =>CLK2,
+    CLK    =>CLK,
     STEP   =>STEP_s,
     ERROR  =>ERROR
 
 );
 
-uut_PID_TIME: pulse_counter PORT MAP(
+uut_PID_TIME: pulse_counter 
+GENERIC MAP(
+    FREC => 100000000,
+    SAMPLES => 5
+)
+PORT MAP(
   CLK       =>CLK,
   RESET     =>RESET,
   PULSE     =>A,
-  RPM     =>Count
+  RPM     => Count
 );
 end Behavioral;
