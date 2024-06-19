@@ -44,7 +44,7 @@ entity ralent is
 end ralent;
 
 architecture Behavioral of ralent is
-  constant CLK_FREQUENCY: integer := 50000000; 
+  constant CLK_FREQUENCY: integer := 25000000; 
   constant DELAY_COUNT: integer := CLK_FREQUENCY;
   
   signal counter: integer range 0 to DELAY_COUNT - 1 := 0;

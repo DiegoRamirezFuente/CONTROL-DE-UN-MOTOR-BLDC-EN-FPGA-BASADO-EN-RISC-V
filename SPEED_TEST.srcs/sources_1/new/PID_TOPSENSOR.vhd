@@ -72,7 +72,7 @@ uut_PIDFSM: PID_HALLFSM PORT MAP(
 );
 
 uut_PID_TIME: pulse_counter PORT MAP(
-  CLK       =>CLK2,
+  CLK       =>CLK,
   RESET     =>RESET,
   PULSE     =>A,
   RPM     =>Count

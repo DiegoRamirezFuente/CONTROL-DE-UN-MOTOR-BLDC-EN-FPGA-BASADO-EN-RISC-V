@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Mon Jun 17 20:06:37 2024
+| Date             : Wed Jun 19 17:31:47 2024
 | Host             : LAPTOP-VRI1VQ46 running 64-bit major release  (build 9200)
 | Command          : report_power -file direct_control_top_power_routed.rpt -pb direct_control_top_power_summary_routed.pb -rpx direct_control_top_power_routed.rpx
 | Design           : direct_control_top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 67.713 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 75.747 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 66.916                           |
+| Dynamic (W)              | 74.950                           |
 | Device Static (W)        | 0.797                            |
 | Effective TJA (C/W)      | 4.6                              |
 | Max Ambient (C)          | 0.0                              |
@@ -52,17 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |    26.051 |     3249 |       --- |             --- |
-|   LUT as Logic |    23.555 |     2080 |     63400 |            3.28 |
-|   CARRY4       |     2.295 |      424 |     15850 |            2.68 |
-|   Register     |     0.187 |      318 |    126800 |            0.25 |
-|   BUFG         |     0.014 |        2 |        32 |            6.25 |
-|   Others       |     0.000 |       31 |       --- |             --- |
-| Signals        |    24.058 |     2618 |       --- |             --- |
-| DSPs           |     1.065 |        1 |       240 |            0.42 |
-| I/O            |    15.743 |       39 |       210 |           18.57 |
+| Slice Logic    |    31.094 |     3611 |       --- |             --- |
+|   LUT as Logic |    27.947 |     2313 |     63400 |            3.65 |
+|   CARRY4       |     2.908 |      512 |     15850 |            3.23 |
+|   Register     |     0.233 |      356 |    126800 |            0.28 |
+|   BUFG         |     0.006 |        1 |        32 |            3.13 |
+|   Others       |     0.000 |       29 |       --- |             --- |
+| Signals        |    28.275 |     2945 |       --- |             --- |
+| I/O            |    15.581 |       39 |       210 |           18.57 |
 | Static Power   |     0.797 |          |           |                 |
-| Total          |    67.713 |          |           |                 |
+| Total          |    75.747 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,9 +71,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |    51.776 |      51.213 |      0.563 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.668 |       0.575 |      0.093 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     4.449 |       4.445 |      0.004 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |    59.972 |      59.409 |      0.563 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.662 |       0.569 |      0.093 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     4.403 |       4.399 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -139,24 +138,24 @@ Table of Contents
 +--------------------------+-----------+
 | Name                     | Power (W) |
 +--------------------------+-----------+
-| direct_control_top       |    66.916 |
-|   DISPLAY_INST           |     0.572 |
-|     gestion_digsel       |     0.501 |
-|     separador_de_cifras1 |     0.070 |
-|   HALL_INST              |    49.322 |
-|     uut                  |     0.067 |
-|     uut_PIDFSM           |     0.044 |
-|     uut_PID_TIME         |    49.211 |
-|   PWM_INST               |     0.761 |
-|     uut_PWM_Generator    |     0.671 |
-|     uut_pwm_decod        |     0.090 |
-|   uut                    |     0.244 |
-|   uut1_Filter            |     0.061 |
-|     uut                  |     0.017 |
-|   uut2_Filter            |     0.050 |
-|     uut                  |     0.020 |
-|   uut3_Filter            |     0.053 |
+| direct_control_top       |    74.950 |
+|   DISPLAY_INST           |     0.500 |
+|     gestion_digsel       |     0.461 |
+|     separador_de_cifras1 |     0.039 |
+|   HALL_INST              |    57.613 |
+|     uut                  |     0.059 |
+|     uut_PIDFSM           |     0.039 |
+|     uut_PID_TIME         |    57.515 |
+|   PWM_INST               |     0.762 |
+|     uut_PWM_Generator    |     0.676 |
+|     uut_pwm_decod        |     0.087 |
+|   uut                    |     0.245 |
+|   uut1_Filter            |     0.060 |
+|     uut                  |     0.016 |
+|   uut2_Filter            |     0.052 |
 |     uut                  |     0.019 |
+|   uut3_Filter            |     0.051 |
+|     uut                  |     0.018 |
 +--------------------------+-----------+
 
 

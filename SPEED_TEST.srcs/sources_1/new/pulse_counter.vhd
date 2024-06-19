@@ -5,7 +5,7 @@ use IEEE.numeric_std.all;
 entity pulse_counter is
   Generic (
     SAMPLES : INTEGER range 1 to 10 := 5; -- numero de muestras que se toman para hacer la media
-    FREC : INTEGER range 0 to 1e9 := 1000000 -- frecuencia de conteo entre 10Mhz y 1Ghz
+    FREC : INTEGER range 0 to 1e9 := 100000000 -- frecuencia de conteo entre 10Mhz y 1Ghz
   );
   Port ( 
     CLK   : in std_logic;
@@ -74,7 +74,7 @@ begin
           next_state <= CALCULATE_S1;
 
         when CALCULATE_S1 =>
-          count_per_rev <= avg_count * 6;
+          count_per_rev <= avg_count * 3;
           next_state <= CALCULATE_S2;
 
         when CALCULATE_S2 =>
