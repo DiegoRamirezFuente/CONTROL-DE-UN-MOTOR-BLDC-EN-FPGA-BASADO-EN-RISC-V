@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 2
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -86,22 +87,24 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/hall_pulse_gen.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/hall_sensor_top.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_gen.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pid_top.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pulse_counter.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_decod.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_gen.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/pwm_top.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/sample_counter.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/PID_HALLFSM.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/pwm_decod.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/pwm_top.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/decoder.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/new/ralent.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/SYNCHRNZR.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/top_display.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/Filter_HALL.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/PID_TOPSENSOR.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/pid_gen.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/new/gen_frec.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/new/RampGenerator.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/cambio_digsel.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/pwm_gen.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/new/pid_top.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/new/pulse_counter.vhd
+  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/separator.vhd
   C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/SYNCHRNZR.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/new/Filter_HALL.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/top_display.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/cambio_digsel.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/separator.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/decoder.vhd
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

@@ -69,7 +69,7 @@ uut: SYNCHRNZR PORT MAP(
 FilterClock: process(CLK)
 begin
     if rising_edge(CLK) then
-    previnput<=SYNC_OUT_s;
+    previnput <= SYNC_OUT_s;
         if previnput/=SYNC_OUT_s then
             count<=(others=>'0');
         elsif unsigned(count)> conv_unsigned(Delay,32)-1 then

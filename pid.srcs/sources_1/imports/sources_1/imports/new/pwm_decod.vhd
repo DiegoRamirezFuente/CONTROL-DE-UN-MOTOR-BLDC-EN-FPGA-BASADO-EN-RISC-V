@@ -40,10 +40,12 @@ Port(
     CLK : in std_logic;
 	RESET : in std_logic;
     A, B, C : in std_logic;
-    PWM_IN_H, PWM_IN_L : in std_logic;
+    PWM_IN_H : in std_logic;
+    --PWM_IN_L : in std_logic;
     PWM_AH,PWM_BH,PWM_CH: out std_logic;
-    PWM_AL,PWM_BL,PWM_CL: out std_logic;
-    PWM_H,PWM_L : out std_logic;
+    --PWM_AL,PWM_BL,PWM_CL: out std_logic;
+    --PWM_H,PWM_L : out std_logic;
+    ESTADO : out std_logic_vector(5 downto 0);
     ERROR : out std_logic
 );
 end pwm_decod;
@@ -62,7 +64,7 @@ abc <= A & B & C;
 state_reg : process(CLK, RESET)
 begin
 
-    if RESET = '1' then
+    if RESET = '0' then
         case abc is
         WHEN "101" =>
             state <= S0;
@@ -166,26 +168,18 @@ end process;
    
    
    
-output_decod: process(RESET,state,PWM_IN_H,PWM_IN_L)
+output_decod: process(RESET,state,PWM_IN_H)
 begin
 
     ERROR <= '0';
     PWM_AH <='0';
-    PWM_AL  <='0';
     PWM_BH  <='0';
-    PWM_BL  <='0';
     PWM_CH  <='0';
-    PWM_CL  <='0'; 
-    PWM_H <=PWM_IN_H;
-    PWM_L <= PWM_IN_L;
 
-    if RESET = '1' then
+    if RESET = '0' then
     PWM_AH <= '0';
-    PWM_AL <= '0';
     PWM_BH <= '0';
-    PWM_BL <= '0';
-    PWM_CH <= '0';
-    PWM_CL <= '0';    
+    PWM_CH <= '0'; 
        
     else    
      
@@ -193,59 +187,38 @@ begin
         
         WHEN S0 =>
             PWM_AH <= '0';
-            PWM_AL <= '0';
             PWM_BH <= PWM_IN_H;
-            PWM_BL <= PWM_IN_L;
-            PWM_CH <= '0';
-            PWM_CL <= '1';     
+            PWM_CH <= '0';   
     
         WHEN S1 =>
             PWM_AH <= '0';
-            PWM_AL <= '1';
             PWM_BH <= PWM_IN_H;
-            PWM_BL <= PWM_IN_L;
-            PWM_CH <='0';
-            PWM_CL <='0';    
+            PWM_CH <='0';    
     
         WHEN S2 =>
             PWM_AH <= '0';
-            PWM_AL <= '1';
             PWM_BH <= '0';
-            PWM_BL <= '0';
-            PWM_CH <= PWM_IN_H;
-            PWM_CL <= PWM_IN_L;     
+            PWM_CH <= PWM_IN_H;    
     
         WHEN S3 =>
             PWM_AH <= '0';
-            PWM_AL <= '0';
             PWM_BH <= '0';
-            PWM_BL <= '1';
-            PWM_CH <= PWM_IN_H;
-            PWM_CL <= PWM_IN_L;    
+            PWM_CH <= PWM_IN_H;  
      
         WHEN S4 =>
             PWM_AH <= PWM_IN_H;
-            PWM_AL <= PWM_IN_L;
             PWM_BH <= '0';
-            PWM_BL <= '1';
-            PWM_CH <= '0';
-            PWM_CL <= '0';    
+            PWM_CH <= '0'; 
      
         WHEN S5 =>
             PWM_AH <= PWM_IN_H;
-            PWM_AL <= PWM_IN_L;
             PWM_BH <= '0';
-            PWM_BL <= '0';
             PWM_CH <= '0';
-            PWM_CL <= '1';
             
         WHEN S6 =>
             PWM_AH <= '0';
-            PWM_AL <= '0';
             PWM_BH <= '0';
-            PWM_BL <= '0';
-            PWM_CH <= '0';
-            PWM_CL <= '0';  
+            PWM_CH <= '0'; 
 
     ERROR <= '1';
     WHEN OTHERS =>        
@@ -253,4 +226,14 @@ begin
             
     end if;
 end process;
+
+with state select
+        ESTADO <= "000001" when S0, -- S0: LED 0 ON
+                  "000010" when S1, -- S1: LED 1 ON
+                  "000100" when S2, -- S2: LED 2 ON
+                  "001000" when S3, -- S3: LED 3 ON
+                  "010000" when S4, -- S4: LED 4 ON
+                  "100000" when S5, -- S5: LED 5 ON
+                  "000000" when others; -- Others: all LEDs OFF
+
 end architecture;

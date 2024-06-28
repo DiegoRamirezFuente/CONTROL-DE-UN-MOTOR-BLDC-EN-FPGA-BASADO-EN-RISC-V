@@ -28,6 +28,10 @@ entity cambio_digsel is
         segment_dec_in:in std_logic_vector(6 downto 0);
         segment_cen_in:in std_logic_vector(6 downto 0);
         segment_mil_in:in std_logic_vector(6 downto 0);
+        segment_uni2_in:in std_logic_vector(6 downto 0);
+        segment_dec2_in:in std_logic_vector(6 downto 0);
+        segment_cen2_in:in std_logic_vector(6 downto 0);
+        segment_mil2_in:in std_logic_vector(6 downto 0);
         digsel : out std_logic_vector(7 downto 0);
         segment_out:out std_logic_vector(6 downto 0)
     );
@@ -35,7 +39,6 @@ end cambio_digsel;
 
 architecture Behavioral of cambio_digsel is
     signal counter : integer range 0 to 1e5 := 0;--1e5=1ms
-    signal seg :std_logic_vector(6 downto 0);
 begin
     process(clk)
     begin
@@ -44,21 +47,32 @@ begin
             counter <= 0;
          else counter<=counter+1;
          end if;
-            if counter >= 25e3 and counter < 5e4  then
+            if counter >= 0 and counter < 125e2  then
                 digsel <= "11111110";
-                seg <= segment_uni_in;
-            elsif counter >= 5e4 and counter < 75e3  then
+                segment_out <= segment_uni_in;
+            elsif counter >= 125e2 and counter < 25e3  then
                 digsel <= "11111101";
-                seg <= segment_dec_in;   
-            elsif counter >= 5e4 and counter < 75e3  then
+                segment_out <= segment_dec_in;
+            elsif counter >= 25e3 and counter < 25e3+125e2  then
                 digsel <= "11111011";
-                seg <= segment_cen_in;
-            elsif counter >= 75e3 then
+                segment_out <= segment_cen_in;   
+            elsif counter >= 25e3+125e2 and counter < 50e3 then
                 digsel <= "11110111";
-                seg <= segment_mil_in;                       
+                segment_out <= segment_mil_in;
+                elsif counter >= 50e3 and counter < 50e3+125e2  then
+                digsel <= "11101111";
+                segment_out <= segment_uni2_in;
+            elsif counter >= 50e3+125e2  and counter < 75e3  then
+                digsel <= "11011111";
+                segment_out <= segment_dec2_in;   
+            elsif counter >= 75e3 and counter < 75e3+125e2 then
+                digsel <= "10111111";
+                segment_out <= segment_cen2_in;
+            elsif counter >= 75e3+125e2 then
+                digsel <= "01111111";
+                segment_out <= segment_mil2_in;                       
             else digsel <= "11111111";
             end if;
             end if;
-        segment_out <= seg;
     end process;
 end Behavioral;

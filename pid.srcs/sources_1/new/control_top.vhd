@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 26.02.2024 18:35:48
+-- Create Date: 05.06.2024 12:15:43
 -- Design Name: 
 -- Module Name: control_top - Behavioral
 -- Project Name: 
@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.numeric_std.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -32,104 +33,146 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity control_top is
-  Generic(
-    Frecuencies: integer range 1000 to 2500 := 1000;
-    SIZE: integer range 10 to 15 := 13;
-    TIMES: integer range 1 to 100 := 100;
-    Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
-    Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
-    Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
-    T : real := 10.0E-9
-  );
-  Port ( 
-    CLK : in std_logic;
-    RESET : in std_logic;
-    A, B, C : in std_logic;
-    SETVAL: in STD_LOGIC_VECTOR (SIZE-1 downto 0);
-    sensVal :STD_LOGIC_VECTOR (SIZE-1 downto 0);
-    PID_OUT : out std_logic_vector(SIZE-1 downto 0);
-    PWM_AH,PWM_BH,PWM_CH: out std_logic;
-    PWM_AL,PWM_BL,PWM_CL: out std_logic;
-    PWM_HIGH    : out std_logic;
-    PWM_LOW     : out std_logic;
-    v_sal : OUT std_logic_vector(7 DOWNTO 0);
-    segment : OUT std_logic_vector(6 DOWNTO 0);
-    ERROR      : out std_logic
-  );
+    Generic(
+        Frecuencies: integer range 1000 to 2500:= 2000; -- Valor de la frecuencia
+        SIZE_PWM: integer range 1 to 16:=16; -- Tamaño en bits para pwm_top
+        SIZE_HALL: integer range 8 to 16 := 16 -- Tamaño en bits para hall_sensor_top
+    );
+    Port (
+        CLK : in std_logic;
+        RESET : in std_logic;
+        A, B, C : in std_logic;
+        SWITCH : in std_logic_vector(5 downto 0);
+        PWM_AH, PWM_BH, PWM_CH : out std_logic;
+        EN1, EN2, EN3 : out std_logic;
+        ESTADO : out std_logic_vector(5 downto 0);
+        ERROR : out std_logic;
+        digctrl : out std_logic_vector(7 downto 0);
+        segment : out std_logic_vector(6 downto 0)
+    );
 end control_top;
+
+
 
 architecture Behavioral of control_top is
 
-  -- Instancias de las entidades
-  
-  COMPONENT Filter_HALL 
-  Generic(
-  Delay: integer:= 10      -- Delay*10^3
+
+component ralent
+  Port (
+    CLK : in std_logic;
+    RESET : in std_logic;
+    INPUT : in std_logic_vector(19 downto 0);
+    OUTPUT : out std_logic_vector(19 downto 0)
   );
-  Port ( 
-  CLK: in std_logic;
-  INPUT: in std_logic;
-  OUTPUT: out std_logic
-  );
-END COMPONENT;
-  
-  component pwm_top is
-    Generic(
-      Frecuencies: integer range 1000 to 2500 := 1000;
-      PWM_SIZE: integer range 10 to 15 := 13
-    );
-    Port ( 
-      CLK : in std_logic;
-      RESET : in std_logic;
-      Duty : in std_logic_vector(PWM_SIZE-1 DOWNTO 0);
-      A, B, C : in std_logic;
-      PWM_AH,PWM_BH,PWM_CH: out std_logic;
-      PWM_AL,PWM_BL,PWM_CL: out std_logic;
-      PWM_HIGH    : out std_logic;
-      PWM_LOW     : out std_logic;
-      ERROR      : out std_logic
-    );
-  end component;
+end component;
 
-  component pid_top is
-    Generic(
-      TIMES: integer range 1 to 100 := 100;
-      PID_SIZE: integer range 10 to 15 := 13;
-      Kp : real range 0.0 to 255.0 := 0.0; --constante proporcional del PID
-      Ki : real range 0.0 to 255.0 := 0.0; --constante integral del PID
-      Kd : real range 0.0 to 255.0 := 0.0; --constante derivativa del PID
-      T : real := 10.0E-9
-    );
-    Port ( 
-      CLK:    in std_logic;
-      RESET:  in std_logic;
-      A, B, C : in std_logic;
-      SETVAL: in STD_LOGIC_VECTOR (PID_SIZE-1 downto 0); -- Valor de establecimiento 
-      sensVal : in  STD_LOGIC_VECTOR (PID_SIZE-1 downto 0); -- Valor de realimentación recibido por el sensor
-      PID_OUT : out  STD_LOGIC_VECTOR (PID_SIZE-1 downto 0); -- Salida del PID    
-      RPM : out STD_LOGIC_VECTOR (PID_SIZE-1 downto 0)
-    );
-  end component;
+    -- Declaración del componente pwm_top
+    component pwm_top
+        Generic(
+            Frecuencies: integer range 1000 to 2500:= 2000; -- Valor de la frecuencia
+            SIZE: integer range 8 to 16 := 13 -- Tamaño en bits
+        );
+        Port (
+            CLK : in std_logic;
+            RESET : in std_logic;
+            A, B, C : in std_logic;
+            PWM_AH, PWM_BH, PWM_CH : out std_logic;
+            EN1, EN2, EN3 : out std_logic;
+            DUTY : in INTEGER;
+            ESTADO : out std_logic_vector(5 downto 0);
+            ERROR : out std_logic
+        );
+    end component;
+    
+    COMPONENT Filter_HALL 
+      Generic(
+      Delay: integer:= 10      -- Delay*10^3
+      );
+      Port ( 
+      CLK: in std_logic;
+      INPUT: in std_logic;
+      OUTPUT: out std_logic
+      );
+    END COMPONENT;
+    
+    COMPONENT PID_TOPSENSOR
+      Port ( 
+      CLK:      in std_logic;
+      RESET:    in std_logic;
+      A:        in std_logic;
+      B:        in std_logic;
+      C:        in std_logic;
+      Count:    out std_logic_vector(19 downto 0);
+      ERROR:    out std_logic
+      );
+    END COMPONENT;
+    
+    COMPONENT GEN_FREC  
+    PORT  
+    ( 
+      CLK    : IN STD_LOGIC; 
+      F_BASE    : IN INTEGER; 
+      FREC_OUT  : OUT STD_LOGIC 
+       
+    ); 
+    END COMPONENT; 
 
-COMPONENT top_display
- Generic(SIZE : integer range 10 to 15 := 13);
- PORT ( 
- clk_disp:in std_logic;
- reset_disp:in std_logic;
- input : in  std_logic_vector(SIZE-1 DOWNTO 0);
- v_sal : OUT std_logic_vector(7 DOWNTO 0);
- segment : OUT std_logic_vector(6 DOWNTO 0)
- );
-END COMPONENT;
+    COMPONENT pid_top is
+    Generic (
+        Kp : integer range 0 to 255 := 0; --constante proporcional del PID
+        Ki : integer range 0 to 255 := 0; --constante integral del PID
+        Kd : integer range 0 to 255 := 0; --constante derivativa del PID
+        FREC : integer := 10**8;
+        valSat : integer := 2000 -- valor saturación motor para WINDUP
+    );
+    Port (
+        CLK : in STD_LOGIC; -- senial de reloj
+        RESET : in STD_LOGIC; -- reset asíncrono
+        SETVAL : in integer; -- valor de establecimiento
+        SENSOR_VAL : in std_logic_vector(19 downto 0); -- valor de realimentación recibido por el sensor
+        PID_OUTPUT : out integer range 0 to 2000 -- salida del PID
+    );
+    END COMPONENT;
+    
+    component top_display
+    Generic(SIZE : integer range 8 to 20 := 16);
+     PORT ( 
+     clk_disp:in std_logic;
+     reset_disp:in std_logic;
+     input : in  std_logic_vector(SIZE-1 DOWNTO 0);
+     v_sal : OUT std_logic_vector(7 DOWNTO 0);
+     segment : OUT std_logic_vector(6 DOWNTO 0)
+     );
+   end component;
 
-signal feedback : std_logic_vector(SIZE-1 DOWNTO 0);
-signal As,Bs,Cs: std_logic;
+    signal As,Bs,Cs: std_logic;
+    signal An,Bn,Cn: std_logic;
+
+    signal CLK100Hz: std_logic;
+
+    signal DUTY : INTEGER;
+    
+    signal ERROR1, ERROR2 :  std_logic;
+    
+    signal RPM_r : std_logic_vector(19 downto 0);
+    signal RPM_s : std_logic_vector(19 downto 0);
+    
+    signal rev : std_logic_vector(19 downto 0);
+    signal dut_s : std_logic_vector(19 downto 0);
+    signal pid_out : INTEGER;
+    
+    signal SETVAL : integer;
 
 begin
 
-  -- Instanciación de las entidades
-  
-      uut1_Filter: Filter_HALL PORT MAP(
+uut: ralent PORT MAP(
+    CLK => CLK,
+    RESET => RESET,
+    INPUT => RPM_s,
+    OUTPUT => RPM_r
+  );
+    
+    uut1_Filter: Filter_HALL PORT MAP(
       CLK       =>CLK,
       INPUT     =>A,
       OUTPUT    =>As
@@ -144,59 +187,97 @@ begin
       INPUT     =>C,
       OUTPUT    =>Cs
     );
-  
-  pwm_inst: pwm_top
-    generic map(
-      Frecuencies => Frecuencies,
-      PWM_SIZE => SIZE
-    )
-    port map(
-      CLK => CLK,
-      RESET => RESET,
-      Duty => feedback,
-      A => As,
-      B => Bs,
-      C => Cs,
-      PWM_AH => PWM_AH,
-      PWM_BH => PWM_BH,
-      PWM_CH => PWM_CH,
-      PWM_AL => PWM_AL,
-      PWM_BL => PWM_BL,
-      PWM_CL => PWM_CL,
-      PWM_HIGH => PWM_HIGH,
-      PWM_LOW => PWM_LOW,
-      ERROR => ERROR
-    );
-
-  pid_inst: pid_top
-    generic map(
-      TIMES => TIMES,
-      PID_SIZE => SIZE,
-      Kp => Kp,
-      Ki => Ki,
-      Kd => Kd
-    )
-    port map(
-      CLK => CLK,
-      RESET => RESET,
-      A => As,
-      B => Bs,
-      C => Cs,
-      SETVAL => SETVAL,
-      sensVal => sensVal,
-      PID_OUT => PID_OUT,
-      RPM => feedback
-      
+    
+    An <= not As;
+    Bn <= not Bs;
+    Cn <= not Cs;
+    
+    HALL_INST : PID_TOPSENSOR
+        Port map(
+            CLK => CLK,
+            RESET => RESET,
+            A => An,
+            B => Bn,
+            C => Cn,
+            Count => rpm_s,
+            ERROR => ERROR1
+        );
+        
+    -- Instancia del componente pwm_top
+    PWM_INST : pwm_top
+        Generic map(
+            Frecuencies => Frecuencies,
+            SIZE => SIZE_PWM
+        )
+        Port map(
+            CLK => CLK,
+            RESET => RESET,
+            A => An,
+            B => Bn,
+            C => Cn,
+            PWM_AH => PWM_AH,
+            PWM_BH => PWM_BH,
+            PWM_CH => PWM_CH,
+            EN1 => EN1,
+            EN2 => EN2,
+            EN3 => EN3,
+            DUTY => DUTY,
+            ESTADO => ESTADO,
+            ERROR => ERROR2
+        );
+        
+        gen: GEN_FREC  
+    PORT MAP  
+    ( 
+      CLK    => CLK,
+      F_BASE  =>  10**6,
+      FREC_OUT  => CLK100Hz
+       
     );
     
-display:top_display
- Generic map(SIZE => SIZE)
- PORT MAP ( 
- clk_disp => CLK,
- reset_disp => RESET,
- input => feedback,
- v_sal => v_sal,
- segment => segment
- );
+        pid_top_inst : pid_top
+    generic map (
+        Kp => 1,
+        Ki => 0,
+        Kd => 0,
+        valSat => 2000
+    )
+    port map (
+        CLK => CLK100Hz,
+        RESET => RESET,
+        SETVAL => SETVAL,
+        SENSOR_VAL => rpm_s,
+        PID_OUTPUT => DUTY
+    );
+        
+        --dut_s <= std_logic_vector(to_unsigned(pid_out,20));
+        
+        -- Instancia del componente top_display
+    DISPLAY_INST : top_display
+        Generic map(
+            SIZE => 20
+        )
+        Port map(
+            clk_disp => CLK,
+            reset_disp => RESET,
+            input => rpm_r, -- RPM se conecta a la entrada de display
+            v_sal => digctrl,
+            segment => segment
+        );
+        
+        EN1 <= '1';
+        EN2 <= '1';
+        EN3 <= '1';
 
+        SETVAL <= 200 when SWITCH = "000001" else --5%
+        700 when SWITCH = "000010" else --20%
+        1000 when SWITCH = "000100" else --40%
+        1500 when SWITCH = "001000" else --60%
+        2000 when SWITCH = "010000" else --80%
+        2500 when SWITCH = "100000" else --100%
+        3000 when SWITCH = "100001" else --10%
+        4500 when SWITCH = "100010" else --10%
+        0;
+        
+        ERROR <= ERROR1 or ERROR2;
 end Behavioral;
