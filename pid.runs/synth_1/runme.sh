@@ -41,4 +41,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log control_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source control_top.tcl
+EAStep vivado -log neorv32_test_setup_diego.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source neorv32_test_setup_diego.tcl

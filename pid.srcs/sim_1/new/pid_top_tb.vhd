@@ -35,15 +35,15 @@ use IEEE.numeric_std.all;
 entity pid_top is
  Generic(
   TIMES: integer range 1 to 100 := 100;
-  SIZE: integer range 10 to 12 := 10;
-  Kp: integer range 0 to 255 := 0;
-  Ki: integer range 0 to 255 := 0;
-  Kd: integer range 0 to 255 := 0
+  SIZE: integer range 10 to 12 := 10
   );
   Port ( 
     CLK:    in std_logic;
     RESET:  in std_logic;
     A, B, C : in std_logic;
+    Kp: in integer range 0 to 255 := 0;
+    Ki: in integer range 0 to 255 := 0;
+    Kd: in integer range 0 to 255 := 0;
     SETVAL: in integer; --Valor de establecimiento 
     sensVal : in  INTEGER; -- valor de realimentación recibido por el sensor
     PID_OUT : out  STD_LOGIC_VECTOR (SIZE-1 downto 0); -- salida del PID    

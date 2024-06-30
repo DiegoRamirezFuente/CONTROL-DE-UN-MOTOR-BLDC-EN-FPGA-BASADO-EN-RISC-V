@@ -24,15 +24,15 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity pid_gen is
 Generic (
-    Kp : integer range 0 to 255 := 0; -- constante proporcional del PID
-    Ki : integer range 0 to 255 := 0; -- constante integral del PID
-    Kd : integer range 0 to 255 := 0; -- constante derivativa del PID
     T : integer := 100; -- 10ms FREC = 100Hz
     valSat : integer := 2000 -- valor saturación motor para WINDUP
     );
 Port ( 
     CLK : in STD_LOGIC; -- señal de reloj
     RESET: in STD_LOGIC; -- reset asíncrono
+    Kp : in integer range 0 to 255 := 0; -- constante proporcional del PID
+    Ki : in integer range 0 to 255 := 0; -- constante integral del PID
+    Kd : in integer range 0 to 255 := 0; -- constante derivativa del PID
     SETVAL: in integer; -- Valor de establecimiento 
     sensVal : in std_logic_vector(19 downto 0); -- valor de realimentación recibido por el sensor
     PID_OUT : out  integer -- salida del PID    

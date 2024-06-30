@@ -35,18 +35,22 @@ use IEEE.numeric_std.all;
 entity control_top is
     Generic(
         Frecuencies: integer range 1000 to 2500:= 2000; -- Valor de la frecuencia
+        FREC : integer := 10**8;
         SIZE_PWM: integer range 1 to 16:=16; -- Tamaño en bits para pwm_top
         SIZE_HALL: integer range 8 to 16 := 16 -- Tamaño en bits para hall_sensor_top
     );
     Port (
         CLK : in std_logic;
         RESET : in std_logic;
+        Kp : in integer range 0 to 255 := 0; --constante proporcional del PID
+        Ki : in integer range 0 to 255 := 0; --constante integral del PID
+        Kd : in integer range 0 to 255 := 0; --constante derivativa del PID
         A, B, C : in std_logic;
-        SWITCH : in std_logic_vector(5 downto 0);
         PWM_AH, PWM_BH, PWM_CH : out std_logic;
         EN1, EN2, EN3 : out std_logic;
         ESTADO : out std_logic_vector(5 downto 0);
         ERROR : out std_logic;
+        SETVAL : in integer; -- valor de establecimiento
         digctrl : out std_logic_vector(7 downto 0);
         segment : out std_logic_vector(6 downto 0)
     );
@@ -119,15 +123,15 @@ end component;
 
     COMPONENT pid_top is
     Generic (
-        Kp : integer range 0 to 255 := 0; --constante proporcional del PID
-        Ki : integer range 0 to 255 := 0; --constante integral del PID
-        Kd : integer range 0 to 255 := 0; --constante derivativa del PID
         FREC : integer := 10**8;
         valSat : integer := 2000 -- valor saturación motor para WINDUP
     );
     Port (
         CLK : in STD_LOGIC; -- senial de reloj
         RESET : in STD_LOGIC; -- reset asíncrono
+        Kp : in integer range 0 to 255 := 0; --constante proporcional del PID
+        Ki : in integer range 0 to 255 := 0; --constante integral del PID
+        Kd : in integer range 0 to 255 := 0; --constante derivativa del PID
         SETVAL : in integer; -- valor de establecimiento
         SENSOR_VAL : in std_logic_vector(19 downto 0); -- valor de realimentación recibido por el sensor
         PID_OUTPUT : out integer range 0 to 2000 -- salida del PID
@@ -160,8 +164,6 @@ end component;
     signal rev : std_logic_vector(19 downto 0);
     signal dut_s : std_logic_vector(19 downto 0);
     signal pid_out : INTEGER;
-    
-    signal SETVAL : integer;
 
 begin
 
@@ -237,14 +239,14 @@ uut: ralent PORT MAP(
     
         pid_top_inst : pid_top
     generic map (
-        Kp => 1,
-        Ki => 0,
-        Kd => 0,
         valSat => 2000
     )
     port map (
         CLK => CLK100Hz,
         RESET => RESET,
+        Kp => Kp,
+        Ki => Ki,
+        Kd => Kd,
         SETVAL => SETVAL,
         SENSOR_VAL => rpm_s,
         PID_OUTPUT => DUTY
@@ -268,16 +270,6 @@ uut: ralent PORT MAP(
         EN1 <= '1';
         EN2 <= '1';
         EN3 <= '1';
-
-        SETVAL <= 200 when SWITCH = "000001" else --5%
-        700 when SWITCH = "000010" else --20%
-        1000 when SWITCH = "000100" else --40%
-        1500 when SWITCH = "001000" else --60%
-        2000 when SWITCH = "010000" else --80%
-        2500 when SWITCH = "100000" else --100%
-        3000 when SWITCH = "100001" else --10%
-        4500 when SWITCH = "100010" else --10%
-        0;
         
         ERROR <= ERROR1 or ERROR2;
 end Behavioral;
