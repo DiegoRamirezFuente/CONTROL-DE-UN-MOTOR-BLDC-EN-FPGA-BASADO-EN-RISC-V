@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date             : Sun Jun 30 18:10:56 2024
+| Date             : Tue Jul  2 18:34:09 2024
 | Host             : LAPTOP-VRI1VQ46 running 64-bit major release  (build 9200)
 | Command          : report_power -file neorv32_test_setup_diego_power_routed.rpt -pb neorv32_test_setup_diego_power_summary_routed.pb -rpx neorv32_test_setup_diego_power_routed.rpx
 | Design           : neorv32_test_setup_diego
@@ -29,20 +29,20 @@ Table of Contents
 1. Summary
 ----------
 
-+--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 78.347 (Junction temp exceeded!) |
-| Design Power Budget (W)  | Unspecified*                     |
-| Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 77.548                           |
-| Device Static (W)        | 0.799                            |
-| Effective TJA (C/W)      | 4.6                              |
-| Max Ambient (C)          | 0.0                              |
-| Junction Temperature (C) | 125.0                            |
-| Confidence Level         | Low                              |
-| Setting File             | ---                              |
-| Simulation Activity File | ---                              |
-| Design Nets Matched      | NA                               |
-+--------------------------+----------------------------------+
++--------------------------+-----------------------------------+
+| Total On-Chip Power (W)  | 100.194 (Junction temp exceeded!) |
+| Design Power Budget (W)  | Unspecified*                      |
+| Power Budget Margin (W)  | NA                                |
+| Dynamic (W)              | 99.395                            |
+| Device Static (W)        | 0.799                             |
+| Effective TJA (C/W)      | 4.6                               |
+| Max Ambient (C)          | 0.0                               |
+| Junction Temperature (C) | 125.0                             |
+| Confidence Level         | Low                               |
+| Setting File             | ---                               |
+| Simulation Activity File | ---                               |
+| Design Nets Matched      | NA                                |
++--------------------------+-----------------------------------+
 * Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
 
 
@@ -52,20 +52,20 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Slice Logic              |    28.684 |     8258 |       --- |             --- |
-|   LUT as Logic           |    25.284 |     4542 |     63400 |            7.16 |
-|   CARRY4                 |     2.968 |      708 |     15850 |            4.47 |
-|   Register               |     0.424 |     1990 |    126800 |            1.57 |
+| Slice Logic              |    40.477 |     9657 |       --- |             --- |
+|   LUT as Logic           |    35.007 |     5630 |     63400 |            8.88 |
+|   CARRY4                 |     5.031 |      990 |     15850 |            6.25 |
+|   Register               |     0.429 |     2027 |    126800 |            1.60 |
 |   BUFG                   |     0.007 |        2 |        32 |            6.25 |
-|   F7/F8 Muxes            |    <0.001 |        8 |     63400 |            0.01 |
 |   LUT as Distributed RAM |    <0.001 |       24 |     19000 |            0.13 |
+|   F7/F8 Muxes            |    <0.001 |        8 |     63400 |            0.01 |
 |   Others                 |     0.000 |       64 |       --- |             --- |
-| Signals                  |    29.558 |     6698 |       --- |             --- |
-| Block RAM                |     0.536 |        3 |       135 |            2.22 |
-| DSPs                     |     4.390 |       11 |       240 |            4.58 |
-| I/O                      |    14.381 |       35 |       210 |           16.67 |
+| Signals                  |    40.298 |     7954 |       --- |             --- |
+| Block RAM                |     0.537 |        3 |       135 |            2.22 |
+| DSPs                     |     4.209 |       11 |       240 |            4.58 |
+| I/O                      |    13.875 |       35 |       210 |           16.67 |
 | Static Power             |     0.799 |          |           |                 |
-| Total                    |    78.347 |          |           |                 |
+| Total                    |   100.194 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,9 +75,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |    63.713 |      63.149 |      0.564 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.619 |       0.526 |      0.093 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     4.069 |       4.065 |      0.004 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |    86.066 |      85.502 |      0.564 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.601 |       0.508 |      0.093 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     3.925 |       3.921 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -142,32 +142,32 @@ Table of Contents
 +--------------------------------------------------------------------+-----------+
 | Name                                                               | Power (W) |
 +--------------------------------------------------------------------+-----------+
-| neorv32_test_setup_diego                                           |    77.548 |
-|   UUT                                                              |    43.655 |
-|     inst_cont                                                      |    43.655 |
-|       DISPLAY_INST                                                 |     0.488 |
-|       HALL_INST                                                    |    18.693 |
-|       PWM_INST                                                     |     0.792 |
-|       gen                                                          |     0.116 |
-|       pid_top_inst                                                 |    23.136 |
-|       uut                                                          |     0.263 |
-|       uut1_Filter                                                  |     0.055 |
-|       uut2_Filter                                                  |     0.055 |
-|       uut3_Filter                                                  |     0.053 |
-|   neorv32_top_inst                                                 |    19.369 |
-|     core_complex.neorv32_core_bus_switch_inst                      |     0.145 |
-|     core_complex.neorv32_cpu_inst                                  |    17.032 |
-|       neorv32_cpu_alu_inst                                         |     3.098 |
-|       neorv32_cpu_control_inst                                     |     9.170 |
-|       neorv32_cpu_lsu_inst                                         |     0.412 |
-|       neorv32_cpu_regfile_inst                                     |     4.153 |
-|     io_system.neorv32_gpio_inst_true.neorv32_gpio_inst             |     0.061 |
-|     io_system.neorv32_mtime_inst_true.neorv32_mtime_inst           |     0.717 |
-|     io_system.neorv32_uart0_inst_true.neorv32_uart0_inst           |     0.602 |
+| neorv32_test_setup_diego                                           |    99.395 |
+|   UUT                                                              |    67.778 |
+|     inst_cont                                                      |    67.778 |
+|       DISPLAY_INST                                                 |     0.496 |
+|       HALL_INST                                                    |    43.903 |
+|       PWM_INST                                                     |     0.851 |
+|       gen                                                          |     0.127 |
+|       pid_top_inst                                                 |    22.002 |
+|       uut                                                          |     0.228 |
+|       uut1_Filter                                                  |     0.053 |
+|       uut2_Filter                                                  |     0.059 |
+|       uut3_Filter                                                  |     0.052 |
+|   neorv32_top_inst                                                 |    17.595 |
+|     core_complex.neorv32_core_bus_switch_inst                      |     0.141 |
+|     core_complex.neorv32_cpu_inst                                  |    15.498 |
+|       neorv32_cpu_alu_inst                                         |     3.425 |
+|       neorv32_cpu_control_inst                                     |     8.943 |
+|       neorv32_cpu_lsu_inst                                         |     0.373 |
+|       neorv32_cpu_regfile_inst                                     |     2.524 |
+|     io_system.neorv32_gpio_inst_true.neorv32_gpio_inst             |     0.016 |
+|     io_system.neorv32_mtime_inst_true.neorv32_mtime_inst           |     0.804 |
+|     io_system.neorv32_uart0_inst_true.neorv32_uart0_inst           |     0.368 |
 |       rx_engine_fifo_inst                                          |     0.003 |
-|       tx_engine_fifo_inst                                          |     0.029 |
-|     memory_system.neorv32_int_dmem_inst_true.neorv32_int_dmem_inst |     0.468 |
-|     neorv32_bus_gateway_inst                                       |     0.169 |
+|       tx_engine_fifo_inst                                          |     0.011 |
+|     memory_system.neorv32_int_dmem_inst_true.neorv32_int_dmem_inst |     0.515 |
+|     neorv32_bus_gateway_inst                                       |     0.192 |
 +--------------------------------------------------------------------+-----------+
 
 
