@@ -4,6 +4,8 @@ use ieee.numeric_std.all;
 
 entity pid_top is
     Generic (
+        FREC : integer := 10**8;
+        SIZE : integer := 20;
         T : integer := 100;
         valSat : integer := 2000 -- valor saturación motor para WINDUP
     );
@@ -14,7 +16,7 @@ entity pid_top is
         Ki : in integer range 0 to 255 := 0; --constante integral del PID
         Kd : in integer range 0 to 255 := 0; --constante derivativa del PID
         SETVAL : in integer; -- valor de establecimiento
-        SENSOR_VAL : in std_logic_vector(19 downto 0); -- valor de realimentación recibido por el sensor
+        SENSOR_VAL : in std_logic_vector(SIZE-1 downto 0); -- valor de realimentación recibido por el sensor
         PID_OUTPUT : out integer range 0 to 2000 -- salida del PID
     );
 end pid_top;
@@ -33,6 +35,7 @@ END COMPONENT;
 COMPONENT pid_gen
 Generic (
     T : integer := 100;
+    SIZE : integer := 20;
     valSat : integer := 2000 -- valor saturación motor para WINDUP
     );
 Port ( 
@@ -42,7 +45,7 @@ Port (
     Ki : in integer range 0 to 255 := 0; --constante integral del PID
     Kd : in integer range 0 to 255 := 0; --constante derivativa del PID
     SETVAL: in integer; --Valor de establecimiento 
-    sensVal : in std_logic_vector(19 downto 0); -- valor de realimentación recibido por el sensor
+    sensVal : in std_logic_vector(SIZE-1 downto 0); -- valor de realimentación recibido por el sensor
     PID_OUT : out  integer -- salida del PID    
     );
 END COMPONENT;
@@ -52,17 +55,18 @@ END COMPONENT;
 begin
 
     -- Instancia del generador de rampa
-    RampGen_inst : RampGenerator
-        Port map (
-            CLK => CLK,
-            RESET => RESET,
-            SETVAL => SETVAL,
-            RAMPA => rampa_output
-        );
+--    RampGen_inst : RampGenerator
+--        Port map (
+--            CLK => CLK,
+--            RESET => RESET,
+--            SETVAL => SETVAL,
+--            RAMPA => rampa_output
+--        );
 
     -- Instancia del PID
     PIDGen_inst : pid_gen
         Generic map (
+            SIZE => SIZE,
             valSat => valSat
         )
         Port map (
@@ -71,7 +75,7 @@ begin
             Kp => Kp,
             Ki => Ki,
             Kd => Kd,
-            SETVAL => rampa_output, -- Conexión de la salida del generador de rampa a la entrada de SETVAL del PID
+            SETVAL => SETVAL, -- Conexión de la salida del generador de rampa a la entrada de SETVAL del PID
             sensVal => SENSOR_VAL,
             PID_OUT => PID_OUTPUT
         );

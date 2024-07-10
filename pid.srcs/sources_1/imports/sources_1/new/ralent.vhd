@@ -35,11 +35,12 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity ralent is
+  Generic (SIZE :  integer := 20);
   Port (
     CLK : in std_logic;
     RESET : in std_logic;
-    INPUT : in std_logic_vector(19 downto 0);
-    OUTPUT : out std_logic_vector(19 downto 0)
+    INPUT : in std_logic_vector(SIZE-1 downto 0);
+    OUTPUT : out std_logic_vector(SIZE-1 downto 0)
   );
 end ralent;
 
@@ -48,7 +49,7 @@ architecture Behavioral of ralent is
   constant DELAY_COUNT: integer := CLK_FREQUENCY;
   
   signal counter: integer range 0 to DELAY_COUNT - 1 := 0;
-  signal delayed_vector: std_logic_vector(19 downto 0);
+  signal delayed_vector: std_logic_vector(SIZE-1 downto 0);
 begin
   process (CLK, RESET)
   begin

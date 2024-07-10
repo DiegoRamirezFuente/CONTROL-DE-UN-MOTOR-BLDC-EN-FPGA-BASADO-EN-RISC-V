@@ -33,9 +33,9 @@ use ieee.numeric_std.all;
 --use UNISIM.VComponents.all;
 
 entity separator is
-    Generic(SIZE : integer range 8 to 20 := 8);
+    Generic(SIZE : integer := 8);
     port (
-        input : in  std_logic_vector(SIZE-1 DOWNTO 0);
+        input : in  std_ulogic_vector(SIZE-1 DOWNTO 0);
         digit1, digit2, digit3, digit4 : out std_logic_vector(3 DOWNTO 0);
         digit5, digit6, digit7, digit8 : out std_logic_vector(3 DOWNTO 0)
     );

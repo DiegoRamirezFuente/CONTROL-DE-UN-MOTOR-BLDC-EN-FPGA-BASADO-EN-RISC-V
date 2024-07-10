@@ -69,24 +69,30 @@ architecture riscv_soc_top_rtl of neorv32_test_setup_diego is
 COMPONENT top_gpio
     Generic(
         Frecuencies: integer range 1000 to 2500:= 2000; -- Valor de la frecuencia
-        SIZE : integer := 32
+        PIN_IN : integer range 0 to 64 := 40;
+        PIN_OUT : integer range 0 to 64 := 16
         );
     Port (
         CLK : in std_logic;
         RESET : in std_logic;
-        entrada : in std_ulogic_vector(SIZE-1 downto 0); -- Cambiado a std_ulogic_vector
+        entrada : in std_ulogic_vector(PIN_IN-1 downto 0); -- Cambiado a std_ulogic_vector
         A, B, C : in std_logic;
         PWM_AH, PWM_BH, PWM_CH : out std_logic;
         EN1, EN2, EN3 : out std_logic;
         ESTADO : out std_logic_vector(5 downto 0);
         ERROR : out std_logic;
         digctrl : out std_logic_vector(7 downto 0);
-        segment : out std_logic_vector(6 downto 0)
+        segment : out std_logic_vector(6 downto 0);
+        medida : inout std_ulogic_vector(PIN_OUT-1 downto 0) -- Cambiado a std_ulogic_vector
     );
 END COMPONENT;
 
+  constant P_IN : integer range 0 to 64 := 40;
+  constant P_OUT : integer range 0 to 64 := 16;
   signal con_gpio_o : std_ulogic_vector(63 downto 0);
-  signal led_s : std_ulogic_vector(39 downto 0);  -- LED array
+  signal con_gpio_i : std_ulogic_vector(63 downto 0);
+  signal led_s : std_ulogic_vector(P_IN-1 downto 0);  -- LED array
+  
 --  signal rgb_led_o  : std_ulogic_vector(2 downto 0);
 
 begin
@@ -108,7 +114,7 @@ begin
     MEM_INT_DMEM_EN              => true,              -- implement processor-internal data memory
     MEM_INT_DMEM_SIZE            => MEM_INT_DMEM_SIZE, -- size of processor-internal data memory in bytes
     -- Processor peripherals --
-    IO_GPIO_NUM                  => 40,                 -- number of GPIO input/output pairs (0..64)
+    IO_GPIO_NUM                  => P_OUT+P_IN,                 -- number of GPIO input/output pairs (0..64)
     IO_UART0_EN                  => true,              -- implement primary universal asynchronous receiver/transmitter (UART0)?
     --IO_UART0_TX_FIFO             => 16,                -- TX fifo depth, has to be a power of two, min 1
     IO_MTIME_EN                  => true               -- implement machine system timer (MTIME)?
@@ -121,15 +127,17 @@ begin
     uart0_txd_o => UART_RXD_OUT,
     uart0_rxd_i => UART_TXD_IN,
     -- GPIO (available if IO_GPIO_NUM > 0) --
-    gpio_o => con_gpio_o -- parallel output
+    gpio_o => con_gpio_o, -- parallel output
+    gpio_i => con_gpio_i -- parallel input
   );
   
-  led_s <= con_gpio_o(39 downto 0);
+  led_s <= con_gpio_o(P_IN-1 downto 0);
   
   UUT: top_gpio
     Generic map(
         Frecuencies => 2000,
-        SIZE => 40
+        PIN_OUT => P_OUT,
+        PIN_IN => P_IN
     )
     Port map (
         CLK => CLK100MHZ,
@@ -147,8 +155,10 @@ begin
         ESTADO => LED,
         ERROR => LED16_R,
         digctrl => AN,
-        segment => SEGMENT
+        segment => SEGMENT,
+        medida => con_gpio_i(P_IN+P_OUT-1 downto P_IN)
     );
+  
   
   
 end architecture;

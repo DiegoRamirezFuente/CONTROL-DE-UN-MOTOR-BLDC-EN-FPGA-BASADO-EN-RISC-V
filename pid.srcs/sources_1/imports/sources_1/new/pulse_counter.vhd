@@ -5,7 +5,7 @@ use IEEE.numeric_std.ALL;
 entity pulse_counter is
   Generic (
     SIZE : INTEGER := 20;
-    SAMPLES : INTEGER range 1 to 10 := 5; -- número de muestras que se toman para hacer la media
+    SAMPLES : INTEGER := 5; -- número de muestras que se toman para hacer la media
     FREC : INTEGER range 0 to 1e9 := 100000000 -- frecuencia de conteo entre 10MHz y 1GHz
   );
   Port ( 

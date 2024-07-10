@@ -12,11 +12,11 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 ENTITY top_display IS
-Generic(SIZE : integer range 8 to 20 := 8);
+Generic(SIZE : integer := 8);
  PORT ( 
  clk_disp:in std_logic;
  reset_disp:in std_logic;
- input : in  std_logic_vector(SIZE-1 DOWNTO 0);
+ input : in  std_ulogic_vector(SIZE-1 DOWNTO 0);
  v_sal : OUT std_logic_vector(7 DOWNTO 0);
  segment : OUT std_logic_vector(6 DOWNTO 0)
  );
@@ -47,9 +47,9 @@ COMPONENT cambio_digsel is
     END COMPONENT;
 
 COMPONENT separator
-    Generic(SIZE : integer range 8 to 20 := 8);
+    Generic(SIZE : integer := 8);
     port (
-        input : in  std_logic_vector(SIZE-1 DOWNTO 0);
+        input : in  std_ulogic_vector(SIZE-1 DOWNTO 0);
         digit1, digit2, digit3, digit4 : out std_logic_vector(3 DOWNTO 0);
         digit5, digit6, digit7, digit8 : out std_logic_vector(3 DOWNTO 0)
     );

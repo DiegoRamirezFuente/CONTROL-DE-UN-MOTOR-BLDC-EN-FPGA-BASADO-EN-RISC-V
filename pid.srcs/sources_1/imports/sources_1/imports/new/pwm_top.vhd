@@ -74,14 +74,13 @@ END COMPONENT;
 
 COMPONENT pwm_gen
 Generic (
-    FREC : integer range 1000 to 2500:= 2000; --Valor de la frecuencia FREC : integer range 1000 to 4800:= 4800;
+    FREC : integer range 1000 to 2500:= 1000; --Valor de la frecuencia FREC : integer range 1000 to 4800:= 4800;
     SIZE: integer range 1 to 16:=16 --tamanio en bits  SIZE: integer range 8 to 16:=13
 );
 Port (
     CLK : in STD_LOGIC; --reloj de la placa
     RESET : in STD_LOGIC; --reset negado asíncrono
-    DUTY : INTEGER; --salida del PID
-    --PWM_H, PWM_L : out STD_LOGIC;
+    DUTY : in INTEGER; --salida del PID
     PWM_OUT : out STD_LOGIC  
  );
 END COMPONENT;
