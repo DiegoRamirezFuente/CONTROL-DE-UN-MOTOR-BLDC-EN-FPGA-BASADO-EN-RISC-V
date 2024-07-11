@@ -14,7 +14,7 @@ ECHO est  desactivado.
     ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source neorv32_test_setup_diego.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 462.949 ; gain = 198.016
+create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 465.570 ; gain = 202.312
 Command: read_checkpoint -auto_incremental -incremental C:/Users/diego/TFG/pid/pid.srcs/utils_1/imports/synth_1/pid_gen.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/diego/TFG/pid/pid.srcs/utils_1/imports/synth_1/pid_gen.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -27,9 +27,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 28208
+INFO: [Synth 8-7075] Helper process launched with PID 26776
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1296.418 ; gain = 412.691
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 1297.633 ; gain = 413.430
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'neorv32_test_setup_diego' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/new/neorv32_test_setup_diego.vhd:67]
 	Parameter CLOCK_FREQUENCY bound to: 100000000 - type: integer 
@@ -457,14 +457,15 @@ WARNING: [Synth 8-7043] port width mismatch for port 'PID_OUT': port width = 32,
 INFO: [Synth 8-256] done synthesizing module 'pid_top' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/new/pid_top.vhd:24]
 WARNING: [Synth 8-7043] port width mismatch for port 'PID_OUTPUT': port width = 11, actual width = 32 (integer) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:261]
 INFO: [Synth 8-256] done synthesizing module 'control_top' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:62]
-	Parameter SIZE bound to: 16 - type: integer 
+	Parameter SIZE bound to: 40 - type: integer 
 INFO: [Synth 8-3491] module 'top_display' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/top_display.vhd:14' bound to instance 'DISPLAY_INST' of component 'top_display' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/new/top_gpio.vhd:141]
 INFO: [Synth 8-638] synthesizing module 'top_display' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/top_display.vhd:24]
-	Parameter SIZE bound to: 16 - type: integer 
-	Parameter SIZE bound to: 16 - type: integer 
+	Parameter SIZE bound to: 40 - type: integer 
+	Parameter SIZE bound to: 40 - type: integer 
 INFO: [Synth 8-3491] module 'separator' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/separator.vhd:35' bound to instance 'separador_de_cifras1' of component 'separator' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/top_display.vhd:73]
 INFO: [Synth 8-638] synthesizing module 'separator' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/separator.vhd:44]
-	Parameter SIZE bound to: 16 - type: integer 
+	Parameter SIZE bound to: 40 - type: integer 
+WARNING: [Synth 8-7193] Integer conversion function is truncating input [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/separator.vhd:53]
 INFO: [Synth 8-256] done synthesizing module 'separator' (0#1) [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/separator.vhd:44]
 INFO: [Synth 8-3491] module 'decoder' declared at 'C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/decoder.vhd:5' bound to instance 'display_unidades' of component 'decoder' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/top_display.vhd:88]
 INFO: [Synth 8-638] synthesizing module 'decoder' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/decoder.vhd:11]
@@ -525,7 +526,36 @@ CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin C:/Users/diego/TFG/pid/
 CRITICAL WARNING: [Synth 8-6858] multi-driven net C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd-35.0, C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd-62.0 is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:35]
 WARNING: [Synth 8-3848] Net digctrl in module/entity control_top does not have driver. [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:54]
 WARNING: [Synth 8-3848] Net segment in module/entity control_top does not have driver. [C:/Users/diego/TFG/pid/pid.srcs/sources_1/new/control_top.vhd:55]
+WARNING: [Synth 8-7129] Port input[39] in module separator is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[38] in module separator is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[37] in module separator is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[36] in module separator is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[35] in module separator is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[34] in module separator is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[33] in module separator is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[32] in module separator is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[31] in module separator is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[30] in module separator is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[29] in module separator is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[28] in module separator is either unconnected or has no load
+WARNING: [Synth 8-7129] Port input[27] in module separator is either unconnected or has no load
 WARNING: [Synth 8-7129] Port reset_disp in module top_display is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Ki[7] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Ki[6] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Ki[5] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Ki[4] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Ki[3] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Ki[2] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Ki[1] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Ki[0] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Kd[7] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Kd[6] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Kd[5] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Kd[4] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Kd[3] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Kd[2] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Kd[1] in module pid_gen is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Kd[0] in module pid_gen is either unconnected or has no load
 WARNING: [Synth 8-7129] Port EN1 in module pwm_top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port EN2 in module pwm_top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port EN3 in module pwm_top is either unconnected or has no load
@@ -596,49 +626,20 @@ WARNING: [Synth 8-7129] Port bus_req_i[data][13] in module neorv32_sysinfo is ei
 WARNING: [Synth 8-7129] Port bus_req_i[data][12] in module neorv32_sysinfo is either unconnected or has no load
 WARNING: [Synth 8-7129] Port bus_req_i[data][11] in module neorv32_sysinfo is either unconnected or has no load
 WARNING: [Synth 8-7129] Port bus_req_i[data][10] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[data][9] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[data][8] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[data][7] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[data][6] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[data][5] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[data][4] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[data][3] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[data][2] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[data][1] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[data][0] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[ben][3] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[ben][2] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[ben][1] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[ben][0] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[src] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[priv] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[rvso] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[fence] in module neorv32_sysinfo is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[addr][31] in module neorv32_uart is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[addr][30] in module neorv32_uart is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[addr][29] in module neorv32_uart is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[addr][28] in module neorv32_uart is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[addr][27] in module neorv32_uart is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[addr][26] in module neorv32_uart is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[addr][25] in module neorv32_uart is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[addr][24] in module neorv32_uart is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[addr][23] in module neorv32_uart is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[addr][22] in module neorv32_uart is either unconnected or has no load
-WARNING: [Synth 8-7129] Port bus_req_i[addr][21] in module neorv32_uart is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:11 . Memory (MB): peak = 1461.223 ; gain = 577.496
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:22 . Memory (MB): peak = 1462.230 ; gain = 578.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:11 . Memory (MB): peak = 1461.223 ; gain = 577.496
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:23 . Memory (MB): peak = 1462.230 ; gain = 578.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:11 . Memory (MB): peak = 1461.223 ; gain = 577.496
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:23 . Memory (MB): peak = 1462.230 ; gain = 578.027
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.156 . Memory (MB): peak = 1461.223 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.188 . Memory (MB): peak = 1462.230 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -649,28 +650,28 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/neorv32_test_setup_diego_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1490.391 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1572.730 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 1490.391 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 1572.730 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:21 . Memory (MB): peak = 1490.391 ; gain = 606.664
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:37 . Memory (MB): peak = 1572.730 ; gain = 688.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:21 . Memory (MB): peak = 1490.391 ; gain = 606.664
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:37 . Memory (MB): peak = 1572.730 ; gain = 688.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:21 . Memory (MB): peak = 1490.391 ; gain = 606.664
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:37 . Memory (MB): peak = 1572.730 ; gain = 688.527
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'fetch_engine_reg[state]' in module 'neorv32_cpu_control'
 INFO: [Synth 8-802] inferred FSM for state register 'execute_engine_reg[state]' in module 'neorv32_cpu_control'
@@ -732,9 +733,8 @@ INFO: [Synth 8-3354] encoded FSM with state register 'arbiter_reg[state]' using 
             calculate_s3 |                              100 |                              100
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'pulse_counter'
-WARNING: [Synth 8-327] inferring latch for variable 'pid_ctrl_type_reg' [C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/pid_gen.vhd:98]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:26 . Memory (MB): peak = 1490.391 ; gain = 606.664
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:42 . Memory (MB): peak = 1572.730 ; gain = 688.527
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -746,13 +746,12 @@ Detailed RTL Component Info :
 	   2 Input   32 Bit       Adders := 9     
 	 100 Input   32 Bit       Adders := 1     
 	   3 Input   32 Bit       Adders := 1     
-	   4 Input   32 Bit       Adders := 2     
+	   4 Input   32 Bit       Adders := 1     
 	   2 Input   31 Bit       Adders := 4     
 	   2 Input   28 Bit       Adders := 1     
 	   2 Input   25 Bit       Adders := 1     
-	   2 Input   20 Bit       Adders := 1     
 	   2 Input   17 Bit       Adders := 1     
-	   2 Input   16 Bit       Adders := 2     
+	   2 Input   16 Bit       Adders := 1     
 	   2 Input   10 Bit       Adders := 3     
 	   2 Input    7 Bit       Adders := 1     
 	   2 Input    5 Bit       Adders := 3     
@@ -801,11 +800,11 @@ Detailed RTL Component Info :
 	   2 Input   33 Bit        Muxes := 3     
 	   2 Input   32 Bit        Muxes := 62    
 	   3 Input   32 Bit        Muxes := 3     
-	   4 Input   32 Bit        Muxes := 10    
+	   4 Input   32 Bit        Muxes := 6     
 	  19 Input   32 Bit        Muxes := 1     
 	   5 Input   32 Bit        Muxes := 4     
 	   6 Input   32 Bit        Muxes := 1     
-	  13 Input   32 Bit        Muxes := 6     
+	  14 Input   32 Bit        Muxes := 5     
 	   2 Input   31 Bit        Muxes := 4     
 	   2 Input   29 Bit        Muxes := 1     
 	   2 Input   28 Bit        Muxes := 1     
@@ -838,7 +837,7 @@ Detailed RTL Component Info :
 	   4 Input    3 Bit        Muxes := 21    
 	   7 Input    3 Bit        Muxes := 2     
 	   2 Input    2 Bit        Muxes := 13    
-	   3 Input    2 Bit        Muxes := 2     
+	   3 Input    2 Bit        Muxes := 1     
 	   8 Input    2 Bit        Muxes := 1     
 	   4 Input    2 Bit        Muxes := 2     
 	   2 Input    1 Bit        Muxes := 195   
@@ -847,10 +846,11 @@ Detailed RTL Component Info :
 	   3 Input    1 Bit        Muxes := 12    
 	  15 Input    1 Bit        Muxes := 3     
 	   8 Input    1 Bit        Muxes := 8     
-	  13 Input    1 Bit        Muxes := 28    
+	  13 Input    1 Bit        Muxes := 17    
 	   5 Input    1 Bit        Muxes := 5     
 	  10 Input    1 Bit        Muxes := 1     
 	   4 Input    1 Bit        Muxes := 4     
+	  14 Input    1 Bit        Muxes := 11    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -867,10 +867,6 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-DSP Report: Generating DSP q02, operation Mode is: (A:0xf4240)*B.
-DSP Report: operator q02 is absorbed into DSP q02.
-DSP Report: Generating DSP q02, operation Mode is: (A:0x64)*B.
-DSP Report: operator q02 is absorbed into DSP q02.
 DSP Report: Generating DSP q01, operation Mode is: (A:0x3e8)*B.
 DSP Report: operator q01 is absorbed into DSP q01.
 DSP Report: Generating DSP uk_aux3, operation Mode is: A*B.
@@ -885,8 +881,6 @@ DSP Report: operator uk_aux3 is absorbed into DSP uk_aux3.
 DSP Report: Generating DSP uk_aux3, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: operator uk_aux3 is absorbed into DSP uk_aux3.
 DSP Report: operator uk_aux3 is absorbed into DSP uk_aux3.
-DSP Report: Generating DSP q12, operation Mode is: (A:0x1e8480)*B.
-DSP Report: operator q12 is absorbed into DSP q12.
 DSP Report: Generating DSP uk_aux2, operation Mode is: A*B.
 DSP Report: operator uk_aux2 is absorbed into DSP uk_aux2.
 DSP Report: operator uk_aux2 is absorbed into DSP uk_aux2.
@@ -911,12 +905,19 @@ DSP Report: operator uk_aux1 is absorbed into DSP uk_aux1.
 DSP Report: Generating DSP uk_aux1, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: operator uk_aux1 is absorbed into DSP uk_aux1.
 DSP Report: operator uk_aux1 is absorbed into DSP uk_aux1.
+DSP Report: Generating DSP num2, operation Mode is: A*(B:0xa).
+DSP Report: operator num2 is absorbed into DSP num2.
+DSP Report: Generating DSP num, operation Mode is: PCIN+A*(B:0x2710).
+DSP Report: operator num is absorbed into DSP num.
+DSP Report: operator num2 is absorbed into DSP num.
+DSP Report: Generating DSP num, operation Mode is: PCIN+A:B+C.
+DSP Report: operator num is absorbed into DSP num.
 WARNING: [Synth 8-3917] design neorv32_test_setup_diego has port EN1 driven by constant 1
 WARNING: [Synth 8-3917] design neorv32_test_setup_diego has port EN2 driven by constant 1
 WARNING: [Synth 8-3917] design neorv32_test_setup_diego has port EN3 driven by constant 1
 WARNING: [Synth 8-3332] Sequential element (core_complex.neorv32_core_bus_switch_inst/FSM_onehot_arbiter_reg[state][0]) is unused and will be removed from module neorv32_top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:01:14 . Memory (MB): peak = 1587.473 ; gain = 703.746
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:02:19 . Memory (MB): peak = 1742.391 ; gain = 858.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -954,26 +955,26 @@ Distributed RAM: Preliminary Mapping Report (see note below)
 Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
 
 DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
-+------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|pid_gen     | (A:0xf4240)*B  | 20     | 8      | -      | -      | 28     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (A:0x64)*B     | 8      | 15     | -      | -      | 23     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (A:0x3e8)*B    | 8      | 18     | -      | -      | 26     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (A:0x1e8480)*B | 21     | 8      | -      | -      | 29     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++-------------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name              | DSP Mapping       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-------------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|pid_gen                  | (A:0x3e8)*B       | 8      | 18     | -      | -      | 26     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | A*B               | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | (PCIN>>17)+A*B    | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | A*B               | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | (PCIN>>17)+A*B    | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | A*B               | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | (PCIN>>17)+A*B    | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | A*B               | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | (PCIN>>17)+A*B    | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | A*B               | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | (PCIN>>17)+A*B    | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | A*B               | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | (PCIN>>17)+A*B    | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|top_gpio                 | A*(B:0xa)         | 9      | 5      | -      | -      | 14     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|top_gpio                 | PCIN+A*(B:0x2710) | 17     | 15     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|neorv32_test_setup_diego | PCIN+A:B+C        | 14     | 18     | 48     | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
++-------------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
@@ -983,13 +984,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:01:25 . Memory (MB): peak = 1587.473 ; gain = 703.746
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:02:31 . Memory (MB): peak = 1742.391 ; gain = 858.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:01:25 . Memory (MB): peak = 1587.473 ; gain = 703.746
+Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:02:31 . Memory (MB): peak = 1742.391 ; gain = 858.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -1032,7 +1033,7 @@ INFO: [Synth 8-7052] The timing for the instance neorv32_top_inst/memory_system.
 INFO: [Synth 8-7052] The timing for the instance neorv32_top_inst/memory_system.neorv32_int_dmem_inst_true.neorv32_int_dmem_inst/mem_ram_b2_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance neorv32_top_inst/memory_system.neorv32_int_dmem_inst_true.neorv32_int_dmem_inst/mem_ram_b3_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:39 ; elapsed = 00:01:29 . Memory (MB): peak = 1587.719 ; gain = 703.992
+Finished Technology Mapping : Time (s): cpu = 00:00:42 ; elapsed = 00:02:36 . Memory (MB): peak = 1742.391 ; gain = 858.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1050,60 +1051,60 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:41 ; elapsed = 00:01:35 . Memory (MB): peak = 1587.719 ; gain = 703.992
+Finished IO Insertion : Time (s): cpu = 00:00:45 ; elapsed = 00:02:47 . Memory (MB): peak = 1742.391 ; gain = 858.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:41 ; elapsed = 00:01:35 . Memory (MB): peak = 1587.719 ; gain = 703.992
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:45 ; elapsed = 00:02:47 . Memory (MB): peak = 1742.391 ; gain = 858.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:01:36 . Memory (MB): peak = 1587.719 ; gain = 703.992
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:46 ; elapsed = 00:02:49 . Memory (MB): peak = 1742.391 ; gain = 858.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:41 ; elapsed = 00:01:36 . Memory (MB): peak = 1587.719 ; gain = 703.992
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:46 ; elapsed = 00:02:50 . Memory (MB): peak = 1742.391 ; gain = 858.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:41 ; elapsed = 00:01:36 . Memory (MB): peak = 1587.719 ; gain = 703.992
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:46 ; elapsed = 00:02:50 . Memory (MB): peak = 1742.391 ; gain = 858.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:01:36 . Memory (MB): peak = 1587.719 ; gain = 703.992
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:46 ; elapsed = 00:02:50 . Memory (MB): peak = 1742.391 ; gain = 858.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 DSP Final Report (the ' indicates corresponding REG is set)
-+------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|pid_gen     | A*B          | 20     | 8      | -      | -      | 28     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B          | 8      | 7      | -      | -      | 23     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B          | 8      | 10     | -      | -      | 26     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A'*B         | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A'*B'        | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | PCIN>>17+A*B | 0      | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A*B          | 21     | 8      | -      | -      | 29     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A'*B         | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A'*B'        | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | PCIN>>17+A*B | 0      | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A'*B         | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | A'*B'        | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|pid_gen     | PCIN>>17+A*B | 0      | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++-------------------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name              | DSP Mapping   | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-------------------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|top_gpio                 | A*B           | 8      | 4      | -      | -      | 14     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|top_gpio                 | PCIN+A*B      | 16     | 14     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|neorv32_test_setup_diego | PCIN+A:B+C    | 0      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | A*B           | 8      | 10     | -      | -      | 26     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | A'*B'         | 15     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | PCIN>>17+A'*B | 15     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | A*B'          | 0      | 17     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | PCIN>>17+A*B  | 0      | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | A'*B          | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | A*B'          | 0      | 17     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|pid_gen                  | PCIN>>17+A*B  | 0      | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++-------------------------+---------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 
 Report BlackBoxes: 
@@ -1117,52 +1118,50 @@ Report Cell Usage:
 |      |Cell     |Count |
 +------+---------+------+
 |1     |BUFG     |     2|
-|2     |CARRY4   |  1414|
+|2     |CARRY4   |  1561|
 |3     |DSP48E1  |    13|
-|6     |LUT1     |   244|
-|7     |LUT2     |  1018|
-|8     |LUT3     |  2650|
-|9     |LUT4     |  2297|
-|10    |LUT5     |  2448|
-|11    |LUT6     |  1594|
-|12    |MUXF7    |     8|
-|13    |RAM32M   |     6|
-|14    |RAMB18E1 |     4|
-|15    |RAMB36E1 |     5|
-|20    |FDCE     |  4724|
-|21    |FDPE     |    34|
-|22    |FDRE     |   340|
-|23    |FDSE     |     7|
-|24    |LDC      |    15|
-|25    |LDCP     |     1|
-|26    |IBUF     |     6|
-|27    |OBUF     |    29|
+|8     |LUT1     |   266|
+|9     |LUT2     |  1197|
+|10    |LUT3     |  2818|
+|11    |LUT4     |  2661|
+|12    |LUT5     |  2556|
+|13    |LUT6     |  1709|
+|14    |MUXF7    |     8|
+|15    |RAM32M   |     6|
+|16    |RAMB18E1 |     4|
+|17    |RAMB36E1 |     5|
+|22    |FDCE     |  4724|
+|23    |FDPE     |    34|
+|24    |FDRE     |   330|
+|25    |FDSE     |     7|
+|26    |LDC      |    14|
+|27    |IBUF     |     6|
+|28    |OBUF     |    29|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:01:36 . Memory (MB): peak = 1587.719 ; gain = 703.992
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:46 ; elapsed = 00:02:50 . Memory (MB): peak = 1742.391 ; gain = 858.188
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:01:33 . Memory (MB): peak = 1587.719 ; gain = 674.824
-Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:01:37 . Memory (MB): peak = 1587.719 ; gain = 703.992
+Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:38 ; elapsed = 00:02:46 . Memory (MB): peak = 1742.391 ; gain = 747.688
+Synthesis Optimization Complete : Time (s): cpu = 00:00:46 ; elapsed = 00:02:51 . Memory (MB): peak = 1742.391 ; gain = 858.188
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.237 . Memory (MB): peak = 1592.570 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1466 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.538 . Memory (MB): peak = 1742.391 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1611 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1601.246 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1742.391 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 22 instances were transformed.
-  LDC => LDCE: 15 instances
-  LDCP => LDCP (GND, LDCE, LUT3(x2), VCC): 1 instance 
+  A total of 20 instances were transformed.
+  LDC => LDCE: 14 instances
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
 
-Synth Design complete | Checksum: d5246442
+Synth Design complete | Checksum: 7ffe6fba
 INFO: [Common 17-83] Releasing license: Synthesis
 149 Infos, 144 Warnings, 9 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:01:46 . Memory (MB): peak = 1601.246 ; gain = 1114.414
+synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:03:08 . Memory (MB): peak = 1742.391 ; gain = 1251.938
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'C:/Users/diego/TFG/pid/pid.runs/synth_1/neorv32_test_setup_diego.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file neorv32_test_setup_diego_utilization_synth.rpt -pb neorv32_test_setup_diego_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Jul 10 20:07:04 2024...
+INFO: [Common 17-206] Exiting Vivado at Thu Jul 11 19:19:29 2024...

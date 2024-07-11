@@ -95,7 +95,7 @@ signal vel : integer;
 signal kp, ki, kd : integer;
 
 signal num : integer;
-signal numero : std_logic_vector (PIN_IN-1 downto 0);
+signal numero : std_ulogic_vector (PIN_IN-1 downto 0);
 
 signal medida_s : std_ulogic_vector(PIN_OUT-1 downto 0);
 
@@ -105,8 +105,8 @@ begin
   ki <= to_integer(unsigned(entrada(PIN_IN-25 DOWNTO PIN_IN-32)));
   kd <= to_integer(unsigned(entrada(PIN_IN-33 DOWNTO 0)));
   
---  num <= vel*10000 + kp*100 + ki*10 + kd;
---  numero <= std_logic_vector(to_unsigned(num, PIN_IN));
+  num <= vel*10000 + kp*10 + ki*1 + kd;
+  numero <= std_ulogic_vector(to_unsigned(num, PIN_IN));
 
     medida_s <= medida;
 
@@ -140,12 +140,12 @@ begin
     
     DISPLAY_INST : top_display
         Generic map(
-            SIZE => PIN_OUT
+            SIZE => PIN_IN
         )
         Port map(
             clk_disp => CLK,
             reset_disp => RESET,
-            input => medida_s, -- RPM se conecta a la entrada de display
+            input => numero, -- RPM se conecta a la entrada de display
             v_sal => digctrl,
             segment => segment
         );

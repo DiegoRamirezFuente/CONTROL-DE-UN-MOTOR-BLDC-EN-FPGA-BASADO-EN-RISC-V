@@ -156,7 +156,7 @@ begin
         ERROR => LED16_R,
         digctrl => AN,
         segment => SEGMENT,
-        medida => con_gpio_i(P_IN+P_OUT-1 downto P_IN)
+        medida => con_gpio_i(P_OUT-1 downto 0)
     );
   
   

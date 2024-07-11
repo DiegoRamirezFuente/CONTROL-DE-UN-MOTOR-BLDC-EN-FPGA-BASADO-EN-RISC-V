@@ -70,6 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 2
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -137,7 +139,6 @@ read_vhdl -library neorv32 {
   C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/Filter_HALL.vhd
   C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/PID_HALLFSM.vhd
   C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/PID_TOPSENSOR.vhd
-  C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/new/RampGenerator.vhd
   C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/SYNCHRNZR.vhd
   C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/cambio_digsel.vhd
   C:/Users/diego/TFG/pid/pid.srcs/sources_1/imports/sources_1/imports/new/decoder.vhd
