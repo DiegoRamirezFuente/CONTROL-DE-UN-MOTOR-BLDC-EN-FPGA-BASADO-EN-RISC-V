@@ -42,7 +42,7 @@ end pid_gen;
 
 architecture Behavioral of pid_gen is
     
-    type state_type is (S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12); -- estados de la máquina para calcular el PID
+    type state_type is (S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11); -- estados de la máquina para calcular el PID
     signal state: state_type := S0; 
     signal next_state : state_type := state;
         
@@ -83,13 +83,13 @@ begin
         when S8 => next_state <= S9;
         when S9 => next_state <= S10;
         when S10 => next_state <= S11;
-        when S11 => next_state <= S12;
-        when S12 => next_state <= S1;
+        when S11 => next_state <= S1;
         when others => next_state <= S0;
     end case;      
 end process;
 
 output_decoder: process(state, CLK, SETVAL, sensVal, Kp, Ki, Kd) -- establece las funciones que realizará cada estado
+
 begin
     if rising_edge(CLK) then
         case state is
@@ -135,21 +135,11 @@ begin
                     when PID =>
                         q2 <= (scaler * scaler * Kd)/(T*10);
                 end case;
-
-            when S6 =>
-                case pid_ctrl_type is
-                    when P =>
-                        q2 <= 0;
-                    when PI =>
-                        q2 <= 0;
-                    when PID =>
-                        q2 <= (scaler * scaler * Kd) / T;
-                end case;
     
-            when S7 => 
+            when S6 => 
                 uk_aux <= uk1 + q0 * ek + q1 * ek1 + q2 * ek2;
             
-            when S8 => 
+            when S7 => 
                 if (uk_aux > valsat * scaler) then
                     uk <= valsat * scaler;
                 elsif uk_aux < 0 then
@@ -158,17 +148,17 @@ begin
                     uk <= uk_aux;
                 end if;   
                
-            when S9 => 
+            when S8 => 
                 -- Escalar uk al rango de 0 a valSat
-                pout <= (uk * 1000) / (valsat * scaler);  -- Asume que 4000 es el valor máximo de uk antes del escalado
+                pout <= (uk * 1000) / (valsat * scaler);
     
-            when S10 => 
+            when S9 => 
                 uk1 <= uk;
              
-            when S11 =>     
+            when S10 =>     
                 ek2 <= ek1;
     
-            when S12 => 
+            when S11 => 
                 ek1 <= ek;
                 
         end case;

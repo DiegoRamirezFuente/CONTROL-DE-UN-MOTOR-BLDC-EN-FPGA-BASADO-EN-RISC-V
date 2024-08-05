@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-| Date         : Thu Jul 11 19:19:29 2024
+| Date         : Mon Aug  5 13:37:33 2024
 | Host         : LAPTOP-VRI1VQ46 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file neorv32_test_setup_diego_utilization_synth.rpt -pb neorv32_test_setup_diego_utilization_synth.pb
 | Design       : neorv32_test_setup_diego
@@ -31,8 +31,8 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*                | 8504 |     0 |          0 |     63400 | 13.41 |
-|   LUT as Logic             | 8480 |     0 |          0 |     63400 | 13.38 |
+| Slice LUTs*                | 8503 |     0 |          0 |     63400 | 13.41 |
+|   LUT as Logic             | 8479 |     0 |          0 |     63400 | 13.37 |
 |   LUT as Memory            |   24 |     0 |          0 |     19000 |  0.13 |
 |     LUT as Distributed RAM |   24 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |
@@ -154,9 +154,9 @@ Warning! LUT value is adjusted to account for LUT combining.
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDCE     | 4724 |        Flop & Latch |
-| LUT3     | 2818 |                 LUT |
-| LUT4     | 2661 |                 LUT |
-| LUT5     | 2556 |                 LUT |
+| LUT3     | 2819 |                 LUT |
+| LUT4     | 2662 |                 LUT |
+| LUT5     | 2554 |                 LUT |
 | LUT6     | 1709 |                 LUT |
 | CARRY4   | 1561 |          CarryLogic |
 | LUT2     | 1197 |                 LUT |

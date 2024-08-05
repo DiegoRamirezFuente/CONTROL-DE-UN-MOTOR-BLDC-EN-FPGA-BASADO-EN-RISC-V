@@ -132,6 +132,7 @@ begin
   );
   
   led_s <= con_gpio_o(P_IN-1 downto 0);
+  con_gpio_i(63 downto P_OUT) <= (others => '0');
   
   UUT: top_gpio
     Generic map(
