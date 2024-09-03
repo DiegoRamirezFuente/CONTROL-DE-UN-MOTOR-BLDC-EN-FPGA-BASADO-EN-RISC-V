@@ -12,7 +12,7 @@ Este repositorio está organizado en tres carpetas principales:
 
 - **`IP/`**: Contiene el código VHDL necesario para implementar el controlador PID en la FPGA. Este controlador regula la velocidad del motor **BLDC** y se encargará de gestionar el control en tiempo real a través de la FPGA.
 
-- **`GUI/`**: Aquí se encuentra el código de la **Interfaz Gráfica de Usuario (GUI)** desarrollada en **C#** utilizando **Visual Studio**. La GUI permite interactuar con el sistema, enviando comandos y recibiendo información sobre la velocidad del motor BLDC a través de la comunicación serial.
+- **`GUI/`**: Aquí se encuentra el código de la **Interfaz Gráfica de Usuario (GUI)** desarrollada en **C#** utilizando **Visual Studio**. La GUI permite interactuar con el sistema, enviando comandos y recibiendo información sobre la velocidad del motor BLDC a través de la comunicación serial. También se puede encontrar en la carpeta **MatLab** el proyecto de **Simulink** para la graficación de la velocidad.
 
 - **`RISC-V/`**: Esta carpeta contiene el código en **C** para el procesador **RISC-V**. La información detallada sobre la compilación de este código y su implementación en Vivado se encuentra en el siguiente repositorio: [NeoRV32 GitHub Repository](https://github.com/stnolting/neorv32). Este repositorio proporciona toda la documentación necesaria para compilar el código y cargarlo en la FPGA.
 
@@ -40,10 +40,10 @@ Este repositorio está organizado en tres carpetas principales:
 
 ### 3. Conexión con la GUI (Interfaz Gráfica de Usuario)
 
-1. Diríjase a la carpeta `gui/`, donde está el proyecto de **Visual Studio** para la GUI desarrollada en **C#**.
+1. Diríjase a la carpeta `GUI/`, donde está el proyecto de **Visual Studio** para la GUI desarrollada en **C#** y el proyecto de **Simulink** para la graficación de los datos.
 2. Abra el proyecto en Visual Studio, compílelo y ejecute la aplicación.
 3. Asegúrese de conectar la GUI a la FPGA mediante la **comunicación serial (UART)**. Desde la GUI, podrá controlar la velocidad del motor BLDC y configurar el puerto serie "Read", para el intercambio de datos con la FPGA.
-4. Para la conexión con MatLab para la graficación de la velocidad debe crear un puerto serie virtual mediante algún software como "VSPE" y configurar el puerto "Write".
+4. Para la conexión con **MatLab** para la graficación de la velocidad debe crear un puerto serie virtual mediante algún software como "VSPE", configurar el puerto "Write" y el puerto de comunicación de **Simulink**.
 
 ### 4. Verificación del Sistema
 
