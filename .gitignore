@@ -1,86 +1,45 @@
 #########################################################################################################
-##	This is an example .gitignore file for Vivado, please treat it as an example as 
-##	it might not be complete. In addition, XAPP 1165 should be followed.
+##    Archivo .gitignore ajustado para proyectos Vivado:
+##    Incluir sólo código relevante (XPR, VHD, XDC, TCL si lo hay), y opcionalmente el bitstream (.bit)
 #########################################################################################################
+
 #########
-#Exclude all
+# Excluir todo por defecto
 #########
 *
+
+#########
+# Permitir directorios
+#########
 !*/
-!.gitignore
-###########################################################################
-##	VIVADO
-###########################################################################
+
 #########
-#Source files:
+# Incluir archivos del proyecto de Vivado
 #########
-#Do NOT ignore VHDL, Verilog, block diagrams or EDIF files.
-!*.vhd
-!*.v
-!*.bd
-!*.edif
+# Archivos del proyecto
+!*.xpr   # Proyecto de Vivado
+!*.vhd   # Código VHDL
+!*.xdc   # Restricciones de diseño
+!*.tcl   # Scripts TCL (si los hay)
+
+# Incluir el bitstream opcionalmente
+!*.bit   # Bitstream (opcional, si se necesita entregar)
+
 #########
-#IP files
+# Excluir archivos intermedios
 #########
-#.xci: synthesis and implemented not possible - you need to return back to the previous version to generate output products
-#.xci + .dcp: implementation possible but not re-synthesis
-#*.xci(www.spiritconsortium.org)
-!*.xci
-#*.dcp(checkpoint files)
-!*.dcp
-!*.vds
-!*.pb
-#All bd comments and layout coordinates are stored within .ui
-!*.ui
-!*.ooc
-#########
-#System Generator
-#########
-!*.mdl
-!*.slx
-!*.bxml
-#########
-#Simulation logic analyzer
-#########
-!*.wcfg
-!*.coe
-#########
-#MIG
-#########
-!*.prj
-!*.mem
-#########
-#Project files
-#########
-#XPR  +  *.XML ? XPR (Files are merged into a single XPR file for 2014.1 version)
-#Do NOT ignore *.xpr files
-!*.xpr
-#Include *.xml files for 2013.4 or earlier version
-!*.xml
-#########
-#Constraint files
-#########
-#Do NOT ignore *.xdc files
-!*.xdc
-#########
-#TCL - files
-#########
-!*.tcl
-#########
-#Journal - files
-#########
-!*.jou
-#########
-#Reports
-#########
-!*.rpt
-!*.txt
-!*.vdi
-#########
-#C-files
-#########
-!*.c
-!*.h
-!*.elf
-!*.bmm
-!*.xmp
+# Archivos de síntesis, implementación y otros intermedios generados por Vivado
+*.log         # Archivos de log
+*.jou         # Archivos de journal
+*.str         # Archivos de strings
+*.dcp         # Checkpoints de diseño
+*.runs/       # Directorio con archivos intermedios de síntesis/implementación
+*.cache/      # Directorio con archivos de caché
+*.hw/         # Archivos de análisis de hardware
+*.sim/        # Archivos de simulación
+*.ip_user_files/   # Archivos de usuario generados para IP
+*.gen/        # Archivos generados automáticamente
+*.tmp/        # Archivos temporales
+*.xsim/       # Archivos temporales de simulación
+*.xil/        # Archivos temporales de Xilinx
+
